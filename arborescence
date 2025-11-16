@@ -1,0 +1,17 @@
+/orv-fiche/
+    /assets/
+        /css/
+            style.css
+        /img/
+            logo.png
+            background.jpg
+        /js/
+            script.js
+    /templates/
+        index.html
+        context.html
+        character_sheet.html
+    .gitignore
+    README.md
+    deploy.sh
+    app.py
