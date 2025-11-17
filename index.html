@@ -13,6 +13,7 @@
             --primary: #0f1729;
             --secondary: #162238;
             --accent: #e94560;
+            --censor: #000000;
             --text-color: #f1f1f1;
             --border-color: rgba(255, 255, 255, 0.1);
             --card-bg: rgba(15, 23, 41, 0.8);
@@ -509,13 +510,15 @@
             left: 0;
         }
 
-        /* Censored text */
+        /* Censored text - MODIFIÉ */
         .censored {
-            background-color: var(--accent);
-            color: var(--accent);
+            background-color: var(--censor);
+            color: var(--censor);
             border-radius: 2px;
             user-select: none;
             padding: 0 2px;
+            display: inline-block; /* Pour que la classe s'applique uniquement au texte */
+            width: auto; /* Largeur automatique basée sur le contenu */
         }
 
         /* Responsive */
@@ -734,30 +737,30 @@
                                 <span class="skill-level">Niveau ?</span>
                             </div>
                             <p class="skill-desc">Cette compétence permet à l'incarnation de voler des objets à sa cible et de se déplacer à grande vitesse.</p>
-                            
+
                             <div class="skill-abilities">
                                 <h4>Niveau 1</h4>
                                 <p class="skill-ability">Permet à Seolha de voler des petits objets dans les poches de sa cible avec un léger contact.</p>
                                 <p class="skill-ability">Peut voler des informations et donc récupérer des informations sur une cible (stats, compétences, constellation).</p>
                                 <p class="skill-ability">Peut voler au premier sens du terme (comme un oiseau) comme elle le souhaite (bien que ça reste fatiguant pour elle mais moins que de se téléporter).</p>
-                                
+
                                 <h4>Niveau 2</h4>
                                 <p class="skill-ability">Permet à Seolha de voler des objets de toutes tailles dans les poches/sac de sa cible et autour de son cou, poignets... Sans contact mais avec proximité.</p>
                                 <p class="skill-ability">Obtient un passif qui lui permet de guérir plus rapidement que la normale.</p>
-                                
+
                                 <h4>Niveau 3</h4>
                                 <p class="skill-ability">Permet à Seolha de voyager à grande vitesse dans les lieux qui lui sont soit désignés avec précision sur une carte, soit dans des lieux où elle est déjà allée.</p>
                                 <p class="skill-ability">Cette capacité demande énormément d'énergie pour transporter d'autres personnes ou parcourir de longues distances (un mix des deux résulte à une perte de conscience).</p>
                             </div>
                         </div>
-                        
+
                         <div class="skill-card">
                             <div class="skill-header">
                                 <span class="skill-name">Base de Données</span>
                                 <span class="skill-level">Niveau ?</span>
                             </div>
-                            <p class="skill-desc">Cette compétence permet à Seolha de stocker et d'accéder à toutes les informations qu'elle a collectées via sa compétence Hermès ou par d'autres moyens. Elle pourra dans le futur utiliser ces techniques de manière plus proactive via #########</p>
-                            
+                            <p class="skill-desc">Cette compétence permet à Seolha de stocker et d'accéder à toutes les informations qu'elle a collectées via sa compétence Hermès ou par d'autres moyens. Elle pourra dans le futur utiliser ces techniques de manière plus proactive via <span class="censored">Imitation</span></p>
+
                             <div class="skill-abilities">
                                 <p class="skill-ability">Permet de stocker de manière organisée toutes les informations recueillies sur les personnes, lieux, objets et événements.</p>
                                 <p class="skill-ability">Accès instantané à toutes les informations mémorisées, avec possibilité de les consulter mentalement à tout moment.</p>
@@ -766,14 +769,14 @@
                                 <p class="skill-ability">Possibilité de partager verbalement des informations précises et détaillées sans erreur ou omission.</p>
                             </div>
                         </div>
-                        
+
                         <div class="skill-card">
                             <div class="skill-header">
                                 <span class="skill-name">Le Messager</span>
                                 <span class="skill-level">Niveau ?</span>
                             </div>
                             <p class="skill-desc">Cette compétence permet à Seolha de faire parvenir des messages ou des colis à n'importe quelle personne dont elle possède suffisamment d'informations dans sa Base de Données, transcendant les distances et les obstacles.</p>
-                            
+
                             <div class="skill-abilities">
                                 <p class="skill-ability">Transmission de Messages : Permet d'envoyer des messages textuels ou vocaux directement à l'esprit du destinataire, quelle que soit la distance qui les sépare.</p>
                                 <p class="skill-ability">Livraison d'Objets : Peut transporter de petits objets ou colis jusqu'à un destinataire, à condition que Seolha dispose de données suffisantes sur cette personne et sa localisation approximative.</p>
@@ -782,14 +785,14 @@
                                 <p class="skill-ability">Coût Énergétique : La consommation d'énergie augmente avec la distance, la taille de l'objet à transporter et la complexité des obstacles à traverser.</p>
                             </div>
                         </div>
-                        
+
                         <div class="skill-card">
                             <div class="skill-header">
                                 <span class="skill-name">Firewall</span>
                                 <span class="skill-level">Niveau ?</span>
                             </div>
                             <p class="skill-desc">Compétence passive qui agit comme un système de protection et de filtrage pour l'esprit et le corps de Seolha, lui permettant de maintenir son autonomie mentale et de gérer les informations et les douleurs.</p>
-                            
+
                             <div class="skill-abilities">
                                 <p class="skill-ability">Protection Mentale : Crée une barrière contre les attaques psychiques, les tentatives d'influence mentale et les compétences visant à altérer son esprit ou son contrôle. Neutralise activement toute forme d'intrusion mentale.</p>
                                 <p class="skill-ability">Atténuation de la Douleur : Réduit l'impact physique ressenti lors de blessures, permettant à Seolha de continuer à opérer efficacement même gravement blessée. La douleur devient une information gérée plutôt qu'un handicap.</p>
@@ -798,20 +801,20 @@
                                 <p class="skill-ability">Assimilation : Lorsque Seolha élimine un adversaire, elle intègre automatiquement ses compétences et connaissances dans sa Base de Données personnelle. Chaque élimination renforce son répertoire de capacités disponibles.</p>
                             </div>
                         </div>
-                        
+
                         <div class="skill-card">
                             <div class="skill-header">
-                                <span class="skill-name">#########</span>
+                                <span class="skill-name"><span class="censored">Imitation</span></span>
                                 <span class="skill-level">Niveau ?</span>
                             </div>
-                            <p class="skill-desc">Cette compétence active permet à Seolha d'imiter temporairement les capacités et savoir-faire qu'elle a précédemment enregistrés dans sa Base de Données. Cette compétence est une extension de ######### qui lui permet d'exploiter activement les informations collectées.</p>
-                            
+                            <p class="skill-desc">Cette compétence active permet à Seolha d'imiter temporairement les capacités et savoir-faire qu'elle a précédemment enregistrés dans sa Base de Données. Cette compétence est une extension de <span class="censored">imitation</span> qui lui permet d'exploiter activement les informations collectées.</p>
+
                             <div class="skill-abilities">
-                                <p class="skill-ability">Permet de reproduire temporairement les compétences techniques, mouvements et capacités observées et stockées dans sa Base de Données.</p>
-                                <p class="skill-ability">L'efficacité de l'imitation dépend de la qualité et de la quantité d'informations collectées sur la technique ciblée.</p>
-                                <p class="skill-ability">L'utilisation de cette compétence consomme de l'énergie proportionnellement à la complexité de la capacité imitée.</p>
-                                <p class="skill-ability">Les capacités imitées sont généralement moins puissantes que les originales, mais peuvent être combinées de façon créative.</p>
-                                <p class="skill-ability">La durée et la précision de l'imitation sont limitées par ######### et nécessitent une concentration constante.</p>
+                                <p class="skill-ability">Permet <p class="censored">de reproduire temporairement</p> les compétences techniques, mouvements et capacités observées et stockées dans sa Base de Données.</p>
+                                <p class="skill-ability">L'efficacité de <p class="censored">l'imitation</p> dépend de la qualité et de la quantité d'informations collectées sur la technique ciblée.</p>
+                                <p class="skill-ability">L'utilisation de cette compétence consomme de l'énergie proportionnellement à la complexité de la capacité <p class="censored">imitée</p>.</p>
+                                <p class="skill-ability"><p class="censored">Les capacités imitées</p> sont généralement moins puissantes que les originales, mais peuvent être combinées de façon créative.</p>
+                                <p class="skill-ability">La durée et la précision de <p class="censored">l'imitation</p> sont limitées par <span class="censored">imitation</span> et nécessitent une concentration constante.</p>
                             </div>
                         </div>
                     </div>
@@ -820,7 +823,126 @@
                 <div class="info-card">
                     <h2>Caractéristiques</h2>
                     <div class="characteristics-container">
-                        <p class="placeholder-text">À déterminer</p>
+                        <div class="double-column">
+                            <div>
+                                <h3>Caractéristiques physiques</h3>
+                                <div class="stats-container">
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Endurance</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span class="stat-number">75</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Vitesse</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 82%"></div>
+                                        </div>
+                                        <span class="stat-number">82</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Réflexes</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 80%"></div>
+                                        </div>
+                                        <span class="stat-number">80</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Précision</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 78%"></div>
+                                        </div>
+                                        <span class="stat-number">78</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Résistance</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 70%"></div>
+                                        </div>
+                                        <span class="stat-number">70</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Caractéristiques mentales</h3>
+                                <div class="stats-container">
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Analyse</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 90%"></div>
+                                        </div>
+                                        <span class="stat-number">90</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Perception</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 88%"></div>
+                                        </div>
+                                        <span class="stat-number">88</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Sang-froid</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 85%"></div>
+                                        </div>
+                                        <span class="stat-number">85</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Adaptation</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 83%"></div>
+                                        </div>
+                                        <span class="stat-number">83</span>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <span class="stat-name">Mémoire</span>
+                                        <div class="stat-value">
+                                            <div class="stat-fill" style="width: 92%"></div>
+                                        </div>
+                                        <span class="stat-number">92</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: var(--spacing-lg);">
+                            <h3>Spécialisations</h3>
+                            <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                                <div class="info-item">
+                                    <span class="info-label">Cartographie urbaine</span>
+                                    <span class="info-value">Experte</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Premiers secours</span>
+                                    <span class="info-value">Avancé</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Infiltration</span>
+                                    <span class="info-value">Avancé</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Combat rapproché</span>
+                                    <span class="info-value">Intermédiaire</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Analyse de données</span>
+                                    <span class="info-value">Experte</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Survie urbaine</span>
+                                    <span class="info-value">Experte</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Planification tactique</span>
+                                    <span class="info-value">Avancé</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Reconnaissance</span>
+                                    <span class="info-value">Avancé</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
