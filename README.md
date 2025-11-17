@@ -547,7 +547,7 @@ OC = Incarnée par un Rôle Playeur
 
 ---
 
-## 📋 Exemple de fiche de personnage
+## 📋 Fiche de personnage
 
 ### 𒆜 - Informations de base
 - **Nom** : Yu

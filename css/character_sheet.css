@@ -1,0 +1,333 @@
+/* character_sheet.css - Style spécifique pour la fiche de personnage */
+
+/* En-tête du personnage */
+.character-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-xxl);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/img/seoul_skyline.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.character-portrait {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+  margin-right: var(--spacing-lg);
+  flex-shrink: 0;
+  background-color: rgba(22, 33, 62, 0.7);
+}
+
+.character-silhouette {
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/img/Yu_Seolha_2.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.character-title {
+  flex-grow: 1;
+}
+
+.character-title h1 {
+  margin-bottom: var(--spacing-xs);
+  font-size: 2.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Sections d'information */
+.info-section {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Informations de base */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+.info-value {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Traits de caractère */
+.traits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.traits-list li {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.traits-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.traits-list strong {
+  color: var(--accent);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Description physique */
+.physical-desc-content {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.physical-text {
+  flex-grow: 1;
+}
+
+.physical-text p {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Compétences générales */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-bar {
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-level {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #ff8fa3);
+  border-radius: 6px;
+  width: 0;
+  transition: width 1s ease-out;
+}
+
+/* Animation des barres de compétences */
+.skill-level[data-level="1"] { width: 10%; }
+.skill-level[data-level="2"] { width: 20%; }
+.skill-level[data-level="3"] { width: 30%; }
+.skill-level[data-level="4"] { width: 40%; }
+.skill-level[data-level="5"] { width: 50%; }
+.skill-level[data-level="6"] { width: 60%; }
+.skill-level[data-level="7"] { width: 70%; }
+.skill-level[data-level="8"] { width: 80%; }
+.skill-level[data-level="9"] { width: 90%; }
+.skill-level[data-level="10"] { width: 100%; }
+
+/* Compétences spéciales */
+.special-skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.special-skill {
+  background-color: rgba(15, 52, 96, 0.6);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+}
+
+.special-skill-name {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: var(--spacing-xs);
+  display: flex;
+  justify-content: space-between;
+}
+
+.special-skill-level {
+  background-color: var(--accent);
+  color: var(--white);
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Constellation */
+.constellation-info {
+  margin-top: var(--spacing-md);
+}
+
+.constellation-rank, .constellation-marks {
+  margin-top: var(--spacing-md);
+}
+
+.constellation-rank h3, .constellation-marks h3 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Histoire */
+.history-content {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: var(--spacing-md);
+  /* Scrollbar personnalisé */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--primary);
+}
+
+.history-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-content::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.history-content::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 4px;
+}
+
+.history-content p {
+  text-align: justify;
+  text-indent: 1.5rem;
+}
+
+/* Animation pour l'apparition des sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-section {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.info-section:nth-child(1) { animation-delay: 0.1s; }
+.info-section:nth-child(2) { animation-delay: 0.2s; }
+.info-section:nth-child(3) { animation-delay: 0.3s; }
+.info-section:nth-child(4) { animation-delay: 0.4s; }
+.info-section:nth-child(5) { animation-delay: 0.5s; }
+.info-section:nth-child(6) { animation-delay: 0.6s; }
+.info-section:nth-child(7) { animation-delay: 0.7s; }
+.info-section:nth-child(8) { animation-delay: 0.8s; }
+.info-section:nth-child(9) { animation-delay: 0.9s; }
+.info-section:nth-child(10) { animation-delay: 1s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .character-header {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-md);
+  }
+  
+  .character-portrait {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .physical-desc-content {
+    flex-direction: column;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .special-skills-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Effets de survol */
+.info-section h2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.info-section h2::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: left 0.3s ease;
+}
+
+.info-section:hover h2::before {
+  left: 0;
+}

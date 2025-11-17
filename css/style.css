@@ -1,49 +1,209 @@
+/* style.css - Style général pour le site */
+
+:root {
+  /* Palette de couleurs principale */
+  --primary-dark: #1a1a2e;
+  --primary: #16213e;
+  --secondary: #0f3460;
+  --accent: #e94560;
+  
+  /* Couleurs neutres */
+  --dark: #222;
+  --medium: #555;
+  --light: #f5f5f5;
+  --white: #ffffff;
+  
+  /* Couleurs spécifiques */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(22, 33, 62, 0.8);
+  --hover-bg: rgba(15, 52, 96, 0.6);
+  
+  /* Espacement */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Bordures */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Ombres */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+  background-color: var(--primary-dark);
+  color: var(--light);
+  line-height: 1.6;
+  background-image: url('/static/img/ville_en_ruine.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  min-height: 100vh;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.85));
+  z-index: -1;
 }
 
-header img {
-    width: 100px;
-    height: auto;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    padding: 20px;
-    text-align: center;
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-md);
+  color: var(--white);
 }
 
 h1 {
-    color: #4CAF50;
+  font-size: 2.5rem;
 }
 
-.character p, .character ul {
-    text-align: left;
-    margin: 0 auto;
-    width: 50%;
+h2 {
+  font-size: 1.75rem;
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #ff6b8b;
+}
+
+/* Listes */
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.simple-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.simple-list li {
+  position: relative;
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.simple-list li::before {
+  content: "•";
+  color: var(--accent);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Layout helpers */
+.two-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Placeholder text */
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+/* Footer */
+.character-footer {
+  margin-top: var(--spacing-xxl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+.scenario-status h3 {
+  margin-bottom: var(--spacing-xs);
+  color: var(--accent);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: var(--spacing-md);
+  }
+  
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .character-footer {
+    flex-direction: column;
+  }
 }
