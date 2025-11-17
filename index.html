@@ -3,218 +3,790 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yu Seolha - Lecteur Omniscient</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/character_sheet.css">
+    <title>Seolha Yu - Fiche de Personnage</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables et styles de base */
+        :root {
+            --primary: #0f1729;
+            --secondary: #162238;
+            --accent: #e94560;
+            --text-color: #f1f1f1;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(15, 23, 41, 0.8);
+            --white: #ffffff;
+
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--secondary);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        /* En-tête du personnage */
+        .character-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-xxl);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            min-height: 200px;
+            background-color: var(--secondary);
+        }
+
+        .character-portrait {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+            margin-right: var(--spacing-lg);
+            flex-shrink: 0;
+            background-color: rgba(22, 33, 62, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portrait-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: var(--accent);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .character-title {
+            flex-grow: 1;
+        }
+
+        .character-title h1 {
+            margin-bottom: var(--spacing-xs);
+            font-size: 2.8rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Onglets */
+        .character-tabs {
+            display: flex;
+            background-color: var(--secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 var(--spacing-lg);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tab-button:hover {
+            color: var(--accent);
+        }
+
+        .tab-button.active {
+            color: var(--accent);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* Contenu des onglets */
+        .character-content {
+            padding: var(--spacing-xl);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Cartes d'information */
+        .info-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-card h2 {
+            position: relative;
+            overflow: hidden;
+            color: var(--accent);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .info-card h2::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent);
+            transition: left 0.3s ease;
+        }
+
+        .info-card:hover h2::before {
+            left: 0;
+        }
+
+        /* Informations de base */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .info-value {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Traits de caractère */
+        .trait-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .trait-list li {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trait-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .trait-name {
+            color: var(--accent);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+
+        .trait-desc {
+            margin-bottom: 0;
+        }
+
+        /* Description physique */
+        .physical-desc p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Colonnes doubles */
+        .double-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        /* Listes simples */
+        .simple-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .simple-list li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+
+        .simple-list li::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Statistiques */
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .stat-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .stat-name {
+            width: 150px;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            flex-grow: 1;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #ff8fa3);
+            border-radius: 6px;
+            transition: width 1s ease-out;
+        }
+
+        .stat-number {
+            width: 30px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* Équipement */
+        .equipment-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .equipment-item {
+            background-color: rgba(15, 52, 96, 0.6);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .equipment-name {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+            display: block;
+        }
+
+        .equipment-desc {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Histoire */
+        .story-card {
+            max-height: 600px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) var(--primary);
+        }
+
+        .story-card::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .story-card::-webkit-scrollbar-track {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .story-card::-webkit-scrollbar-thumb {
+            background-color: var(--accent);
+            border-radius: 4px;
+        }
+
+        .story-content p {
+            text-align: justify;
+            text-indent: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .story-content p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Placeholder */
+        .placeholder-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* Footer */
+        .character-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background-color: var(--secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .scenario-label, .date-label {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-right: var(--spacing-xs);
+        }
+
+        .scenario-value, .date-value {
+            font-weight: 500;
+        }
+
+        /* Animation pour l'apparition des sections */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .info-card:nth-child(1) { animation-delay: 0.1s; }
+        .info-card:nth-child(2) { animation-delay: 0.2s; }
+        .info-card:nth-child(3) { animation-delay: 0.3s; }
+        .info-card:nth-child(4) { animation-delay: 0.4s; }
+        .info-card:nth-child(5) { animation-delay: 0.5s; }
+        .info-card:nth-child(6) { animation-delay: 0.6s; }
+        .info-card:nth-child(7) { animation-delay: 0.7s; }
+        .info-card:nth-child(8) { animation-delay: 0.8s; }
+        .info-card:nth-child(9) { animation-delay: 0.9s; }
+        .info-card:nth-child(10) { animation-delay: 1s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+                padding: var(--spacing-md);
+            }
+
+            .character-portrait {
+                margin-right: 0;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .double-column {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header class="character-header">
-            <div class="header-bg"></div>
             <div class="character-portrait">
-                <!-- Image du personnage sera ajoutée ici -->
-                <div class="character-silhouette"></div>
+                <div class="portrait-placeholder">
+                    <span>Seolha Yu</span>
+                </div>
             </div>
             <div class="character-title">
-                <h1>Yu Seolha</h1>
-                <p class="subtitle">Incarnation - Séoul</p>
+                <h1>Seolha Yu</h1>
+                <div class="subtitle">L'Observatrice des Marges</div>
             </div>
         </header>
 
+        <div class="character-tabs">
+            <button class="tab-button active" data-tab="profile">Profil</button>
+            <button class="tab-button" data-tab="stats">Statistiques</button>
+            <button class="tab-button" data-tab="skills">Compétences</button>
+            <button class="tab-button" data-tab="story">Histoire</button>
+        </div>
+
         <main class="character-content">
-            <section class="info-section basic-info">
-                <h2>𒆜 Informations de base</h2>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <span class="info-label">Nom</span>
-                        <span class="info-value">Yu</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Prénom</span>
-                        <span class="info-value">Seolha</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Âge</span>
-                        <span class="info-value">22 ans (née le 21 juin)</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Sexe</span>
-                        <span class="info-value">Féminin</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Orientation</span>
-                        <span class="info-value">Aroace</span>
+            <section id="profile" class="tab-content active">
+                <div class="info-card">
+                    <h2>Informations de base</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Nom</span>
+                            <span class="info-value">Yu</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Prénom</span>
+                            <span class="info-value">Seolha</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Âge</span>
+                            <span class="info-value">22 ans</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Date de naissance</span>
+                            <span class="info-value">21 juin</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Sexe</span>
+                            <span class="info-value">Féminin</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Orientation</span>
+                            <span class="info-value">Aroace</span>
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            <section class="info-section character-traits">
-                <h2>𒆜 Caractère</h2>
-                <ul class="traits-list">
-                    <li>
-                        <strong>Réservée et pragmatique :</strong> Seolha observe d'abord, agit ensuite. Elle parle peu, mais quand elle s'exprime, c'est pesé et pertinent. Elle privilégie l'efficacité et la lucidité au romantisme de l'héroïsme.
-                    </li>
-                    <li>
-                        <strong>Loyauté sélective :</strong> Elle ne s'attache pas facilement aux groupes; sa loyauté va aux personnes qui assument leurs choix et paient leurs dettes. Un pacte verbal a pour elle valeur de contrat.
-                    </li>
-                    <li>
-                        <strong>Résilience froide :</strong> Elle encaisse, range l'émotion, avance. Sa manière de survivre consiste à planifier des issues et à préférer les risques calculés aux coups d'éclat.
-                    </li>
-                    <li>
-                        <strong>Sens aigu des limites :</strong> Très stricte sur le consentement et les frontières—physiques comme morales. Elle n'hésite pas à recadrer un allié si celui-ci met en péril un plan ou dépasse une ligne rouge.
-                    </li>
-                    <li>
-                        <strong>Ironie sèche :</strong> Un humour discret, souvent pince-sans-rire, qui ressort dans les moments de tension pour briser la panique et recentrer l'équipe.
-                    </li>
-                </ul>
-            </section>
-
-            <div class="two-columns">
-                <section class="info-section tastes">
-                    <h2>𒆜 Goûts</h2>
-                    <ul class="simple-list">
-                        <li>Structure et routines : inventaires carrés, checklists, planifications par créneaux.</li>
-                        <li>Thé noir fort, cuisine sobre mais nourrissante, rationnelle (bouillons, riz, algues).</li>
-                        <li>Topographies urbaines : cartes de stations, sorties de secours, repères visuels.</li>
-                        <li>Lecture de notes techniques et carnets de terrain; préférences pour les récits laconiques factuels plutôt que la fiction.</li>
-                        <li>Silences tactiques, lieux élevés avec vue d'ensemble (ponts, mezzanines, toits).</li>
+                <div class="info-card">
+                    <h2>Caractère</h2>
+                    <ul class="trait-list">
+                        <li>
+                            <span class="trait-name">Réservée et pragmatique</span>
+                            <p class="trait-desc">Seolha observe d'abord, agit ensuite. Elle parle peu, mais quand elle s'exprime, c'est pesé et pertinent. Elle privilégie l'efficacité et la lucidité au romantisme de l'héroïsme.</p>
+                        </li>
+                        <li>
+                            <span class="trait-name">Loyauté sélective</span>
+                            <p class="trait-desc">Elle ne s'attache pas facilement aux groupes; sa loyauté va aux personnes qui assument leurs choix et paient leurs dettes. Un pacte verbal a pour elle valeur de contrat.</p>
+                        </li>
+                        <li>
+                            <span class="trait-name">Résilience froide</span>
+                            <p class="trait-desc">Elle encaisse, range l'émotion, avance. Sa manière de survivre consiste à planifier des issues et à préférer les risques calculés aux coups d'éclat.</p>
+                        </li>
+                        <li>
+                            <span class="trait-name">Sens aigu des limites</span>
+                            <p class="trait-desc">Très stricte sur le consentement et les frontières—physiques comme morales. Elle n'hésite pas à recadrer un allié si celui-ci met en péril un plan ou dépasse une ligne rouge.</p>
+                        </li>
+                        <li>
+                            <span class="trait-name">Ironie sèche</span>
+                            <p class="trait-desc">Un humour discret, souvent pince-sans-rire, qui ressort dans les moments de tension pour briser la panique et recentrer l'équipe.</p>
+                        </li>
                     </ul>
-                </section>
+                </div>
 
-                <section class="info-section passions">
-                    <h2>𒆜 Passions</h2>
-                    <ul class="simple-list">
-                        <li>Travail du fil et du nœud (couture, ligatures, réparations) : transformer des restes en équipement fiable.</li>
-                        <li>Cartographie improvisée : créer des plans évolutifs des tunnels et zones vertes, noter dynamiques de monstres et fenêtres de sécurité.</li>
-                        <li>Conditionnement fonctionnel : tractions, dips, gainage, frappes en tempo; routines courtes mais régulières.</li>
-                        <li>Soin de terrain : pansements compressifs, attelles de fortune, protocoles de triage.</li>
-                    </ul>
-                </section>
-            </div>
-
-            <section class="info-section physical-desc">
-                <h2>𒆜 Description physique</h2>
-                <div class="physical-desc-content">
-                    <div class="physical-text">
+                <div class="info-card">
+                    <h2>Description physique</h2>
+                    <div class="physical-desc">
                         <p>Taille moyenne, silhouette athlétique sèche, gestes économes. Épaules tenues, centre de gravité bas, démarche stable prête à pivoter ou décoller en sprint.</p>
                         <p>Cheveux noirs attachés simplement (queue basse ou tresse), quelques mèches libres encadrant un visage calme, regard sombre, attentif, rarement surpris.</p>
                         <p>Teint pâle, cernes légers dus au sommeil morcelé. Mains calleuses, ongles courts, phalanges parfois bandées.</p>
                         <p>Vêtements fonctionnels : couches superposées neutres, coupe ample pour la mobilité, genouillères, gants fins, chaussures accrocheuses; une veste technique avec poches internes pour caches.</p>
                     </div>
                 </div>
+
+                <div class="info-card">
+                    <h2>Signes distinctifs</h2>
+                    <ul class="trait-list">
+                        <li>Une cicatrice fine et nette sous la clavicule gauche (ancienne entaille contrôlée, refermée proprement) et un trait plus rugueux au poignet droit (lacération suturée en urgence).</li>
+                        <li>Un fil rouge discret noué au passant de sa veste : repère visuel pour ses alliés et rappel personnel d'un engagement passé.</li>
+                        <li>Odeur subtile d'iode et d'alcool isopropylique, trahissant ses habitudes de stérilisation.</li>
+                    </ul>
+                </div>
+
+                <div class="double-column">
+                    <div class="info-card">
+                        <h2>Goûts</h2>
+                        <ul class="simple-list">
+                            <li>Structure et routines : inventaires carrés, checklists, planifications par créneaux.</li>
+                            <li>Thé noir fort, cuisine sobre mais nourrissante, rationnelle (bouillons, riz, algues).</li>
+                            <li>Topographies urbaines : cartes de stations, sorties de secours, repères visuels.</li>
+                            <li>Lecture de notes techniques et carnets de terrain; préférences pour les récits laconiques factuels plutôt que la fiction.</li>
+                            <li>Silences tactiques, lieux élevés avec vue d'ensemble (ponts, mezzanines, toits).</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h2>Passions</h2>
+                        <ul class="simple-list">
+                            <li>Travail du fil et du nœud (couture, ligatures, réparations) : transformer des restes en équipement fiable.</li>
+                            <li>Cartographie improvisée : créer des plans évolutifs des tunnels et zones vertes, noter dynamiques de monstres et fenêtres de sécurité.</li>
+                            <li>Conditionnement fonctionnel : tractions, dips, gainage, frappes en tempo; routines courtes mais régulières.</li>
+                            <li>Soin de terrain : pansements compressifs, attelles de fortune, protocoles de triage.</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
 
-            <section class="info-section distinctive-signs">
-                <h2>𒆜 Signes distinctifs</h2>
-                <ul class="simple-list">
-                    <li>Une cicatrice fine et nette sous la clavicule gauche (ancienne entaille contrôlée, refermée proprement) et un trait plus rugueux au poignet droit (lacération suturée en urgence).</li>
-                    <li>Un fil rouge discret noué au passant de sa veste : repère visuel pour ses alliés et rappel personnel d'un engagement passé.</li>
-                    <li>Odeur subtile d'iode et d'alcool isopropylique, trahissant ses habitudes de stérilisation.</li>
-                </ul>
-            </section>
-
-            <div class="stats-container">
-                <section class="info-section general-skills">
-                    <h2>𒆜 Compétences générales</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="vitality">
-                            <div class="skill-name">Vitalité</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="0"></div>
+            <section id="stats" class="tab-content">
+                <div class="info-card">
+                    <h2>Compétences générales</h2>
+                    <div class="stats-container">
+                        <div class="stat-bar">
+                            <span class="stat-name">Vitalité</span>
+                            <div class="stat-value">
+                                <div class="stat-fill" style="width: 60%"></div>
                             </div>
+                            <span class="stat-number">?</span>
                         </div>
-                        <div class="skill-item" data-skill="strength">
-                            <div class="skill-name">Force physique</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="0"></div>
+                        <div class="stat-bar">
+                            <span class="stat-name">Force physique</span>
+                            <div class="stat-value">
+                                <div class="stat-fill" style="width: 55%"></div>
                             </div>
+                            <span class="stat-number">?</span>
                         </div>
-                        <div class="skill-item" data-skill="agility">
-                            <div class="skill-name">Agilité</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="0"></div>
+                        <div class="stat-bar">
+                            <span class="stat-name">Agilité</span>
+                            <div class="stat-value">
+                                <div class="stat-fill" style="width: 75%"></div>
                             </div>
+                            <span class="stat-number">?</span>
                         </div>
-                        <div class="skill-item" data-skill="magic">
-                            <div class="skill-name">Force magique</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="0"></div>
+                        <div class="stat-bar">
+                            <span class="stat-name">Force magique</span>
+                            <div class="stat-value">
+                                <div class="stat-fill" style="width: 30%"></div>
                             </div>
+                            <span class="stat-number">?</span>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section class="info-section special-skills">
-                    <h2>𒆜 Compétences spéciales</h2>
-                    <p class="placeholder-text">À remplir</p>
-                    <div class="special-skills-container">
-                        <!-- Les compétences spéciales seront ajoutées dynamiquement -->
-                    </div>
-                </section>
-            </div>
-
-            <div class="two-columns">
-                <section class="info-section characteristics">
-                    <h2>𒆜 Caractéristiques</h2>
-                    <p class="placeholder-text">À remplir</p>
-                </section>
-
-                <section class="info-section constellation">
-                    <h2>𒆜 Constellation sponsor</h2>
-                    <p class="placeholder-text">À remplir</p>
+                <div class="info-card">
+                    <h2>Constellation sponsor</h2>
                     <div class="constellation-info">
-                        <div class="constellation-rank">
-                            <h3>Rang de la constellation</h3>
-                            <p class="placeholder-text">À remplir</p>
+                        <p class="placeholder-text">À déterminer</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>Rang de la constellation</h2>
+                    <div class="constellation-rank">
+                        <p class="placeholder-text">À déterminer</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>Marques de la constellation</h2>
+                    <div class="constellation-marks">
+                        <p class="placeholder-text">À déterminer</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="tab-content">
+                <div class="info-card">
+                    <h2>Compétences spéciales</h2>
+                    <div class="skills-container">
+                        <p class="placeholder-text">À déterminer</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>Caractéristiques</h2>
+                    <div class="characteristics-container">
+                        <p class="placeholder-text">À déterminer</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>Équipement</h2>
+                    <div class="equipment-container">
+                        <div class="equipment-item">
+                            <span class="equipment-name">Kit de premiers soins improvisé</span>
+                            <p class="equipment-desc">Bandages, antiseptiques, aiguilles de suture et fil médical, le tout dans une pochette compacte.</p>
                         </div>
-                        <div class="constellation-marks">
-                            <h3>Marques de la constellation</h3>
-                            <p class="placeholder-text">À remplir</p>
+                        <div class="equipment-item">
+                            <span class="equipment-name">Carnet de cartographie</span>
+                            <p class="equipment-desc">Petit carnet résistant à l'eau avec des plans détaillés des tunnels et stations.</p>
+                        </div>
+                        <div class="equipment-item">
+                            <span class="equipment-name">Couteau multifonction</span>
+                            <p class="equipment-desc">Outil polyvalent avec lame, ciseaux, pince et tournevis.</p>
+                        </div>
+                        <div class="equipment-item">
+                            <span class="equipment-name">Veste technique</span>
+                            <p class="equipment-desc">Veste renforcée avec multiples poches cachées et fil rouge distinctif.</p>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
-            <section class="info-section history">
-                <h2>𒆜 Histoire</h2>
-                <div class="history-content">
-                    <p>En marge. C'est ainsi que Seolha a toujours vécu—au bord des foules, là où l'on voit les entrées et les sorties, où l'on peut partir sans bruit si nécessaire. Enfant, elle passait ses weekends à assembler des kits de premiers secours, à réparer des sacs, à comprendre comment tenir debout quand tout autour chancelle. Elle a grandi dans l'ombre des grandes villes, fascinée non par l'éclat du centre mais par la logique silencieuse des structures: couloirs de service, escaliers techniques, routines de nettoyage, horaires d'ouverture. Le monde lui semblait un mécanisme; elle voulait savoir où étaient les vis.</p>
-                    
-                    <p>Étudiante, elle a choisi la voie de l'utile. Informatique appliquée, méthodologie, ergonomie de terrain; elle a complété avec des modules de physiologie de l'effort, de soins d'urgence et des disciplines de contact qui forgent le sens de la distance—boxe, corps à corps, chute contrôlée. Sa vie sociale était simple, honnête, mais tenue: des gens de bonne volonté qui supportent le poids des jours. Elle n'a jamais cherché l'amour, ni éprouvé l'envie de le simuler. Elle préférait les accords clairs, les objectifs partagés, les dettes que l'on reconnaît.</p>
-                    
-                    <p>Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a relevé la tête, pris le temps d'inspirer, et a fait ce qu'elle fait toujours: établir un protocole minimal viable. Le premier scénario a paru grotesque dans sa simplicité—une injonction brutale à prouver sa valeur par la mort. Elle a refusé la précipitation, s'est extraite des grappes paniquées, a trouvé un perchoir visuel dans une cage d'escalier, a observé les flux. Elle n'a pas cherché une gloire vaine; elle a cherché une ligne sûre. Le hasard a biaisé la conclusion—une semelle, une fourmi, une notification froide—mais ce n'était pas l'acte qui lui importait, c'était la suite: survivre aux scénarios qui viennent, protéger le minimum d'humain chez ceux qui restent, et ne rien devoir à l'hystérie.</p>
-                    
-                    <p>Dans les tunnels du second scénario, elle a conçu ses premières cartes: sorties latérales, conduites d'air, points d'eau, zones d'échos à éviter pour ne pas attirer les groupes de rats terrestres. Elle a appris les familles de pas—boîteux, pressés, traînants—et leur a donné des codes. La première base n'a pas été une communauté; ça a été une arête logistique. Elle s'est rendue utile: pansements compressifs, couture d'équipement, répartition de vivres, consignation des heures de veille. Elle n'a pas cherché à diriger—elle a mis de l'ordre, ce qui, souvent, revient au même.</p>
-                    
-                    <p>Quand les zones vertes ont été annoncées, elle a fait le calcul des distances, du cycle nocturne, et des fenêtres de passage. Elle a posé sa règle: on ne court pas pour courir; on court quand on sait où l'on va. La nuit des rats et des ours à corne a confirmé ses intuitions: ancrages bas, mouvements par vagues, priorité aux couloirs où l'on peut couper la ligne de charge. Elle a testé, corrigé, transmis. Sa parole commençait à compter, non par charisme, mais parce que ses plans fonctionnaient.</p>
-                    
-                    <p>À l'est, lors de la chute des météorites, l'air s'est déchiré. Le fléau des questions a donné au ciel un œil qui ne clignait pas. Seolha a retenu la topologie: comment les vortex imposent leurs conduites à la ville, comment les monstres volants prennent les hauteurs et poussent les survivants dans les gorges urbaines. Elle a compris que la surface n'était plus un terrain neutre. Elle a appris à aimer les plafonds.</p>
-                    
-                    <p>Plus les scénarios s'empilaient—la lutte pour les drapeaux, la chasse, la vague sacrificielle—plus elle a déplié sa méthode: constituer des binômes autonomes, coudre des signaux discrets dans les vêtements (fil rouge à gauche pour "guide", bleu pour "médic," noir pour "éclaireur"), marquer les couloirs "morts" par des nœuds inversés. Quand la moitié des incarnations a été offerte à l'autel d'une difficulté absurde, elle n'a pas participé à l'hécatombe: elle a choisi les petites victoires qui sauvent des vies qu'on n'a pas eu le temps d'apprendre à connaître. Elle ne tue pas pour le score; elle neutralise pour la voie libre.</p>
-                    
-                    <p>Son nom a circulé dans un murmure: pas une héroïne, mais quelqu'un qui arrive quand la panique fend l'équipe. On l'a parfois suppliée de devenir représentante; elle a refusé, sans détour. "Je ne m'assois pas sur un trône qui m'empêcherait de marcher." Elle préfère les bordures et les mezzanines, les points d'appui d'où l'on voit venir les vagues. Elle échange des services contre des informations, tient des promesses, ne signe pas des pactes qu'elle ne peut honorer. Si une constellation devait se pencher sur elle, ce ne serait ni pour le drame ni pour la flamboyance, mais pour ce calme obstiné qui, soir après soir, fait la différence entre une station qui tient et une station qui s'effondre.</p>
-                    
-                    <p>Aujourd'hui, Seolha se déplace entre les stations et les ruines, cordant les plans, resserrant les coutures, ajustant les trajectoires humaines comme on ajuste une attelle: fermement, sans douleur inutile. Elle ne promet rien d'autre que ceci: si vous marchez avec elle, vous saurez où poser le pied suivant. Et souvent, c'est tout ce qu'il faut pour survivre dans le dôme de Séoul.</p>
+            <section id="story" class="tab-content">
+                <div class="info-card story-card">
+                    <h2>Histoire</h2>
+                    <div class="story-content">
+                        <p>En marge. C'est ainsi que Seolha a toujours vécu—au bord des foules, là où l'on voit les entrées et les sorties, où l'on peut partir sans bruit si nécessaire. Enfant, elle passait ses weekends à assembler des kits de premiers secours, à réparer des sacs, à comprendre comment tenir debout quand tout autour chancelle. Elle a grandi dans l'ombre des grandes villes, fascinée non par l'éclat du centre mais par la logique silencieuse des structures: couloirs de service, escaliers techniques, routines de nettoyage, horaires d'ouverture. Le monde lui semblait un mécanisme; elle voulait savoir où étaient les vis.</p>
+                        
+                        <p>Étudiante, elle a choisi la voie de l'utile. Informatique appliquée, méthodologie, ergonomie de terrain; elle a complété avec des modules de physiologie de l'effort, de soins d'urgence et des disciplines de contact qui forgent le sens de la distance—boxe, corps à corps, chute contrôlée. Sa vie sociale était simple, honnête, mais tenue: des gens de bonne volonté qui supportent le poids des jours. Elle n'a jamais cherché l'amour, ni éprouvé l'envie de le simuler. Elle préférait les accords clairs, les objectifs partagés, les dettes que l'on reconnaît.</p>
+                        
+                        <p>Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a relevé la tête, pris le temps d'inspirer, et a fait ce qu'elle fait toujours: établir un protocole minimal viable. Le premier scénario a paru grotesque dans sa simplicité—une injonction brutale à prouver sa valeur par la mort. Elle a refusé la précipitation, s'est extraite des grappes paniquées, a trouvé un perchoir visuel dans une cage d'escalier, a observé les flux. Elle n'a pas cherché une gloire vaine; elle a cherché une ligne sûre. Le hasard a biaisé la conclusion—une semelle, une fourmi, une notification froide—mais ce n'était pas l'acte qui lui importait, c'était la suite: survivre aux scénarios qui viennent, protéger le minimum d'humain chez ceux qui restent, et ne rien devoir à l'hystérie.</p>
+                        
+                        <p>Dans les tunnels du second scénario, elle a conçu ses premières cartes: sorties latérales, conduites d'air, points d'eau, zones d'échos à éviter pour ne pas attirer les groupes de rats terrestres. Elle a appris les familles de pas—boîteux, pressés, traînants—et leur a donné des codes. La première base n'a pas été une communauté; ça a été une arête logistique. Elle s'est rendue utile: pansements compressifs, couture d'équipement, répartition de vivres, consignation des heures de veille. Elle n'a pas cherché à diriger—elle a mis de l'ordre, ce qui, souvent, revient au même.</p>
+                        
+                        <p>Quand les zones vertes ont été annoncées, elle a fait le calcul des distances, du cycle nocturne, et des fenêtres de passage. Elle a posé sa règle: on ne court pas pour courir; on court quand on sait où l'on va. La nuit des rats et des ours à corne a confirmé ses intuitions: ancrages bas, mouvements par vagues, priorité aux couloirs où l'on peut couper la ligne de charge. Elle a testé, corrigé, transmis. Sa parole commençait à compter, non par charisme, mais parce que ses plans fonctionnaient.</p>
+                        
+                        <p>À l'est, lors de la chute des météorites, l'air s'est déchiré. Le fléau des questions a donné au ciel un œil qui ne clignait pas. Seolha a retenu la topologie: comment les vortex imposent leurs conduites à la ville, comment les monstres volants prennent les hauteurs et poussent les survivants dans les gorges urbaines. Elle a compris que la surface n'était plus un terrain neutre. Elle a appris à aimer les plafonds.</p>
+                        
+                        <p>Plus les scénarios s'empilaient—la lutte pour les drapeaux, la chasse, la vague sacrificielle—plus elle a déplié sa méthode: constituer des binômes autonomes, coudre des signaux discrets dans les vêtements (fil rouge à gauche pour "guide", bleu pour "médic," noir pour "éclaireur"), marquer les couloirs "morts" par des nœuds inversés. Quand la moitié des incarnations a été offerte à l'autel d'une difficulté absurde, elle n'a pas participé à l'hécatombe: elle a choisi les petites victoires qui sauvent des vies qu'on n'a pas eu le temps d'apprendre à connaître. Elle ne tue pas pour le score; elle neutralise pour la voie libre.</p>
+                        
+                        <p>Son nom a circulé dans un murmure: pas une héroïne, mais quelqu'un qui arrive quand la panique fend l'équipe. On l'a parfois suppliée de devenir représentante; elle a refusé, sans détour. "Je ne m'assois pas sur un trône qui m'empêcherait de marcher." Elle préfère les bordures et les mezzanines, les points d'appui d'où l'on voit venir les vagues. Elle échange des services contre des informations, tient des promesses, ne signe pas des pactes qu'elle ne peut honorer. Si une constellation devait se pencher sur elle, ce ne serait ni pour le drame ni pour la flamboyance, mais pour ce calme obstiné qui, soir après soir, fait la différence entre une station qui tient et une station qui s'effondre.</p>
+                        
+                        <p>Aujourd'hui, Seolha se déplace entre les stations et les ruines, cordant les plans, resserrant les coutures, ajustant les trajectoires humaines comme on ajuste une attelle: fermement, sans douleur inutile. Elle ne promet rien d'autre que ceci: si vous marchez avec elle, vous saurez où poser le pied suivant. Et souvent, c'est tout ce qu'il faut pour survivre dans le dôme de Séoul.</p>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer class="character-footer">
-            <div class="scenario-status">
-                <h3>Statut actuel</h3>
-                <p>Scénario en cours: #9 - Le Dark Castle</p>
-                <p>Localisation: Entre les stations</p>
+            <div class="scenario-info">
+                <span class="scenario-label">Scénario actuel :</span>
+                <span class="scenario-value">Dark Castle (Scénario #9)</span>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Lecteur Omniscient - Règlement RP</p>
+            <div class="date-info">
+                <span class="date-label">Jour :</span>
+                <span class="date-value">25 (15 octobre)</span>
             </div>
         </footer>
     </div>
 
-    <script src="/static/js/main.js"></script>
-    <script src="/static/js/character_sheet.js"></script>
+    <script>
+        // Script pour la fiche de personnage
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des onglets
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Désactiver tous les onglets
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Activer l'onglet cliqué
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Animation au défilement pour l'histoire
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observer les paragraphes de l'histoire
+            document.querySelectorAll('.story-content p').forEach((p, index) => {
+                setTimeout(() => {
+                    p.classList.add('visible');
+                }, index * 100);
+                observer.observe(p);
+            });
+
+            // Animation au scroll
+            document.addEventListener('scroll', function() {
+                const elements = document.querySelectorAll('.story-content p');
+                const windowHeight = window.innerHeight;
+
+                elements.forEach(function(element) {
+                    const position = element.getBoundingClientRect().top;
+
+                    if (position < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
