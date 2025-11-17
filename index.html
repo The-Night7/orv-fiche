@@ -522,6 +522,27 @@
             width: auto; /* Largeur automatique basée sur le contenu */
         }
 
+        /* Caractéristiques */
+        .characteristics-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .characteristic-item {
+            background-color: rgba(15, 52, 96, 0.4);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .characteristic-name {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .character-header {
@@ -671,35 +692,73 @@
 
         <section id="stats" class="tab-content">
             <div class="info-card">
-                <h2>Compétences générales</h2>
+                <h2>Statistiques de base</h2>
                 <div class="stats-container">
                     <div class="stat-bar">
-                        <span class="stat-name">Vitalité</span>
+                        <span class="stat-name">Force physique (Strength)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 67%"></div>
+                            <div class="stat-fill" style="width: 70%"></div>
                         </div>
-                        <span class="stat-number">67</span>
+                        <span class="stat-number">7</span>
                     </div>
                     <div class="stat-bar">
-                        <span class="stat-name">Force physique</span>
+                        <span class="stat-name">Agilité (Agility)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 68%"></div>
+                            <div class="stat-fill" style="width: 80%"></div>
                         </div>
-                        <span class="stat-number">68</span>
+                        <span class="stat-number">8</span>
                     </div>
                     <div class="stat-bar">
-                        <span class="stat-name">Agilité</span>
+                        <span class="stat-name">Vitalité (Physique)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 68%"></div>
+                            <div class="stat-fill" style="width: 70%"></div>
                         </div>
-                        <span class="stat-number">68</span>
+                        <span class="stat-number">7</span>
                     </div>
                     <div class="stat-bar">
-                        <span class="stat-name">Force magique</span>
+                        <span class="stat-name">Force magique (Magic Power)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 60%"></div>
+                            <div class="stat-fill" style="width: 40%"></div>
                         </div>
-                        <span class="stat-number">60</span>
+                        <span class="stat-number">4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Caractéristiques</h2>
+                <div class="characteristics-list">
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Observation calme</span>
+                        <p>Capacité à analyser les situations sous pression sans céder à la panique, permettant une prise de décision rationnelle même dans le chaos.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Agilité de mouvement</span>
+                        <p>Déplacements fluides et précis, excellente coordination corporelle et capacité à naviguer dans des espaces restreints ou complexes.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Adaptation anormale</span>
+                        <p>Faculté exceptionnelle à s'ajuster rapidement à de nouvelles situations ou environnements hostiles.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Sang-froid</span>
+                        <p>Maîtrise émotionnelle permettant de rester fonctionnelle dans des situations de stress intense ou de danger imminent.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Mémoire visuelle</span>
+                        <p>Capacité à retenir et reproduire mentalement des détails visuels complexes comme des cartes, configurations spatiales ou visages.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Pragmatisme tactique</span>
+                        <p>Approche pratique et efficace de la résolution de problèmes, privilégiant les solutions viables aux idéaux théoriques.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Polyglotte naturel</span>
+                        <p>Facilité inhabituelle à comprendre les structures linguistiques et à saisir le sens général de langues inconnues.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Résilience physique</span>
+                        <p>Endurance et récupération supérieures à la moyenne, permettant de supporter l'effort prolongé et les blessures mineures.</p>
                     </div>
                 </div>
             </div>
@@ -710,14 +769,12 @@
                     <p class="placeholder-text">À déterminer</p>
                 </div>
             </div>
-
             <div class="info-card">
                 <h2>Rang de la constellation</h2>
                 <div class="constellation-rank">
                     <p class="placeholder-text">À déterminer</p>
                 </div>
             </div>
-
             <div class="info-card">
                 <h2>Marques de la constellation</h2>
                 <div class="constellation-marks">
@@ -732,235 +789,169 @@
                 <div class="skills-container">
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Hermès</span>
-                            <span class="skill-level">Niveau ?</span>
+                            <span class="skill-name">Vol éclair</span>
+                            <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Cette compétence permet à l'incarnation de voler des objets à sa cible et de se déplacer à grande vitesse.</p>
+                        <p class="skill-desc">Compétence permettant à Seolha de se déplacer à une vitesse surhumaine et de dérober des objets avec une précision chirurgicale. Développée à partir de son expérience en rugby et perfectionnée par sa formation en infiltration.</p>
 
                         <div class="skill-abilities">
-                            <h4>Niveau 1</h4>
-                            <p class="skill-ability">Permet à Seolha de voler des petits objets dans les poches de sa cible avec un léger contact.</p>
-                            <p class="skill-ability">Peut voler des informations et donc récupérer des informations sur une cible (stats, compétences, constellation).</p>
-                            <p class="skill-ability">Peut voler au premier sens du terme (comme un oiseau) comme elle le souhaite (bien que ça reste fatiguant pour elle mais moins que de se téléporter).</p>
-
-                            <h4>Niveau 2</h4>
-                            <p class="skill-ability">Permet à Seolha de voler des objets de toutes tailles dans les poches/sac de sa cible et autour de son cou, poignets... Sans contact mais avec proximité.</p>
-                            <p class="skill-ability">Obtient un passif qui lui permet de guérir plus rapidement que la normale.</p>
-
-                            <h4>Niveau 3</h4>
-                            <p class="skill-ability">Permet à Seolha de voyager à grande vitesse dans les lieux qui lui sont soit désignés avec précision sur une carte, soit dans des lieux où elle est déjà allée.</p>
-                            <p class="skill-ability">Cette capacité demande énormément d'énergie pour transporter d'autres personnes ou parcourir de longues distances (un mix des deux résulte à une perte de conscience).</p>
+                            <p class="skill-ability">Permet de subtiliser des objets sur une cible avec un simple frôlement, la victime ne remarquant généralement rien.</p>
+                            <p class="skill-ability">Capacité à extraire des informations sur une cible (statistiques, compétences) par simple contact.</p>
+                            <p class="skill-ability">Déplacement aérien rapide sur de courtes et moyennes distances, moins fatiguant que la téléportation mais nécessitant une concentration constante.</p>
+                            <p class="skill-ability">Possibilité de dérober des objets de toutes tailles sans contact direct mais en étant à proximité de la cible.</p>
+                            <p class="skill-ability">Transport ultra-rapide vers des lieux connus ou précisément localisés, avec une consommation d'énergie proportionnelle à la distance et au poids transporté.</p>
                         </div>
                     </div>
-
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Base de Données</span>
-                            <span class="skill-level">Niveau ?</span>
+                            <span class="skill-level">Niveau 4</span>
                         </div>
-                        <p class="skill-desc">Cette compétence permet à Seolha de stocker et d'accéder à toutes les informations qu'elle a collectées via sa compétence Hermès ou par d'autres moyens. Elle pourra dans le futur utiliser ces techniques de manière plus proactive via <span class="censored">Imitation</span></p>
+                        <p class="skill-desc">Issue de son travail en cybersécurité, cette compétence permet à Seolha d'organiser et d'accéder mentalement à toutes les informations qu'elle collecte, fonctionnant comme un système de stockage et d'analyse interne.</p>
 
                         <div class="skill-abilities">
-                            <p class="skill-ability">Permet de stocker de manière organisée toutes les informations recueillies sur les personnes, lieux, objets et événements.</p>
-                            <p class="skill-ability">Accès instantané à toutes les informations mémorisées, avec possibilité de les consulter mentalement à tout moment.</p>
-                            <p class="skill-ability">Capacité d'analyse croisée permettant de faire des connexions entre différentes informations stockées.</p>
-                            <p class="skill-ability">Les informations sont préservées même en cas de stress ou de blessure, contrairement aux souvenirs ordinaires.</p>
-                            <p class="skill-ability">Possibilité de partager verbalement des informations précises et détaillées sans erreur ou omission.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Le Messager</span>
-                            <span class="skill-level">Niveau ?</span>
-                        </div>
-                        <p class="skill-desc">Cette compétence permet à Seolha de faire parvenir des messages ou des colis à n'importe quelle personne dont elle possède suffisamment d'informations dans sa Base de Données, transcendant les distances et les obstacles.</p>
-
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Transmission de Messages : Permet d'envoyer des messages textuels ou vocaux directement à l'esprit du destinataire, quelle que soit la distance qui les sépare.</p>
-                            <p class="skill-ability">Livraison d'Objets : Peut transporter de petits objets ou colis jusqu'à un destinataire, à condition que Seolha dispose de données suffisantes sur cette personne et sa localisation approximative.</p>
-                            <p class="skill-ability">Précision Proportionnelle : La précision et la fiabilité de la livraison sont directement proportionnelles à la quantité et à la qualité des informations disponibles sur le destinataire dans la Base de Données.</p>
-                            <p class="skill-ability">Contournement des Barrières : Le message ou l'objet peut traverser la plupart des barrières physiques et certaines barrières magiques, rendant cette compétence particulièrement utile dans des environnements hostiles ou surveillés.</p>
-                            <p class="skill-ability">Coût Énergétique : La consommation d'énergie augmente avec la distance, la taille de l'objet à transporter et la complexité des obstacles à traverser.</p>
+                            <p class="skill-ability">Stockage organisé et catégorisé de toutes les informations recueillies sur les personnes, lieux, objets et événements.</p>
+                            <p class="skill-ability">Accès instantané à toutes les données mémorisées, avec possibilité de les consulter mentalement même sous pression.</p>
+                            <p class="skill-ability">Analyse croisée permettant d'établir des connexions entre différentes informations stockées et de détecter des motifs invisibles.</p>
+                            <p class="skill-ability">Préservation des données même en cas de stress intense ou de blessure, contrairement aux souvenirs ordinaires.</p>
+                            <p class="skill-ability">Capacité à partager verbalement des informations précises et détaillées sans erreur ou omission.</p>
                         </div>
                     </div>
 
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Firewall</span>
-                            <span class="skill-level">Niveau ?</span>
+                            <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Compétence passive qui agit comme un système de protection et de filtrage pour l'esprit et le corps de Seolha, lui permettant de maintenir son autonomie mentale et de gérer les informations et les douleurs.</p>
+                        <p class="skill-desc">Protection psychique développée par nécessité dans les scénarios, cette barrière mentale protège l'esprit de Seolha contre les intrusions et influences extérieures.</p>
 
                         <div class="skill-abilities">
-                            <p class="skill-ability">Protection Mentale : Crée une barrière contre les attaques psychiques, les tentatives d'influence mentale et les compétences visant à altérer son esprit ou son contrôle. Neutralise activement toute forme d'intrusion mentale.</p>
-                            <p class="skill-ability">Atténuation de la Douleur : Réduit l'impact physique ressenti lors de blessures, permettant à Seolha de continuer à opérer efficacement même gravement blessée. La douleur devient une information gérée plutôt qu'un handicap.</p>
-                            <p class="skill-ability">Invisibilité des Statuts : Empêche l'affichage et la visualisation de ses attributs réels et informations personnelles. Dissimule ses capacités et son identité véritable, particulièrement les aspects potentiellement compromettants.</p>
-                            <p class="skill-ability">Détachement Émotionnel : Permet à Seolha de séparer ses émotions de son jugement, percevant les situations comme une série d'événements à analyser. S'active automatiquement lors de stress émotionnel intense, créant une distance protectrice.</p>
-                            <p class="skill-ability">Assimilation : Lorsque Seolha élimine un adversaire, elle intègre automatiquement ses compétences et connaissances dans sa Base de Données personnelle. Chaque élimination renforce son répertoire de capacités disponibles.</p>
+                            <p class="skill-ability">Crée une barrière efficace contre les attaques psychiques et les tentatives d'influence mentale.</p>
+                            <p class="skill-ability">Neutralise activement les compétences visant à altérer son esprit ou son contrôle.</p>
+                            <p class="skill-ability">Permet de compartimenter les émotions pour maintenir un jugement rationnel en situation de crise.</p>
+                            <p class="skill-ability">Dissimule partiellement ses véritables capacités et statistiques aux observateurs extérieurs.</p>
+                            <p class="skill-ability">S'active automatiquement en cas de détection d'une intrusion mentale ou d'une tentative de manipulation.</p>
                         </div>
                     </div>
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name"><span class="censored">Imitation</span></span>
-                            <span class="skill-level">Niveau ?</span>
+                            <span class="skill-name">Gestion de la douleur</span>
+                            <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Cette compétence active permet à Seolha d'imiter temporairement les capacités et savoir-faire qu'elle a précédemment enregistrés dans sa Base de Données. Cette compétence est une extension de <span class="censored">imitation</span> qui lui permet d'exploiter activement les informations collectées.</p>
+                        <p class="skill-desc">Technique corporelle permettant à Seolha de réinterpréter les signaux de douleur comme de simples informations, maintenant sa fonctionnalité même blessée.</p>
 
                         <div class="skill-abilities">
-                            <p class="skill-ability">Permet <p class="censored">de reproduire temporairement</p> les compétences techniques, mouvements et capacités observées et stockées dans sa Base de Données.</p>
-                            <p class="skill-ability">L'efficacité de <p class="censored">l'imitation</p> dépend de la qualité et de la quantité d'informations collectées sur la technique ciblée.</p>
-                            <p class="skill-ability">L'utilisation de cette compétence consomme de l'énergie proportionnellement à la complexité de la capacité <p class="censored">imitée</p>.</p>
-                            <p class="skill-ability"><p class="censored">Les capacités imitées</p> sont généralement moins puissantes que les originales, mais peuvent être combinées de façon créative.</p>
-                            <p class="skill-ability">La durée et la précision de <p class="censored">l'imitation</p> sont limitées par <span class="censored">imitation</span> et nécessitent une concentration constante.</p>
+                            <p class="skill-ability">Réduit significativement l'impact de la douleur physique sur les performances.</p>
+                            <p class="skill-ability">Permet de continuer à fonctionner efficacement malgré des blessures qui immobiliseraient une personne ordinaire.</p>
+                            <p class="skill-ability">Transforme la douleur en information utile sur l'état du corps plutôt qu'en handicap.</p>
+                            <p class="skill-ability">Accélère légèrement la récupération physique grâce à une meilleure gestion des ressources corporelles.</p>
                         </div>
                     </div>
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Interprète</span>
-                            <span class="skill-level">Niveau ?</span>
+                            <span class="skill-name">Traduction intuitive</span>
+                            <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Capacité passive à reconnaître, lire ou comprendre plusieurs langues parfois même inconnues. La compréhension n'est jamais nécessairement totale.</p>
+                        <p class="skill-desc">Compétence permettant de comprendre les bases de langues étrangères sans apprentissage préalable, facilitant la communication interculturelle.</p>
 
                         <div class="skill-abilities">
-                            <p class="skill-ability">Permet de comprendre les bases de langues étrangères sans apprentissage préalable, facilitant la communication interculturelle.</p>
-                            <p class="skill-ability">Capacité à déchiffrer des écritures et symboles inconnus en identifiant des motifs et structures linguistiques.</p>
-                            <p class="skill-ability">Détecte intuitivement l'intention et le sens général derrière des communications, même sans saisir tous les détails.</p>
-                            <p class="skill-ability">Fonctionne avec les langues humaines ainsi qu'avec certains codes et langages non-humains ou artificiels.</p>
-                            <p class="skill-ability">L'efficacité varie selon la complexité de la langue et sa distance par rapport aux langues déjà connues ou rencontrées.</p>
+                            <p class="skill-ability">Capacité à saisir rapidement la structure et les bases d'une langue inconnue après une brève exposition.</p>
+                            <p class="skill-ability">Déchiffrement de textes et symboles étrangers en identifiant des motifs linguistiques récurrents.</p>
+                            <p class="skill-ability">Détection intuitive de l'intention et du sens général derrière des communications, même sans comprendre tous les mots.</p>
+                            <p class="skill-ability">Fonctionne avec les langues humaines ainsi qu'avec certains codes et langages non-humains simples.</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name"><span class="censored">Adaptation technique</span></span>
+                            <span class="skill-level">Niveau 1</span>
+                        </div>
+                        <p class="skill-desc">Cette compétence permet à Seolha d'analyser et d'<span class="censored">intégrer temporairement des techniques observées</span> et stockées dans sa Mémoire numérique, adaptant son corps et ses mouvements pour exécuter des compétences spécifiques.</p>
+
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Analyse rapide des mouvements et techniques observés pour en comprendre les mécanismes fondamentaux.</p>
+                            <p class="skill-ability"><span class="censored">Assimilation temporaire</span> de compétences techniques et mouvements stockés dans sa Mémoire numérique.</p>
+                            <p class="skill-ability">L'efficacité dépend directement de la qualité et de la quantité d'informations collectées sur la technique ciblée.</p>
+                            <p class="skill-ability">Consommation d'énergie proportionnelle à la complexité de la compétence <span class="censored">assimilée</span>.</p>
+                            <p class="skill-ability">Les techniques <span class="censored">assimilées</span> sont généralement moins puissantes que les originales mais peuvent être combinées de façon créative.</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Cartographie</span>
+                            <span class="skill-level">Niveau 3</span>
+                        </div>
+                        <p class="skill-desc">Capacité à créer mentalement des cartes détaillées des environnements et à planifier des itinéraires optimaux, développée à travers son expérience de survie urbaine.</p>
+
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Mémorisation précise des environnements après une seule exploration, incluant les détails structurels importants.</p>
+                            <p class="skill-ability">Identification rapide des points stratégiques: sorties, couvertures, lignes de vue, points faibles structurels.</p>
+                            <p class="skill-ability">Capacité à prévoir les mouvements probables d'adversaires dans un espace donné.</p>
+                            <p class="skill-ability">Planification d'itinéraires optimaux tenant compte des risques, obstacles et opportunités.</p>
+                            <p class="skill-ability">Partage mental de cartes tactiques avec des alliés proches via des descriptions précises et concises.</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Premiers soins</span>
+                            <span class="skill-level">Niveau 3</span>
+                        </div>
+                        <p class="skill-desc">Techniques médicales d'urgence adaptées aux conditions extrêmes, permettant de stabiliser des blessures graves avec des ressources limitées.</p>
+
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Diagnostic rapide et précis des blessures traumatiques et de leur gravité.</p>
+                            <p class="skill-ability">Traitement efficace des hémorragies, fractures, brûlures et autres traumatismes courants.</p>
+                            <p class="skill-ability">Improvisation d'équipement médical à partir de matériaux disponibles.</p>
+                            <p class="skill-ability">Stabilisation de patients critiques pour permettre leur transport ou survie jusqu'à un traitement plus complet.</p>
+                            <p class="skill-ability">Connaissance des protocoles de triage pour optimiser les soins en situation de ressources limitées.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="info-card">
-                <h2>Caractéristiques</h2>
-                <div class="characteristics-container">
-                    <div class="double-column">
-                        <div>
-                            <h3>Caractéristiques physiques</h3>
-                            <div class="stats-container">
-                                <div class="stat-bar">
-                                    <span class="stat-name">Endurance</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 75%"></div>
-                                    </div>
-                                    <span class="stat-number">75</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Vitesse</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 82%"></div>
-                                    </div>
-                                    <span class="stat-number">82</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Réflexes</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 80%"></div>
-                                    </div>
-                                    <span class="stat-number">80</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Précision</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 78%"></div>
-                                    </div>
-                                    <span class="stat-number">78</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Résistance</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 70%"></div>
-                                    </div>
-                                    <span class="stat-number">70</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h3>Caractéristiques mentales</h3>
-                            <div class="stats-container">
-                                <div class="stat-bar">
-                                    <span class="stat-name">Analyse</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 90%"></div>
-                                    </div>
-                                    <span class="stat-number">90</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Perception</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 88%"></div>
-                                    </div>
-                                    <span class="stat-number">88</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Sang-froid</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 85%"></div>
-                                    </div>
-                                    <span class="stat-number">85</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Adaptation</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 83%"></div>
-                                    </div>
-                                    <span class="stat-number">83</span>
-                                </div>
-                                <div class="stat-bar">
-                                    <span class="stat-name">Mémoire</span>
-                                    <div class="stat-value">
-                                        <div class="stat-fill" style="width: 92%"></div>
-                                    </div>
-                                    <span class="stat-number">92</span>
-                                </div>
-                            </div>
-                        </div>
+                <h2>Spécialisations</h2>
+                <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                    <div class="info-item">
+                        <span class="info-label">Cartographie urbaine</span>
+                        <span class="info-value">Experte</span>
                     </div>
-
-                    <div style="margin-top: var(--spacing-lg);">
-                        <h3>Spécialisations</h3>
-                        <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-                            <div class="info-item">
-                                <span class="info-label">Cartographie urbaine</span>
-                                <span class="info-value">Experte</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Premiers secours</span>
-                                <span class="info-value">Avancé</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Infiltration</span>
-                                <span class="info-value">Avancé</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Combat rapproché</span>
-                                <span class="info-value">Intermédiaire</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Analyse de données</span>
-                                <span class="info-value">Experte</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Survie urbaine</span>
-                                <span class="info-value">Experte</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Planification tactique</span>
-                                <span class="info-value">Avancé</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Reconnaissance</span>
-                                <span class="info-value">Avancé</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Traduction</span>
-                                <span class="info-value">Intermédiaire</span>
-                            </div>
-                        </div>
+                    <div class="info-item">
+                        <span class="info-label">Premiers secours</span>
+                        <span class="info-value">Avancé</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Infiltration</span>
+                        <span class="info-value">Avancé</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Combat rapproché</span>
+                        <span class="info-value">Intermédiaire</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Analyse de données</span>
+                        <span class="info-value">Experte</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Survie urbaine</span>
+                        <span class="info-value">Experte</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Planification tactique</span>
+                        <span class="info-value">Avancé</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Reconnaissance</span>
+                        <span class="info-value">Avancé</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Traduction</span>
+                        <span class="info-value">Intermédiaire</span>
                     </div>
                 </div>
             </div>
@@ -994,17 +985,25 @@
                 <div class="story-content">
                     <p>En marge. C'est ainsi que Seolha a toujours vécu—au bord des foules, là où l'on voit les entrées et les sorties, où l'on peut partir sans bruit si nécessaire. Enfant, elle passait ses weekends à assembler des kits de premiers secours, à réparer des sacs, à comprendre comment tenir debout quand tout autour chancelle. Elle a grandi dans l'ombre des grandes villes, fascinée non par l'éclat du centre mais par la logique silencieuse des structures: couloirs de service, escaliers techniques, routines de nettoyage, horaires d'ouverture. Le monde lui semblait un mécanisme; elle voulait savoir où étaient les vis.</p>
 
+                    <p>Très tôt, elle a développé une capacité d'observation aiguë, ne se contentant pas de regarder mais d'analyser les gestes, les techniques, les mouvements des autres. Quand sa mère réparait un appareil, Seolha ne se contentait pas de mémoriser les étapes—elle absorbait la pression des doigts, l'angle du poignet, la séquence précise. Puis, dans le silence de sa chambre, elle reproduisait ces mouvements jusqu'à ce que son corps les comprenne. Cette habitude d'imiter pour apprendre est devenue sa méthode: observer, déconstruire mentalement, puis reproduire avec une précision méthodique. Ce n'était pas du talent, mais une discipline qu'elle s'imposait, transformant l'observation en technique.</p>
+
                     <p>Étudiante, elle a choisi la voie de l'utile. Informatique appliquée, méthodologie, ergonomie de terrain; elle a complété avec des modules de physiologie de l'effort, de soins d'urgence et des disciplines de contact qui forgent le sens de la distance—boxe, corps à corps, chute contrôlée. Sa vie sociale était simple, honnête, mais tenue: des gens de bonne volonté qui supportent le poids des jours. Elle n'a jamais cherché l'amour, ni éprouvé l'envie de le simuler. Elle préférait les accords clairs, les objectifs partagés, les dettes que l'on reconnaît.</p>
+
+                    <p>Dans ses études d'informatique, elle excellait particulièrement dans l'analyse de code—capable de comprendre et de reproduire des structures algorithmiques complexes après une simple lecture. Ses professeurs notaient cette capacité inhabituelle à "penser comme le programme" plutôt que simplement l'écrire. Cette faculté d'adaptation technique s'est étendue à d'autres domaines: après avoir observé un médecin urgentiste pendant un stage, elle a pu reproduire parfaitement une suture d'urgence; après avoir étudié un expert en parkour, elle a intégré ses techniques de réception et de franchissement d'obstacles.</p>
 
                     <p>Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a relevé la tête, pris le temps d'inspirer, et a fait ce qu'elle fait toujours: établir un protocole minimal viable. Le premier scénario a paru grotesque dans sa simplicité—une injonction brutale à prouver sa valeur par la mort. Elle a refusé la précipitation, s'est extraite des grappes paniquées, a trouvé un perchoir visuel dans une cage d'escalier, a observé les flux. Elle n'a pas cherché une gloire vaine; elle a cherché une ligne sûre. Le hasard a biaisé la conclusion—une semelle, une fourmi, une notification froide—mais ce n'était pas l'acte qui lui importait, c'était la suite: survivre aux scénarios qui viennent, protéger le minimum d'humain chez ceux qui restent, et ne rien devoir à l'hystérie.</p>
 
                     <p>Dans les tunnels du second scénario, elle a conçu ses premières cartes: sorties latérales, conduites d'air, points d'eau, zones d'échos à éviter pour ne pas attirer les groupes de rats terrestres. Elle a appris les familles de pas—boîteux, pressés, traînants—et leur a donné des codes. La première base n'a pas été une communauté; ça a été une arête logistique. Elle s'est rendue utile: pansements compressifs, couture d'équipement, répartition de vivres, consignation des heures de veille. Elle n'a pas cherché à diriger—elle a mis de l'ordre, ce qui, souvent, revient au même.</p>
+
+                    <p>C'est durant ces premiers scénarios que sa capacité d'imitation s'est transformée en quelque chose de plus—quelque chose qu'elle ne comprenait pas entièrement. Après avoir observé attentivement un survivant expert en combat au couteau neutraliser un monstre, elle s'est surprise à reproduire exactement la même séquence de mouvements face à une menace similaire, alors qu'elle n'avait jamais pratiqué cette technique auparavant. Les gestes étaient dans sa mémoire, comme si son corps avait absorbé la connaissance par simple observation. Cette faculté étrange l'a d'abord effrayée, puis elle l'a méthodiquement testée, comprenant qu'elle pouvait temporairement "emprunter" des techniques qu'elle avait soigneusement observées et analysées.</p>
 
                     <p>Quand les zones vertes ont été annoncées, elle a fait le calcul des distances, du cycle nocturne, et des fenêtres de passage. Elle a posé sa règle: on ne court pas pour courir; on court quand on sait où l'on va. La nuit des rats et des ours à corne a confirmé ses intuitions: ancrages bas, mouvements par vagues, priorité aux couloirs où l'on peut couper la ligne de charge. Elle a testé, corrigé, transmis. Sa parole commençait à compter, non par charisme, mais parce que ses plans fonctionnaient.</p>
 
                     <p>À l'est, lors de la chute des météorites, l'air s'est déchiré. Le fléau des questions a donné au ciel un œil qui ne clignait pas. Seolha a retenu la topologie: comment les vortex imposent leurs conduites à la ville, comment les monstres volants prennent les hauteurs et poussent les survivants dans les gorges urbaines. Elle a compris que la surface n'était plus un terrain neutre. Elle a appris à aimer les plafonds.</p>
 
                     <p>Plus les scénarios s'empilaient—la lutte pour les drapeaux, la chasse, la vague sacrificielle—plus elle a déplié sa méthode: constituer des binômes autonomes, coudre des signaux discrets dans les vêtements (fil rouge à gauche pour "guide", bleu pour "médic," noir pour "éclaireur"), marquer les couloirs "morts" par des nœuds inversés. Quand la moitié des incarnations a été offerte à l'autel d'une difficulté absurde, elle n'a pas participé à l'hécatombe: elle a choisi les petites victoires qui sauvent des vies qu'on n'a pas eu le temps d'apprendre à connaître. Elle ne tue pas pour le score; elle neutralise pour la voie libre.</p>
+
+                    <p>Sa capacité d'adaptation technique s'est affinée au fil des scénarios. Elle a commencé à cataloguer mentalement les techniques qu'elle observait—la façon dont un archer bandait son arc, comment un médecin improvisait une attelle, la méthode d'un éclaireur pour se déplacer sans bruit. Ce qui était autrefois une simple habitude d'apprentissage par observation s'est transformé en une compétence presque surnaturelle, lui permettant d'emprunter temporairement des techniques qu'elle n'avait jamais pratiquées mais seulement étudiées avec attention. Elle garde cette capacité secrète, consciente que certains pourraient la considérer comme une forme de vol ou de tromperie, alors qu'elle n'y voit qu'une extension naturelle de son approche méthodique du monde.</p>
 
                     <p>Son nom a circulé dans un murmure: pas une héroïne, mais quelqu'un qui arrive quand la panique fend l'équipe. On l'a parfois suppliée de devenir représentante; elle a refusé, sans détour. "Je ne m'assois pas sur un trône qui m'empêcherait de marcher." Elle préfère les bordures et les mezzanines, les points d'appui d'où l'on voit venir les vagues. Elle échange des services contre des informations, tient des promesses, ne signe pas des pactes qu'elle ne peut honorer. Si une constellation devait se pencher sur elle, ce ne serait ni pour le drame ni pour la flamboyance, mais pour ce calme obstiné qui, soir après soir, fait la différence entre une station qui tient et une station qui s'effondre.</p>
 
