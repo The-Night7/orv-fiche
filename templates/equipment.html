@@ -1,107 +1,458 @@
 {% extends "layout.html" %}
 
-{% block title %}Lecteur Omniscient – Équipements{% endblock %}
+{% block title %}Lecteur Omniscient – Équipement{% endblock %}
 
 {% block content %}
 <section class="page-header">
     <div class="container">
-        <h1>🛡️ Équipements</h1>
-        <p class="subtitle">Armes, armures et reliques pour renforcer votre incarnation</p>
+        <h1>🏆 Équipement</h1>
+        <p class="subtitle">Découvrez les différents types d'objets disponibles dans le Star Stream</p>
     </div>
 </section>
 
 <section class="equipment-intro">
     <div class="container">
-        <p>Dans un monde régi par les scénarios, votre équipement fait la différence entre la survie et la mort.
-        Armes tranchantes, armures protectrices ou artefacts mystérieux – tout est à votre disposition pour
-        affronter les dangers du Star Stream.</p>
+        <p class="lead">Au cours de votre aventure, vous aurez l'occasion de découvrir et d'utiliser divers types d'équipements pour vous aider à survivre dans le monde du Star Stream.</p>
     </div>
 </section>
 
-<section class="equipment-grid">
+<section class="equipment-types">
     <div class="container">
-        <div class="grid">
-            <div class="grid-item">
-                <div class="icon"><i class="fas fa-sword"></i></div>
-                <h3>Armes</h3>
-                <p>Épées, lances, arcs et armes modernes. Chaque arme possède des propriétés uniques adaptées à
-                différents styles de combat.</p>
+        <h2>Les 3 différents types d'objets</h2>
+        <div class="type-cards">
+            <div class="type-card stellar">
+                <div class="type-header">
+                    <div class="type-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Reliques Étoilées</h3>
+                </div>
+                <div class="type-content">
+                    <p>Ce sont des reliques qui contiennent le pouvoir des constellations. Ces reliques sont <strong>uniques</strong>, et donc, ça signifie que vous possédez LA relique, et non pas une simple copie.</p>
+
+                    <ul class="features">
+                        <li>Évoluent au fil des scénarios</li>
+                        <li>Atteignent leur plein potentiel avec le temps</li>
+                        <li>Octroient souvent un bonus en compétence générale</li>
+                        <li>Possèdent une utilité spécifique</li>
+                    </ul>
+
+                    <div class="warning">
+                        <p><i class="fas fa-exclamation-triangle"></i> <strong>Attention:</strong> Ces objets attirent les regards des constellations et vous rendent aussi cible des voleurs.</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid-item">
-                <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Armures</h3>
-                <p>Des protections allant du cuir enchanté aux armures en mithril. Elles absorbent les coups et
-                améliorent vos statistiques de défense.</p>
+
+            <div class="type-card relic">
+                <div class="type-header">
+                    <div class="type-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Reliques</h3>
+                </div>
+                <div class="type-content">
+                    <p>Allant du rang E à SSS, ces objets sont des reliques liés à des histoires ou des constellations sans pour autant tirer de leurs pouvoirs.</p>
+
+                    <ul class="features">
+                        <li>Liées à des récits ou des légendes</li>
+                        <li>Ex: objets royaux français comme la couronne ou le sceptre</li>
+                        <li>Octroient une augmentation en statistique pour la plupart</li>
+                        <li>Peuvent être de valeur variable selon leur rang</li>
+                    </ul>
+
+                    <div class="ranks">
+                        <span class="rank">E</span>
+                        <span class="rank">D</span>
+                        <span class="rank">C</span>
+                        <span class="rank">B</span>
+                        <span class="rank">A</span>
+                        <span class="rank">S</span>
+                        <span class="rank">SS</span>
+                        <span class="rank">SSS</span>
+                    </div>
+                </div>
             </div>
-            <div class="grid-item">
-                <div class="icon"><i class="fas fa-gem"></i></div>
-                <h3>Artefacts</h3>
-                <p>Reliques rares dotées de pouvoirs extraordinaires. Elles sont souvent liées à des constellations
-                spécifiques et exigent un prix élevé.</p>
+
+            <div class="type-card common">
+                <div class="type-header">
+                    <div class="type-icon"><i class="fas fa-box-open"></i></div>
+                    <h3>Équipements Classiques</h3>
+                </div>
+                <div class="type-content">
+                    <p>Si votre objet n'est ni une relique, ni une relique étoilée, c'est un objet 'commun'. Ces équipements ont un usage précis et un rang comme tout le reste.</p>
+
+                    <ul class="features">
+                        <li>Noyaux de monstre, armes, potions, poisons, etc.</li>
+                        <li>Certains sont consommables à usage unique</li>
+                        <li>Peuvent être vendus ou achetés au Baluchon du Dokkaebi</li>
+                    </ul>
+
+                    <div class="note">
+                        <p><i class="fas fa-info-circle"></i> <strong>Note:</strong> Il est utile de les conserver jusqu'à en apprendre sur leur utilité.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div class="important-note">
+            <p><strong>Retenez que les informations les plus importantes sont le rang, la classification et le type d'utilisation.</strong></p>
         </div>
     </div>
 </section>
 
-<section class="equipment-cta">
+<section class="dokkaebi-bag">
     <div class="container">
-        <h2>Optimisez votre arsenal</h2>
-        <p>Choisissez judicieusement votre équipement pour relever les défis les plus ardus. Combinez armes,
-        armures et artefacts pour créer la synergie parfaite.</p>
-        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-shopping-bag"></i></div>
+            <h2>Le Baluchon du Dokkaebi</h2>
+        </div>
+
+        <p>Le 'Baluchon du Dokkaebi' est la boutique à pièces, la dernière utilité des pièces obtenues par les incarnations. Cette fonctionnalité fonctionne comme une boutique en ligne, avec panier, recherches et plus encore.</p>
+
+        <div class="bag-features">
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-coins"></i></div>
+                <p>Utilisez vos pièces gagnées lors des scénarios pour acheter des équipements</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-search"></i></div>
+                <p>Recherchez des objets spécifiques parmi un vaste catalogue</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-cart-plus"></i></div>
+                <p>Ajoutez des objets à votre panier pour achats groupés</p>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <p><i class="fas fa-exclamation-circle"></i> Cette boutique n'est pas connue des incarnations sans constellation sponsor (sauf si vous trouvez un moyen de l'apprendre via une connaissance, un dokkaebi qui s'égare, etc).</p>
+        </div>
+
+        <div class="bag-content">
+            <h3>Contenu typique du Baluchon</h3>
+            <ul class="item-grid">
+                <li>
+                    <div class="item">
+                        <div class="item-icon healing"></div>
+                        <span>Packs de revitalisation</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="item-icon exp"></div>
+                        <span>Points d'expérience</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="item-icon skill"></div>
+                        <span>Compétences spéciales</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="item-icon weapon"></div>
+                        <span>Armes et armures</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="item-icon potion"></div>
+                        <span>Potions diverses</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="item-icon misc"></div>
+                        <span>Objets divers</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
 {% endblock %}
 
 {% block extra_css %}
 <style>
-/* Styles spécifiques à la page des équipements */
 .equipment-intro {
     padding: var(--spacing-lg) 0;
     text-align: center;
 }
 
-.equipment-grid .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+.equipment-intro .lead {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.equipment-grid .grid-item {
-    background-color: rgba(255, 255, 255, 0.03);
-    padding: var(--spacing-md);
+.equipment-types {
+    padding: var(--spacing-xl) 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.type-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.type-card {
     border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
-.equipment-grid .grid-item:hover {
+.type-card:hover {
     transform: translateY(-5px);
 }
 
-.equipment-grid .icon {
-    font-size: 2.5rem;
-    color: var(--accent-gold);
-    margin-bottom: var(--spacing-sm);
+.type-card.stellar {
+    background-color: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-.equipment-cta {
-    padding: var(--spacing-xl) 0;
+.type-card.relic {
+    background-color: rgba(138, 43, 226, 0.05);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.type-card.common {
+    background-color: rgba(169, 169, 169, 0.05);
+    border: 1px solid rgba(169, 169, 169, 0.2);
+}
+
+.type-header {
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.type-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.stellar .type-icon {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+}
+
+.relic .type-icon {
+    background-color: rgba(138, 43, 226, 0.1);
+    color: #8a2be2;
+}
+
+.common .type-icon {
+    background-color: rgba(169, 169, 169, 0.1);
+    color: #a9a9a9;
+}
+
+.type-header h3 {
+    margin: 0;
+}
+
+.stellar h3 {
+    color: #ffd700;
+}
+
+.relic h3 {
+    color: #9b59b6;
+}
+
+.common h3 {
+    color: #bdc3c7;
+}
+
+.type-content {
+    padding: var(--spacing-md);
+}
+
+.features {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: var(--spacing-sm) 0;
+}
+
+.features li {
+    margin-bottom: 8px;
+}
+
+.warning, .note {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.warning {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 3px solid #e74c3c;
+}
+
+.note {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 3px solid #3498db;
+}
+
+.ranks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: var(--spacing-sm);
+}
+
+.rank {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
-    background-color: var(--secondary-dark);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.equipment-cta h2 {
-    margin-bottom: var(--spacing-md);
+.important-note {
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
 }
 
-.equipment-cta p {
+.dokkaebi-bag {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
     margin-bottom: var(--spacing-lg);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.section-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-md);
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+}
+
+.bag-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.feature {
+    flex: 1;
+    min-width: 200px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-sm);
+    color: var(--accent-teal);
+}
+
+.note-box {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left: 3px solid #f1c40f;
+    padding: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+    border-radius: 4px;
+}
+
+.bag-content {
+    margin-top: var(--spacing-lg);
+}
+
+.item-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.item-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-right: var(--spacing-sm);
+}
+
+.item-icon.healing {
+    background-color: rgba(46, 204, 113, 0.2);
+}
+
+.item-icon.exp {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+
+.item-icon.skill {
+    background-color: rgba(155, 89, 182, 0.2);
+}
+
+.item-icon.weapon {
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+.item-icon.potion {
+    background-color: rgba(241, 196, 15, 0.2);
+}
+
+.item-icon.misc {
+    background-color: rgba(149, 165, 166, 0.2);
+}
+
+@media (max-width: 768px) {
+    .type-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .bag-features {
+        flex-direction: column;
+    }
 }
 </style>
 {% endblock %}

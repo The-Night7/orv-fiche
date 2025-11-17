@@ -5,67 +5,407 @@
 {% block content %}
 <section class="page-header">
     <div class="container">
-        <h1>⏳ Chronologie</h1>
-        <p class="subtitle">Revivez les moments clés du Star Stream</p>
+        <h1>📅 Chronologie</h1>
+        <p class="subtitle">Les événements qui ont façonné Séoul depuis le début de l'apocalypse</p>
     </div>
 </section>
 
-<section class="timeline-intro">
+<section class="timeline-nav">
     <div class="container">
-        <p>Le Star Stream est en perpétuelle évolution. Cette chronologie récapitule les événements majeurs qui
-        ont façonné le serveur de Séoul jusqu'à présent. Cliquez sur chaque événement pour en apprendre plus sur
-        son impact.</p>
+        <div class="timeline-filter">
+            <button class="filter-btn active" data-filter="all">Tous les événements</button>
+            <button class="filter-btn" data-filter="scenario">Scénarios</button>
+            <button class="filter-btn" data-filter="foe">Fléaux</button>
+            <button class="filter-btn" data-filter="major">Événements majeurs</button>
+        </div>
     </div>
 </section>
 
 <section class="timeline-section">
     <div class="container">
         <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-date">28 septembre</span>
+            <!-- 20 Septembre -->
+            <div class="timeline-item" data-category="major scenario">
+                <div class="timeline-date">
+                    <div class="date">20 Sept</div>
+                    <div class="time">19:00</div>
+                </div>
                 <div class="timeline-content">
                     <h3>Début du Star Stream</h3>
-                    <p>Le jour où la Terre a changé à jamais. Les scénarios ont commencé et l'ancien monde a pris fin.</p>
+                    <p>Des Dokkaebis apparaissent partout dans Séoul. Début du premier scénario pour toutes les personnes présentes dans le dôme de Séoul.</p>
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <span class="scenario-number">1</span>
+                            <h4>Prouver sa valeur</h4>
+                        </div>
+                        <div class="scenario-details">
+                            <p><strong>Catégorie:</strong> Principale</p>
+                            <p><strong>Difficulté:</strong> F</p>
+                            <p><strong>Conditions:</strong> Tuer un être vivant.</p>
+                            <p><strong>Temps accordé:</strong> 30 minutes</p>
+                            <p><strong>Récompense:</strong> 300 pièces</p>
+                            <p><strong>Si échec:</strong> La mort</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <span class="timeline-date">7 octobre</span>
+
+            <div class="timeline-item" data-category="major">
+                <div class="timeline-date">
+                    <div class="date">20 Sept</div>
+                    <div class="time">19:31</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Fin du premier scénario</h3>
+                    <p>La première sélection de sponsor débute.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="major">
+                <div class="timeline-date">
+                    <div class="date">20 Sept</div>
+                    <div class="time">19:35</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Apparition du gaz toxique</h3>
+                    <p>Un gaz toxique envahit la surface de la ville, y compris les bâtiments clos. Se cacher ne fait que retarder l'inévitable.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">20 Sept</div>
+                    <div class="time">19:36</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Début du deuxième scénario</h3>
+                    <p>Scénario principal optionnel. (Toutes personnes trouvant refuge dans des sous-terrains autre que les stations de métros ne complètent pas ce scénario et n'ont pas accès au troisième et quatrième scénario.)</p>
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <span class="scenario-number">2</span>
+                            <h4>Rencontre hasardeuse</h4>
+                        </div>
+                        <div class="scenario-details">
+                            <p><strong>Catégorie:</strong> Principale</p>
+                            <p><strong>Difficulté:</strong> E</p>
+                            <p><strong>Conditions:</strong> Parcourez les tunnels et rencontrez les survivants de la première base.</p>
+                            <p><strong>Limite de temps:</strong> Aucune</p>
+                            <p><strong>Récompense:</strong> 500 pièces</p>
+                            <p><strong>Si échec:</strong> ???</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 21 Septembre -->
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">21 Sept</div>
+                    <div class="time">20:00</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Troisième scénario principal</h3>
+                    <p>Annonce du troisième scénario principal réalisé, des zones vertes apparaissent partout dans les stations.</p>
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <span class="scenario-number">3</span>
+                            <h4>Zone verte (1er jour)</h4>
+                        </div>
+                        <div class="scenario-details">
+                            <p><strong>Catégorie:</strong> Principale</p>
+                            <p><strong>Difficulté:</strong> C</p>
+                            <p><strong>Conditions:</strong> Prenez possession d'une [Zone verte] dans la station et survivez aux monstres qui affluent tous les soirs à minuit. Ce scénario se poursuivra pendant 7 jours.</p>
+                            <p><strong>Durée:</strong> 8 heures</p>
+                            <p><strong>Récompense:</strong> 1000 pièces</p>
+                            <p><strong>Si échec:</strong> —</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 22 Septembre -->
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">22 Sept</div>
+                    <div class="time">00:00</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Première nuit du scénario 3</h3>
+                    <p>Des vagues de monstres (des rats terrestres de niveau 9 et des ours à corne de niveau 8) envahissent les stations jusqu'à 8 heures du matin. Les zones vertes protègent automatiquement les incarnations présentes dedans et ce sans limite de durée.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">22 Sept</div>
+                    <div class="time">08:00</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Fin de la première nuit</h3>
+                    <p>Les monstres repartent et disparaissent comme s'ils n'étaient jamais là.</p>
+                </div>
+            </div>
+
+            <!-- 24 Septembre -->
+            <div class="timeline-item" data-category="major">
+                <div class="timeline-date">
+                    <div class="date">24 Sept</div>
+                    <div class="time">21:37</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Chute de météorites</h3>
+                    <p>Pour ceux qui ont levé les yeux vers le ciel étoilé, une chute de météorite a été observable. Deux météorites ont frappé l'est, l'ouest, le sud, le nord et le centre de la ville.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="scenario foe">
+                <div class="timeline-date">
+                    <div class="date">24 Sept</div>
+                    <div class="time">22:16</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Alerte à l'est de Séoul</h3>
+                    <p>Quiconque se trouvant à l'est de la ville ainsi qu'en dehors des stations aurait reçu un scénario d'alerte sans avoir les moyens de le compléter à cause du gaz toxique et du manque de repère.</p>
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <span class="scenario-type">Secondaire</span>
+                            <h4>Bloquer le feu</h4>
+                        </div>
+                        <div class="scenario-details">
+                            <p><strong>Catégorie:</strong> Secondaire</p>
+                            <p><strong>Difficulté:</strong> ???</p>
+                            <p><strong>Conditions:</strong> Un groupe inconnu qui a pris place dans l'arrondissement de Gangdong tente de faire éclore l'un des "fléaux". Débarrassez-vous d'eux et bloquez l'arrivée de ce "fléau".</p>
+                            <p><strong>Durée:</strong> 8 heures</p>
+                            <p><strong>Récompense:</strong> 20 000 pièces.</p>
+                            <p><strong>Si échec:</strong> Le "fléau des questions" apparaîtra plus tôt que prévu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 25 Septembre -->
+            <div class="timeline-item highlight" data-category="major foe scenario">
+                <div class="timeline-date">
+                    <div class="date">25 Sept</div>
+                    <div class="time">02:24</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Réveil du Fléau des questions</h3>
+                    <p>Le réveil du fléau des questions a pour conséquence d'ouvrir un gigantesque vortex dans le ciel. La terraformation commence, des milliers de monstres descendant de celui-ci pour envahir cette partie de la ville.</p>
+                    <div class="scenario-card">
+                        <div class="scenario-header">
+                            <span class="scenario-number">5</span>
+                            <h4>Le Fléau des questions</h4>
+                        </div>
+                        <div class="scenario-details">
+                            <p><strong>Catégorie:</strong> Principale</p>
+                            <p><strong>Difficulté:</strong> B ~ ???</p>
+                            <p><strong>Conditions:</strong> Éliminez le fléau des questions "Myeong Ilsang".</p>
+                            <p><strong>Limite de temps:</strong> ——</p>
+                            <p><strong>Récompense:</strong> 40 000 pièces, ???</p>
+                            <p><strong>Si échec:</strong> Effondrement de Séoul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="major foe">
+                <div class="timeline-date">
+                    <div class="date">25 Sept</div>
+                    <div class="time">02:37</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Mort du Fléau des Questions</h3>
+                    <p>Le Fléau des Questions est décédé.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="major">
+                <div class="timeline-date">
+                    <div class="date">25 Sept</div>
+                    <div class="time">07:30</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Transformation de l'Est de Séoul</h3>
+                    <p>Les monstres venant du vortex de l'est ont pris possession de cette partie de la ville. (Notamment des monstruosités volantes ou des plantes.) Ça a eu pour effet de réduire et supprimer la <strong>brume toxique</strong> UNIQUEMENT dans cette partie de la ville.</p>
+                </div>
+            </div>
+
+            <!-- 27 Septembre -->
+            <div class="timeline-item" data-category="foe">
+                <div class="timeline-date">
+                    <div class="date">27 Sept</div>
+                    <div class="time">10:34</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Apparition du Fléau du Sud</h3>
+                    <p>Le Fléau du Sud est apparu puis est décédé suivant son ouverture. Les conséquences restent cependant les mêmes, un vortex surplombant cette partie de la ville et déchaînant des centaines de monstruosités venant d'ailleurs. Les traces de son passage ont été un cratère dans un cinéma ainsi que des morceaux de météorites extrêmement chauds même aujourd'hui.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="foe">
+                <div class="timeline-date">
+                    <div class="date">27 Sept</div>
+                    <div class="time">14:07</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Apparition du Fléau de l'Ouest</h3>
+                    <p>Le Fléau de l'Ouest est apparu puis est décédé en l'espace de cinq minutes. Les conséquences restent similaires : Ouverture d'un vortex laissant passer des centaines de nouveaux monstres dans les rues. Les traces de son passage sont des morceaux de météorites dans un café ainsi qu'une grande concentration d'énergie maléfique autour de la zone.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="foe">
+                <div class="timeline-date">
+                    <div class="date">27 Sept</div>
+                    <div class="time">16:48</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Apparition du Fléau du Nord</h3>
+                    <p>Un gratte-ciel a gelé avec l'arrivée du fléau du nord.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="foe">
+                <div class="timeline-date">
+                    <div class="date">27 Sept</div>
+                    <div class="time">17:16</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Disparition du Fléau du Nord</h3>
+                    <p>Un périmètre de 100 mètres autour de ce bâtiment a disparu. Il n'y a que de la terre, la terre est gelée et brûlée, rien ne peut pousser. Aucune trace du Fléau. Une énorme spirale de branchage surplombe la terre morte. Les conséquences sont répétées : Des centaines de monstres sortant d'un vortex.</p>
+                </div>
+            </div>
+
+            <!-- 28 Septembre -->
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">28 Sept</div>
+                    <div class="time">00:00</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Fin du troisième scénario</h3>
+                    <p>Fin du scénario des zones vertes et début du quatrième scénario.</p>
+                </div>
+            </div>
+
+            <!-- 29 Septembre -->
+            <div class="timeline-item highlight" data-category="foe major">
+                <div class="timeline-date">
+                    <div class="date">29 Sept</div>
+                    <div class="time">14:00</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Apparition du Fléau du Sang</h3>
+                    <p>Le Fléau du Sang est apparu au centre de Séoul. Des alertes du système ont prévenu toutes les incarnations de Séoul, qu'importe où elles sont.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="foe major">
+                <div class="timeline-date">
+                    <div class="date">29 Sept</div>
+                    <div class="time">14:15</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Attaques du Fléau du Sang</h3>
+                    <p>Des messages d'alertes sont envoyés dès que le fléau est trop proche d'une zone. L'hôpital du centre a été attaqué, provoquant un massacre des survivants là-bas. Des stations se sont faites attaquées, mettant en danger le scénario numéro 4.</p>
+                    <p><strong>Stations touchées:</strong> Geumho et Dongnimmun (Ligne rouge) ; City Hall et Jonggak (Ligne Bleu). Dans ces stations, aucun survivant n'est retrouvé. Quelques cadavres et le drapeau prêt à être saisi.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item highlight" data-category="foe major">
+                <div class="timeline-date">
+                    <div class="date">29 Sept</div>
+                    <div class="time">15:47</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Catastrophe à Séoul</h3>
+                    <p>Un vortex apparaît dans le ciel et couvre l'intégralité de Séoul. Toutes les personnes ayant levé le regard ont perdu connaissance en voyant une sorte d'œil géant. Des tremblements de terre et inondations ont ravagé Séoul pendant environ trois minutes avant la disparition du vortex. Des milliers de morts, les cadavres dévorés par les monstres, ou ayant subi des crises cardiaques ou ensevelis sous des débris.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="foe major">
+                <div class="timeline-date">
+                    <div class="date">29 Sept</div>
+                    <div class="time">15:51</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Mort du Fléau du Sang</h3>
+                    <p>Le Fléau du Sang, Hakaïno est décédé. Toutes les incarnations ayant participé même de loin ont reçu une "énergie de la forêt Ellain".</p>
+
+                    <div class="contributors">
+                        <h4>Principaux contributeurs:</h4>
+                        <ul>
+                            <li>Titania</li>
+                            <li>Yoo-sun</li>
+                            <li>Ida Miyashiro</li>
+                            <li>Myo Mun-Hee</li>
+                        </ul>
+
+                        <h4>Contributeurs secondaires:</h4>
+                        <ul>
+                            <li>Hwaek</li>
+                            <li>Jeonseol</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Octobre -->
+            <div class="timeline-item highlight" data-category="scenario major">
+                <div class="timeline-date">
+                    <div class="date">5 Oct</div>
+                    <div class="time">--:--</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Combat entre les rois</h3>
+                    <p>Le combat entre les rois se déroule au centre ville. Les participants sont les suivants: Nayu Shiki, Iseul Seungli, Qin Mò Huang, Roi sans Sujet (PNJ), Su Ho-Jin (PNJ), Bomi, Gyoeli Eun, Ji-an, Myo Mun-Hee.</p>
+
+                    <div class="event-details">
+                        <h4>Déroulement:</h4>
+                        <ul>
+                            <li>Bomi a été la première à abandonner, simple spectatrice.</li>
+                            <li>Suivi par Qin Mò Huang, forcé par Myo Mun-Hee.</li>
+                            <li>Ji-an a abandonné après que le Roi sans Sujet ait mis en danger Qin Mò Huang.</li>
+                            <li>Nayu a indirectement abandonné en quittant le scénario de force.</li>
+                            <li>Myo Mun-Hee a mis hors d'état de nuire Su Ho-jin, puis se rallie à lui Iseul Seungli pour combattre le Roi sans Sujet.</li>
+                            <li>Un double abandon de la part d'Iseul et Myo pour contrer le Roi en le faisant gagner pour le tuer juste après la fin des restrictions. Sauf que Gyoeli a fait la morte, empêchant cela.</li>
+                            <li>Le Roi sans Sujet a mis hors d'état de nuire Myo Mun-Hee pendant qu'Iseul participe une seconde fois, force Gyoeli à abandonner puis abandonne.</li>
+                        </ul>
+                    </div>
+
+                    <p>Le Roi sans Sujet a remporté le scénario, ce qui fait réagir les guides et vagabonds mais se fait tuer par Iseul Seungli qui récupère le trône absolu. Les vagabonds sont calmés par Hwaek pendant que les guides règlent leurs différends entre eux.</p>
+
+                    <p>Suite à l'excès de probabilité et l'équilibre qui s'est brisé, un great hole surplombe le centre ville.</p>
+                </div>
+            </div>
+
+            <!-- 6 Octobre -->
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">6 Oct</div>
+                    <div class="time">--:--</div>
+                </div>
+                <div class="timeline-content">
+                    <h3>Préparation au Peace Land</h3>
+                    <p>À la station yongsan, à l'ouest du centre ville, Iseul Seungli, nouvellement reine, a rassemblé ses sujets. C'est à l'occasion du sixième scénario qu'une interface bleutée est apparue pour les amener ici.</p>
+
+                    <p>Dix personnes ont été sélectionnées et se sont approchées du portail ouvert par le Warp Crystal - Direction Peace Land.</p>
+
+                    <p>Malheureusement un drame s'est produit. Un assassin masqué a agi au dernier moment pour tuer le chien de la reine, Hydro, et laisser une place à une dernière personne.</p>
+                </div>
+            </div>
+
+            <!-- 7 Octobre -->
+            <div class="timeline-item" data-category="scenario">
+                <div class="timeline-date">
+                    <div class="date">7 Oct</div>
+                    <div class="time">--:--</div>
+                </div>
                 <div class="timeline-content">
                     <h3>Compétition entre incarnations</h3>
-                    <p>Le début du scénario 7 a marqué une période de calme relatif pour les monstres, mais a intensifié
+                    <p>Le début du scénario 7 a marqué une période de calme relatif pour les monstres, mais a intensifié
                     la compétition entre incarnations.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-date">12 octobre</span>
-                <div class="timeline-content">
-                    <h3>Le Sacrifice le Plus Fort</h3>
-                    <p>Un scénario de difficulté S a frappé Séoul, exigeant soit la mort de la moitié des incarnations,
-                    soit celle de l'incarnation la plus puissante.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-date">15 octobre</span>
-                <div class="timeline-content">
-                    <h3>Le Dark Castle apparaît</h3>
-                    <p>Une île volante avec un immense château est apparue au-dessus de Geoyeo-dong, accessible par des
-                    roches lévitantes.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-date">1er novembre</span>
-                <div class="timeline-content">
-                    <h3>Assaut du Neufième Serveur</h3>
-                    <p>Des incarnations d'un serveur voisin ont tenté d'envahir Séoul, déclenchant un conflit violent
-                    mais héroïque.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <span class="timeline-date">25 novembre</span>
-                <div class="timeline-content">
-                    <h3>L'Éclipse Sanglante</h3>
-                    <p>Lors d'une éclipse, une vague de monstres déchaînés a déferlé sur la ville, mettant à
-                    l'épreuve toutes les incarnations.</p>
                 </div>
             </div>
         </div>
@@ -81,13 +421,45 @@
     text-align: center;
 }
 
+.timeline-nav {
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.filter-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-blue);
+    color: var(--bg-dark);
+    border-color: var(--accent-blue);
+}
+
 .timeline {
     position: relative;
     margin-left: var(--spacing-lg);
     padding-left: var(--spacing-lg);
     border-left: 2px solid var(--accent-teal);
 }
-
 .timeline-item {
     position: relative;
     margin-bottom: var(--spacing-lg);
@@ -96,7 +468,6 @@
     transform: translateX(-20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .timeline-item.in-view {
     opacity: 1;
     transform: translateX(0);
@@ -114,11 +485,32 @@
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 
+.timeline-item.highlight::before {
+    background-color: var(--accent-red);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    width: 16px;
+    height: 16px;
+}
+
 .timeline-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: -90px;
+    top: 0;
+    width: 70px;
+    text-align: center;
+}
+
+.timeline-date .date {
     font-weight: 600;
     color: var(--accent-blue);
-    display: block;
-    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-date .time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 .timeline-content {
@@ -127,12 +519,89 @@
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
 .timeline-content h3 {
     margin-top: 0;
     color: var(--accent-gold);
 }
+
 .timeline-content p {
-    margin-bottom: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.scenario-card {
+    margin-top: var(--spacing-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.scenario-header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: var(--spacing-sm);
+}
+
+.scenario-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+    font-weight: bold;
+    margin-right: var(--spacing-sm);
+}
+
+.scenario-type {
+    background-color: var(--accent-teal);
+    color: var(--bg-dark);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: var(--spacing-sm);
+}
+
+.scenario-header h4 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.scenario-details {
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.scenario-details p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.contributors, .event-details {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.contributors h4, .event-details h4 {
+    margin-top: 0;
+    color: var(--accent-teal);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.contributors ul, .event-details ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.contributors li, .event-details li {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
 }
 </style>
 {% endblock %}
@@ -142,6 +611,9 @@
 // Animation d'apparition des éléments de la chronologie
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.timeline-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    // Animation d'apparition
     function checkItems() {
         items.forEach(item => {
             const rect = item.getBoundingClientRect();
@@ -150,6 +622,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Filtrage des événements
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+
+            // Mise à jour des boutons actifs
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filtrage des éléments
+            items.forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    const categories = item.getAttribute('data-category');
+                    if (categories && categories.includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+
+            // Réinitialiser les animations
+            setTimeout(checkItems, 100);
+        });
+    });
+
     checkItems();
     window.addEventListener('scroll', checkItems);
 });
