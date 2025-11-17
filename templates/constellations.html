@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Constellations{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>✨ Constellations</h1>
+        <p class="subtitle">Découvrez les sponsors célestes qui veillent sur les incarnations</p>
+    </div>
+</section>
+
+<section class="constellation-intro">
+    <div class="container">
+        <p>Les constellations sont des entités mythiques, historiques ou légendaires qui observent les scénarios
+        et soutiennent les incarnations dignes de leur intérêt. Elles offrent des compétences, des pièces et des
+        bénédictions en échange de récits mémorables.</p>
+    </div>
+</section>
+
+<section class="constellation-grid">
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-dragon"></i></div>
+                <h3>Mythiques</h3>
+                <p>Des dieux et créatures des mythes qui cherchent à revivre leurs légendes à travers vos exploits.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-landmark"></i></div>
+                <h3>Historiques</h3>
+                <p>Des figures historiques célèbres qui apportent leur expérience et leurs enseignements.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-meteor"></i></div>
+                <h3>Légendaires</h3>
+                <p>Des récits oubliés et des héros de contes qui désirent écrire de nouveaux chapitres.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="constellation-cta">
+    <div class="container">
+        <h2>Choisissez votre guide céleste</h2>
+        <p>En créant votre incarnation, vous pourrez attirer l'attention d'une constellation et bénéficier de son
+        patronage. Sautez le pas et faites briller votre histoire dans le Star Stream.</p>
+        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page des constellations */
+.constellation-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.constellation-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.constellation-grid .grid-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.constellation-grid .grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.constellation-grid .icon {
+    font-size: 2.5rem;
+    color: var(--accent-purple);
+    margin-bottom: var(--spacing-sm);
+}
+
+.constellation-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--secondary-dark);
+}
+
+.constellation-cta h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.constellation-cta p {
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+{% endblock %}

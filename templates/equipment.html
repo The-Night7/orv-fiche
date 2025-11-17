@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Équipements{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>🛡️ Équipements</h1>
+        <p class="subtitle">Armes, armures et reliques pour renforcer votre incarnation</p>
+    </div>
+</section>
+
+<section class="equipment-intro">
+    <div class="container">
+        <p>Dans un monde régi par les scénarios, votre équipement fait la différence entre la survie et la mort.
+        Armes tranchantes, armures protectrices ou artefacts mystérieux – tout est à votre disposition pour
+        affronter les dangers du Star Stream.</p>
+    </div>
+</section>
+
+<section class="equipment-grid">
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-sword"></i></div>
+                <h3>Armes</h3>
+                <p>Épées, lances, arcs et armes modernes. Chaque arme possède des propriétés uniques adaptées à
+                différents styles de combat.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Armures</h3>
+                <p>Des protections allant du cuir enchanté aux armures en mithril. Elles absorbent les coups et
+                améliorent vos statistiques de défense.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-gem"></i></div>
+                <h3>Artefacts</h3>
+                <p>Reliques rares dotées de pouvoirs extraordinaires. Elles sont souvent liées à des constellations
+                spécifiques et exigent un prix élevé.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="equipment-cta">
+    <div class="container">
+        <h2>Optimisez votre arsenal</h2>
+        <p>Choisissez judicieusement votre équipement pour relever les défis les plus ardus. Combinez armes,
+        armures et artefacts pour créer la synergie parfaite.</p>
+        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page des équipements */
+.equipment-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.equipment-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.equipment-grid .grid-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.equipment-grid .grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.equipment-grid .icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.equipment-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--secondary-dark);
+}
+
+.equipment-cta h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.equipment-cta p {
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+{% endblock %}

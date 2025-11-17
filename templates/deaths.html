@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Liste des morts{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>💀 Liste des morts</h1>
+        <p class="subtitle">Honorez les incarnations qui ont quitté la scène</p>
+    </div>
+</section>
+
+<section class="deaths-intro">
+    <div class="container">
+        <p>Cette page est un mémorial dédié aux incarnations qui ont perdu la vie au cours des scénarios.
+        Chaque histoire est un rappel de la brutalité du Star Stream et de la valeur du sacrifice.</p>
+    </div>
+</section>
+
+<section class="death-list">
+    <div class="container">
+        <div class="death-card">
+            <h3>Jung Heewon</h3>
+            <p><strong>Cause :</strong> S'est sacrifiée pour sauver une équipe entière lors du scénario 12.</p>
+            <p><strong>Scénario :</strong> Le Voyage des Saints</p>
+        </div>
+        <div class="death-card">
+            <h3>Lee Hyunsung</h3>
+            <p><strong>Cause :</strong> Mort au combat contre un roi démoniaque au scénario 8.</p>
+            <p><strong>Scénario :</strong> L'Arène du Roi</p>
+        </div>
+        <div class="death-card">
+            <h3>Anonyme</h3>
+            <p><strong>Cause :</strong> Mauvais choix lors d'un scénario optionnel.</p>
+            <p><strong>Scénario :</strong> La Bibliothèque Interdite</p>
+        </div>
+        <!-- Ajoutez d'autres entrées ici au fil du temps -->
+    </div>
+</section>
+
+<section class="deaths-cta">
+    <div class="container">
+        <h2>Un dernier hommage</h2>
+        <p>Chaque incarnation tombée nous rappelle de vivre pleinement et de poursuivre leur héritage. Continuez
+        l'histoire et assurez-vous que leurs sacrifices ne soient pas vains.</p>
+        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page des morts */
+.deaths-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.death-list .death-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.death-list .death-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.death-list .death-card h3 {
+    color: var(--danger);
+    margin-bottom: var(--spacing-xs);
+}
+
+.deaths-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--secondary-dark);
+}
+
+.deaths-cta h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.deaths-cta p {
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+{% endblock %}

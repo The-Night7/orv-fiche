@@ -3,62 +3,262 @@
 {% block title %}Lecteur Omniscient - Contexte du monde{% endblock %}
 
 {% block content %}
-<section class="page-header">
+<section class="page-header parallax-bg">
     <div class="container">
-        <h1>🌍 Contexte du monde</h1>
-        <p class="subtitle">Découvrez l'univers du Star Stream et les fondements de l'apocalypse</p>
+        <h1 class="glowing-title">🌍 Contexte du monde</h1>
+        <p class="subtitle fade-in">Découvrez l'univers du Star Stream et les fondements de l'apocalypse</p>
     </div>
 </section>
 
 <section class="context-section">
     <div class="container">
         <div class="content-card">
-            <h2>Le Star Stream</h2>
-            
-            <div class="context-intro">
-                <p>Dans un monde autrefois tout à fait normal se déroule aujourd'hui ce que les gens appellent la fin du monde.</p>
-                <p>Cette histoire se déroule dorénavant sur une Terre dominée par le <strong>'Star Stream'</strong>, un système où les individus doivent surmonter divers défis appelés <strong>'scénarios'</strong>. Ces scénarios sont (re)diffusés par des dokkaebis à des êtres supérieurs appelés <strong>'Constellations'</strong> pour leur divertissement.</p>
+            <div class="section-heading">
+                <span class="heading-icon"><i class="fas fa-meteor"></i></span>
+                <h2>Le Star Stream</h2>
             </div>
-            
+
+            <div class="context-intro">
+                <p class="lead">Dans un monde autrefois tout à fait normal se déroule aujourd'hui ce que les gens appellent la fin du monde.</p>
+                <p>Cette histoire se déroule dorénavant sur une Terre dominée par le <strong class="highlight-text">Star Stream</strong>, un système cosmique où les individus doivent surmonter divers défis appelés <strong class="highlight-text">scénarios</strong>. Ces scénarios sont (re)diffusés par des dokkaebis à des êtres supérieurs appelés <strong class="highlight-text">Constellations</strong> pour leur divertissement.</p>
+                <blockquote class="stream-quote">
+                    "Le Star Stream est le théâtre cosmique où la tragédie et la comédie humaine se déroulent pour l'amusement des dieux..."
+                    <cite>— Un dokkaebi anonyme</cite>
+                </blockquote>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"><span>1</span></div>
+                    <div class="timeline-content">
+                        <h4>L'Éveil du Stream</h4>
+                        <p>Le jour où les cieux se sont ouverts et où le premier scénario a commencé. Des millions sont morts, ne laissant que les plus adaptables.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"><span>2</span></div>
+                    <div class="timeline-content">
+                        <h4>L'Émergence des Incarnations</h4>
+                        <p>Les survivants deviennent des "Incarnations", forcés de participer aux scénarios ou de périr.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"><span>3</span></div>
+                    <div class="timeline-content">
+                        <h4>L'Ère des Constellations</h4>
+                        <p>Le présent - un monde où les mythes anciens et les légendes prennent vie sous la forme des Constellations.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="info-columns">
                 <div class="info-column">
                     <div class="info-icon"><i class="fas fa-user-astronaut"></i></div>
                     <h3>Les Incarnations</h3>
-                    <p>Chaque <strong>'Incarnation'</strong> (être humain participant aux scénarios) se voit offrir le choix entre une ou plusieurs constellations comme sponsor. Celles-ci participent même à des scénarios. Ce sont des entités historiques, divines ou mythologiques qui parrainent des incarnations, leur accordent des pouvoirs et des pièces en échange de la notoriété que les incarnations amènent.</p>
+                    <p>Chaque <strong>Incarnation</strong> (être humain participant aux scénarios) se voit offrir le choix entre une ou plusieurs constellations comme sponsor. Celles-ci participent même à des scénarios.</p>
+                    <p>Ce sont des entités historiques, divines ou mythologiques qui parrainent des incarnations, leur accordant des pouvoirs et des pièces en échange de la notoriété que les incarnations amènent.</p>
+                    <div class="stat-box">
+                        <div class="stat-item">
+                            <span class="stat-value">73%</span>
+                            <span class="stat-label">Taux de mortalité lors du 1er scénario</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">12%</span>
+                            <span class="stat-label">Incarnations avec sponsors</span>
+                        </div>
+                    </div>
                 </div>
-                
+
                 <div class="info-column">
                     <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
                     <h3>Le Dôme de Séoul</h3>
-                    <p>Le serveur prend place à <strong>Séoul</strong> au moment où l'apocalypse débute. Vous aurez maintenant le choix : vous faire des alliés, rester seul pour garder toute la gloire ou même chercher à ramener l'ancien monde.</p>
+                    <p>Le serveur prend place à <strong>Séoul</strong> au moment où l'apocalypse débute. La ville est désormais enfermée dans un gigantesque dôme créé par le Star Stream, isolant ses habitants du reste du monde.</p>
+                    <p>À l'intérieur, des quartiers entiers ont été transformés, des créatures mythologiques rôdent, et des factions se sont formées pour tenter de survivre ou de dominer.</p>
+                    <div class="location-map">
+                        <div class="map-marker" data-location="Gare de Séoul"><span></span></div>
+                        <div class="map-marker" data-location="Tour Namsan"><span></span></div>
+                        <div class="map-marker" data-location="District commercial"><span></span></div>
+                        <div class="map-overlay">Survolez pour découvrir les zones clés</div>
+                    </div>
+                </div>
+
+                <div class="info-column">
+                    <div class="info-icon"><i class="fas fa-book-dead"></i></div>
+                    <h3>Les Dokkaebis</h3>
+                    <p>Ces entités mystérieuses sont les administrateurs du Star Stream. Ils créent et supervisent les scénarios, commentent les actions des incarnations et servent d'intermédiaires entre les incarnations et les constellations.</p>
+                    <p>Mi-démons, mi-dieux, les dokkaebis sont connus pour leur nature imprévisible et leur amour du chaos et du divertissement.</p>
+                    <div class="dokkaebi-ranks">
+                        <span class="rank">Intermédiaire</span>
+                        <span class="rank">Modérateur</span>
+                        <span class="rank">Grand Archiviste</span>
+                        <span class="rank">Maître du Stream</span>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="content-card">
-            <h2>La nouvelle réalité</h2>
+            <div class="section-heading">
+                <span class="heading-icon"><i class="fas fa-dice-d20"></i></span>
+                <h2>La nouvelle réalité</h2>
+            </div>
             <p>Dans ce nouveau monde régit par les scénarios, l'humanité doit s'adapter rapidement pour survivre. Les incarnations qui réussissent à compléter les scénarios gagnent des récompenses, des compétences et la faveur des constellations.</p>
-            
+
+            <div class="rules-container">
+                <h3 class="rules-title">Les règles du Stream</h3>
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <div class="rule-number">01</div>
+                        <h4>Accomplir ou mourir</h4>
+                        <p>Échouer à un scénario entraîne généralement la mort, sauf rares exceptions.</p>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-number">02</div>
+                        <h4>Pactes stellaires</h4>
+                        <p>Les contrats avec les constellations sont inviolables et scellés par le Star Stream lui-même.</p>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-number">03</div>
+                        <h4>Évolution constante</h4>
+                        <p>Les incarnations doivent constamment s'améliorer ou risquer d'être dépassées.</p>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-number">04</div>
+                        <h4>Narrativité</h4>
+                        <p>Le Stream favorise les actions qui génèrent une bonne "histoire" pour les spectateurs.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="highlight-box">
                 <div class="highlight-icon"><i class="fas fa-exclamation-triangle"></i></div>
                 <div class="highlight-content">
                     <h4>Important à savoir</h4>
                     <p>Le monde tel que vous le connaissiez n'existe plus. Les animaux ont été remplacés par des monstres, les lois humaines ont été supplantées par les règles du Star Stream, et la survie dépend désormais de votre capacité à naviguer dans ce nouveau système.</p>
+                    <p>La monnaie traditionnelle est devenue obsolète, remplacée par les <strong>pièces du Stream</strong>, la seule devise reconnue par les marchands et les dokkaebis.</p>
                 </div>
             </div>
-            
-            <p>Avec l'apparition des dokkaebis, des constellations et des monstres, la Terre est devenue un terrain de jeu où les humains sont à la fois acteurs et divertissement. Seules les incarnations les plus adaptables et stratégiques pourront s'élever au-dessus du chaos.</p>
+
+            <div class="world-features">
+                <div class="feature">
+                    <i class="fas fa-dragon"></i>
+                    <h4>Créatures mythiques</h4>
+                    <p>Des créatures sorties tout droit des légendes et des mythes du monde entier ont fait leur apparition.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Pouvoirs et aptitudes</h4>
+                    <p>Des capacités surnaturelles peuvent être obtenues en progressant dans les scénarios.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <h4>Factions émergentes</h4>
+                    <p>Différents groupes se sont formés avec leurs propres idéologies et objectifs.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-store"></i>
+                    <h4>Marchés du Stream</h4>
+                    <p>Des marchés clandestins où s'échangent compétences, objets et informations.</p>
+                </div>
+            </div>
+
+            <p class="conclusion-text">Avec l'apparition des dokkaebis, des constellations et des monstres, la Terre est devenue un terrain de jeu où les humains sont à la fois acteurs et divertissement. Seules les incarnations les plus adaptables et stratégiques pourront s'élever au-dessus du chaos et peut-être un jour défier le système même du Star Stream.</p>
+        </div>
+
+        <div class="content-card">
+            <div class="section-heading">
+                <span class="heading-icon"><i class="fas fa-star"></i></span>
+                <h2>Les Constellations</h2>
+            </div>
+            <p>Les Constellations sont des êtres transcendants qui existent dans un plan supérieur. Elles représentent des figures mythologiques, des dieux anciens, des héros légendaires et d'autres entités qui ont marqué l'histoire ou les mythes de l'humanité.</p>
+
+            <div class="constellation-categories">
+                <div class="category-tab" data-category="mythological">Mythologiques</div>
+                <div class="category-tab" data-category="historical">Historiques</div>
+                <div class="category-tab" data-category="conceptual">Conceptuelles</div>
+            </div>
+
+            <div class="constellation-gallery">
+                <div class="constellation-card">
+                    <div class="constellation-image" style="background-image: url('/static/images/zeus.jpg')"></div>
+                    <div class="constellation-info">
+                        <h4>Zeus</h4>
+                        <p class="constellation-type">Dieu du Ciel et du Tonnerre</p>
+                        <p>Maître de l'Olympe et roi des dieux grecs, Zeus est l'une des constellations les plus puissantes.</p>
+                    </div>
+                </div>
+                <div class="constellation-card">
+                    <div class="constellation-image" style="background-image: url('/static/images/sunwukong.jpg')"></div>
+                    <div class="constellation-info">
+                        <h4>Sun Wukong</h4>
+                        <p class="constellation-type">Le Roi Singe</p>
+                        <p>Rusé et rebelle, cette constellation est connue pour parrainer des incarnations imprévisibles.</p>
+                    </div>
+                </div>
+                <div class="constellation-card">
+                    <div class="constellation-image" style="background-image: url('/static/images/secretariat.jpg')"></div>
+                    <div class="constellation-info">
+                        <h4>Secrétariat</h4>
+                        <p class="constellation-type">L'Administration du Stream</p>
+                        <p>Une constellation mystérieuse qui semble gérer les aspects bureaucratiques du Star Stream.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="constellation-quote">
+                <p>"Nous observons. Nous influençons. Nous existons à travers les histoires que vous créez."</p>
+                <cite>— Message collectif des Constellations</cite>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="join-section">
+<section class="join-section parallax-bg">
     <div class="container">
-        <h2>Prêt à rejoindre l'aventure ?</h2>
-        <p class="lead-text">Créez votre propre personnage et plongez dans l'univers du Star Stream</p>
-        <div class="cta-buttons">
-            <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
-            <a href="{{ url_for('constellations') }}" class="cta-button secondary">Découvrir les constellations</a>
+        <div class="join-content">
+            <h2 class="glowing-title">Prêt à rejoindre l'aventure ?</h2>
+            <p class="lead-text">Créez votre propre personnage et plongez dans l'univers du Star Stream</p>
+            <div class="character-preview">
+                <div class="character-silhouette"></div>
+                <div class="character-prompt">
+                    <p>Qui serez-vous dans ce nouveau monde?</p>
+                    <p>Un guerrier intrépide? Un stratège rusé? Un survivant solitaire?</p>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('character_sheet') }}" class="cta-button primary pulse">Créer votre personnage</a>
+                <a href="{{ url_for('constellations') }}" class="cta-button secondary glow">Découvrir les constellations</a>
+                <a href="{{ url_for('scenarios') }}" class="cta-button tertiary">Explorer les scénarios</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="container">
+        <h2>Questions fréquentes</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">Comment les scénarios fonctionnent-ils?</div>
+                <div class="accordion-content">
+                    <p>Les scénarios sont des défis ou des missions imposés par le Star Stream. Ils peuvent prendre diverses formes : batailles, énigmes, survie, négociations... Chaque scénario possède ses propres règles, conditions de victoire et récompenses.</p>
+                    <p>Les dokkaebis annoncent le début d'un scénario et expliquent ses règles. Une fois qu'un scénario commence, les participants doivent le terminer ou en subir les conséquences.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">Que sont les attributs et les compétences?</div>
+                <div class="accordion-content">
+                    <p>Les attributs représentent les caractéristiques fondamentales de votre personnage (Force, Agilité, Intelligence, etc.), tandis que les compétences sont des capacités spécifiques que votre personnage peut développer au fil du temps.</p>
+                    <p>Certaines compétences sont génériques, d'autres sont liées à des constellations particulières. Plus votre lien avec une constellation est fort, plus les compétences qu'elle vous accorde peuvent devenir puissantes.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">Est-il possible de quitter le dôme de Séoul?</div>
+                <div class="accordion-content">
+                    <p>Le dôme de Séoul est actuellement infranchissable. Plusieurs tentatives ont été faites pour le percer ou le contourner, mais toutes ont échoué. Des rumeurs circulent sur l'existence d'autres dômes similaires dans d'autres grandes villes du monde.</p>
+                    <p>Certains croient que seuls les incarnations qui atteignent les niveaux les plus élevés du Star Stream pourront un jour voyager entre les dômes ou même quitter complètement le système.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -66,113 +266,841 @@
 
 {% block extra_css %}
 <style>
+    :root {
+        --constellation-blue: #3498db;
+        --stream-purple: #9b59b6;
+        --warning-orange: #e67e22;
+        --success-green: #2ecc71;
+    }
+
+    .page-header {
+        padding: var(--spacing-xl) 0;
+        position: relative;
+        overflow: hidden;
+        background-image: url('/static/images/stars-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,40,0.9) 100%);
+        z-index: 1;
+    }
+
+    .page-header .container {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .glowing-title {
+        text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(52, 152, 219, 0.9), 0 0 30px rgba(155, 89, 182, 0.7);
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s ease forwards;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+
     .context-section {
         padding: var(--spacing-xl) 0;
+        background-color: var(--primary-dark);
+        background-image: radial-gradient(circle at 50% 50%, rgba(20, 20, 40, 1) 0%, rgba(10, 10, 25, 1) 100%);
     }
-    
+
     .content-card {
         background-color: rgba(255, 255, 255, 0.03);
-        border-radius: 8px;
+        border-radius: 12px;
         padding: var(--spacing-lg);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        margin-bottom: var(--spacing-lg);
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+        margin-bottom: var(--spacing-xl);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
+    .content-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal), var(--accent-gold));
+        z-index: 1;
+    }
+
+    .section-heading {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--spacing-lg);
+        position: relative;
+        padding-bottom: var(--spacing-sm);
+    }
+
+    .section-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-gold), transparent);
+    }
+
+    .heading-icon {
+        margin-right: var(--spacing-sm);
+        font-size: 1.8rem;
+        color: var(--accent-gold);
+    }
+
     .context-intro {
         border-left: 3px solid var(--accent-gold);
         padding-left: var(--spacing-md);
-        margin: var(--spacing-md) 0;
+        margin: var(--spacing-md) 0 var(--spacing-lg);
     }
-    
+
+    .context-intro .lead {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--text-light);
+        letter-spacing: 0.5px;
+    }
+
+    .highlight-text {
+        color: var(--accent-teal);
+        font-weight: 600;
+        position: relative;
+    }
+
+    .highlight-text::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent-teal);
+        opacity: 0.5;
+    }
+
+    .stream-quote {
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--text-light);
+        padding: var(--spacing-md);
+        background-color: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+        position: relative;
+        margin: var(--spacing-lg) 0;
+    }
+
+    .stream-quote::before {
+        content: '"';
+        position: absolute;
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.1);
+        top: -10px;
+        left: 5px;
+    }
+
+    .stream-quote cite {
+        display: block;
+        text-align: right;
+        margin-top: var(--spacing-sm);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    .timeline {
+        margin: var(--spacing-xl) 0;
+        position: relative;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 24px;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent-gold), transparent);
+    }
+
+    .timeline-item {
+        display: flex;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .timeline-marker {
+        width: 50px;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .timeline-marker span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: var(--primary-dark);
+        border: 2px solid var(--accent-gold);
+        color: var(--accent-gold);
+        font-weight: bold;
+        z-index: 2;
+    }
+
+    .timeline-content {
+        flex-grow: 1;
+        padding: var(--spacing-sm) var(--spacing-md);
+        background-color: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+        border-left: 2px solid var(--accent-teal);
+    }
+
+    .timeline-content h4 {
+        color: var(--accent-gold);
+        margin-bottom: var(--spacing-xs);
+    }
+
     .info-columns {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: var(--spacing-lg);
-        margin-top: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
     }
-    
+
     .info-column {
         text-align: center;
-        padding: var(--spacing-md);
-        background-color: rgba(255, 255, 255, 0.02);
-        border-radius: 8px;
-        transition: transform 0.3s ease;
+        padding: var(--spacing-lg);
+        background-color: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
-    
+
+    .info-column::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 70%);
+        z-index: -1;
+    }
+
     .info-column:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
-    
+
     .info-icon {
         font-size: 2.5rem;
         color: var(--accent-teal);
         margin-bottom: var(--spacing-md);
+        height: 70px;
+        width: 70px;
+        line-height: 70px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.3);
+        margin: 0 auto var(--spacing-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 15px rgba(41, 128, 185, 0.4);
     }
-    
+
     .info-column h3 {
         color: var(--accent-gold);
         margin-bottom: var(--spacing-md);
+        position: relative;
+        display: inline-block;
     }
-    
+
+    .info-column h3::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 2px;
+        background-color: var(--accent-gold);
+    }
+
+    .stat-box {
+        display: flex;
+        justify-content: space-around;
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-value {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--warning);
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .location-map {
+        height: 150px;
+        background-image: url('/static/images/seoul-map.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        margin-top: var(--spacing-md);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .map-marker {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    .map-marker span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--accent-gold);
+        position: relative;
+        top: 5px;
+        left: 5px;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7);
+        }
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(230, 126, 34, 0);
+        }
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+        }
+    }
+
+    .map-marker[data-location="Gare de Séoul"] {
+        top: 60%;
+        left: 30%;
+    }
+
+    .map-marker[data-location="Tour Namsan"] {
+        top: 40%;
+        left: 65%;
+    }
+
+    .map-marker[data-location="District commercial"] {
+        top: 30%;
+        left: 20%;
+    }
+
+    .map-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--text-light);
+        padding: 5px;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .dokkaebi-ranks {
+        margin-top: var(--spacing-md);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .rank {
+        padding: 5px 10px;
+        border-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.3);
+        font-size: 0.8rem;
+        color: var(--text-light);
+    }
+
+    .rules-container {
+        margin: var(--spacing-lg) 0;
+    }
+
+    .rules-title {
+        text-align: center;
+        margin-bottom: var(--spacing-md);
+        color: var(--text-light);
+        font-size: 1.4rem;
+    }
+
+    .rules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .rule-card {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        padding: var(--spacing-md);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .rule-number {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        opacity: 0.2;
+        color: var(--accent-gold);
+    }
+
+    .rule-card h4 {
+        position: relative;
+        z-index: 1;
+        color: var(--accent-gold);
+        margin-bottom: var(--spacing-sm);
+    }
+
     .highlight-box {
         display: flex;
-        background-color: rgba(255, 152, 0, 0.1);
-        border-left: 4px solid var(--warning);
+        background-color: rgba(230, 126, 34, 0.1);
+        border-left: 4px solid var(--warning-orange);
         padding: var(--spacing-md);
-        margin: var(--spacing-md) 0;
-        border-radius: 4px;
+        margin: var(--spacing-lg) 0;
+        border-radius: 8px;
     }
-    
+
     .highlight-icon {
         font-size: 2rem;
-        color: var(--warning);
+        color: var(--warning-orange);
         margin-right: var(--spacing-md);
         display: flex;
         align-items: center;
     }
-    
+
     .highlight-content {
         flex: 1;
     }
-    
+
     .highlight-content h4 {
-        color: var(--warning);
+        color: var(--warning-orange);
         margin-bottom: var(--spacing-xs);
     }
-    
-    .highlight-content p {
-        margin: 0;
+
+    .world-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-md);
+        margin: var(--spacing-lg) 0;
     }
-    
+
+    .feature {
+        text-align: center;
+        padding: var(--spacing-md);
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+        transform: translateY(-3px);
+    }
+
+    .feature i {
+        font-size: 2rem;
+        color: var(--accent-teal);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .feature h4 {
+        color: var(--text-light);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .conclusion-text {
+        font-style: italic;
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .constellation-categories {
+        display: flex;
+        justify-content: center;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .category-tab {
+        padding: 8px 15px;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: var(--text-muted);
+        border-radius: 20px;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+    }
+
+    .category-tab:hover, .category-tab.active {
+        background-color: rgba(52, 152, 219, 0.2);
+        color: var(--text-light);
+    }
+
+    .constellation-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-md);
+        margin: var(--spacing-lg) 0;
+    }
+
+    .constellation-card {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .constellation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .constellation-image {
+        height: 160px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .constellation-info {
+        padding: var(--spacing-md);
+    }
+
+    .constellation-info h4 {
+        color: var(--accent-gold);
+        margin-bottom: 5px;
+    }
+
+    .constellation-type {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+    }
+
+    .constellation-quote {
+        font-style: italic;
+        text-align: center;
+        padding: var(--spacing-md);
+        color: var(--text-light);
+        background-color: rgba(52, 152, 219, 0.1);
+        border-radius: 8px;
+        margin-top: var(--spacing-lg);
+    }
+
+    .constellation-quote cite {
+        display: block;
+        margin-top: var(--spacing-xs);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
     .join-section {
-        background-color: var(--secondary-dark);
+        background-image: url('/static/images/apocalypse-bg.jpg');
+        position: relative;
         padding: var(--spacing-xl) 0;
         text-align: center;
     }
-    
+
+    .join-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(10,10,25,0.9) 0%, rgba(20,20,40,0.8) 100%);
+        z-index: 1;
+    }
+
+    .join-content {
+        position: relative;
+        z-index: 2;
+    }
+
     .join-section .lead-text {
         font-size: 1.2rem;
         margin-bottom: var(--spacing-lg);
         color: var(--text-light);
     }
-    
+
+    .character-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: var(--spacing-lg) 0;
+        gap: var(--spacing-lg);
+    }
+
+    .character-silhouette {
+        width: 150px;
+        height: 200px;
+        background-image: url('/static/images/character-silhouette.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.7;
+    }
+
+    .character-prompt {
+        text-align: left;
+        color: var(--text-light);
+    }
+
     .join-section .cta-buttons {
         display: flex;
         justify-content: center;
         gap: var(--spacing-md);
         flex-wrap: wrap;
     }
-    
+
+    .cta-button {
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .cta-button.primary {
+        background-color: var(--accent-gold);
+        color: var(--primary-dark);
+    }
+
+    .cta-button.secondary {
+        background-color: transparent;
+        color: var(--accent-teal);
+        border: 2px solid var(--accent-teal);
+    }
+
+    .cta-button.tertiary {
+        background-color: transparent;
+        color: var(--text-light);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-button.primary:hover {
+        background-color: #e5c07b;
+        transform: translateY(-3px);
+    }
+
+    .cta-button.secondary:hover {
+        background-color: rgba(41, 128, 185, 0.1);
+        transform: translateY(-3px);
+    }
+
+    .cta-button.tertiary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        transform: translateY(-3px);
+    }
+
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    .glow {
+        animation: glow 2s infinite alternate;
+    }
+
+    .faq-section {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--primary-darker);
+    }
+
+    .faq-section h2 {
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+        color: var(--text-light);
+    }
+
+    .accordion {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .accordion-item {
+        margin-bottom: var(--spacing-sm);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .accordion-header {
+        padding: var(--spacing-md);
+        background-color: rgba(255, 255, 255, 0.03);
+        color: var(--text-light);
+        cursor: pointer;
+        position: relative;
+        font-weight: 600;
+    }
+
+    .accordion-header::after {
+        content: '+';
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--accent-gold);
+    }
+
+    .accordion-item.active .accordion-header::after {
+        content: '−';
+    }
+
+    .accordion-content {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-content {
+        padding: var(--spacing-md);
+        max-height: 500px;
+    }
+
     @media (max-width: 768px) {
+        .info-columns {
+            grid-template-columns: 1fr;
+        }
+
         .highlight-box {
             flex-direction: column;
         }
-        
+
         .highlight-icon {
             margin-right: 0;
             margin-bottom: var(--spacing-sm);
             justify-content: center;
         }
+
+        .character-preview {
+            flex-direction: column;
+        }
+
+        .timeline::before {
+            left: 18px;
+        }
+
+        .timeline-marker span {
+            width: 26px;
+            height: 26px;
+            font-size: 0.8rem;
+        }
     }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Accordion functionality
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+            const currentlyActive = document.querySelector('.accordion-item.active');
+            if(currentlyActive && currentlyActive !== item) {
+                currentlyActive.classList.remove('active');
+            }
+            item.classList.toggle('active');
+        });
+    });
+
+    // Map marker tooltips
+    const mapMarkers = document.querySelectorAll('.map-marker');
+    mapMarkers.forEach(marker => {
+        marker.addEventListener('mouseenter', () => {
+            const location = marker.getAttribute('data-location');
+            const overlay = document.querySelector('.map-overlay');
+            overlay.textContent = location;
+        });
+
+        marker.addEventListener('mouseleave', () => {
+            const overlay = document.querySelector('.map-overlay');
+            overlay.textContent = 'Survolez pour découvrir les zones clés';
+        });
+    });
+
+    // Constellation category tabs
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    categoryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            categoryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            // Here you would typically filter the constellations based on category
+        });
+    });
+
+    // Set first tab as active by default
+    categoryTabs[0].classList.add('active');
+});
+</script>
 {% endblock %}

@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Chronologie{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>⏳ Chronologie</h1>
+        <p class="subtitle">Revivez les moments clés du Star Stream</p>
+    </div>
+</section>
+
+<section class="timeline-intro">
+    <div class="container">
+        <p>Le Star Stream est en perpétuelle évolution. Cette chronologie récapitule les événements majeurs qui
+        ont façonné le serveur de Séoul jusqu'à présent. Cliquez sur chaque événement pour en apprendre plus sur
+        son impact.</p>
+    </div>
+</section>
+
+<section class="timeline-section">
+    <div class="container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">28 septembre</span>
+                <div class="timeline-content">
+                    <h3>Début du Star Stream</h3>
+                    <p>Le jour où la Terre a changé à jamais. Les scénarios ont commencé et l'ancien monde a pris fin.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">7 octobre</span>
+                <div class="timeline-content">
+                    <h3>Compétition entre incarnations</h3>
+                    <p>Le début du scénario 7 a marqué une période de calme relatif pour les monstres, mais a intensifié
+                    la compétition entre incarnations.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">12 octobre</span>
+                <div class="timeline-content">
+                    <h3>Le Sacrifice le Plus Fort</h3>
+                    <p>Un scénario de difficulté S a frappé Séoul, exigeant soit la mort de la moitié des incarnations,
+                    soit celle de l'incarnation la plus puissante.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">15 octobre</span>
+                <div class="timeline-content">
+                    <h3>Le Dark Castle apparaît</h3>
+                    <p>Une île volante avec un immense château est apparue au-dessus de Geoyeo-dong, accessible par des
+                    roches lévitantes.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">1er novembre</span>
+                <div class="timeline-content">
+                    <h3>Assaut du Neufième Serveur</h3>
+                    <p>Des incarnations d'un serveur voisin ont tenté d'envahir Séoul, déclenchant un conflit violent
+                    mais héroïque.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">25 novembre</span>
+                <div class="timeline-content">
+                    <h3>L'Éclipse Sanglante</h3>
+                    <p>Lors d'une éclipse, une vague de monstres déchaînés a déferlé sur la ville, mettant à
+                    l'épreuve toutes les incarnations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page de la chronologie */
+.timeline-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    margin-left: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+    border-left: 2px solid var(--accent-teal);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-md);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -var(--spacing-md);
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: var(--accent-blue);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-content {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--accent-gold);
+}
+.timeline-content p {
+    margin-bottom: 0;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Animation d'apparition des éléments de la chronologie
+document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.timeline-item');
+    function checkItems() {
+        items.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                item.classList.add('in-view');
+            }
+        });
+    }
+    checkItems();
+    window.addEventListener('scroll', checkItems);
+});
+</script>
+{% endblock %}

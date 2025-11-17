@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Monstres{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>👹 Monstres</h1>
+        <p class="subtitle">Affrontez les créatures qui hantent le Star Stream</p>
+    </div>
+</section>
+
+<section class="monsters-intro">
+    <div class="container">
+        <p>Les animaux ont disparu pour laisser place à des créatures issues des scénarios. Chaque zone recèle
+        ses propres abominations, des vermiens rampants jusqu'aux dragons gigantesques. Connaître votre ennemi
+        est la clé de votre survie.</p>
+    </div>
+</section>
+
+<section class="monster-grid">
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-spider"></i></div>
+                <h3>Vermiens</h3>
+                <p>Des créatures de petite taille mais nombreuses, parfaites pour les premières épreuves.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-paw"></i></div>
+                <h3>Prédateurs</h3>
+                <p>Des bêtes rapides et affamées, chassant en meute ou en solitaire. Prudence dans leurs domaines.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-skull-crossbones"></i></div>
+                <h3>Aberrations</h3>
+                <p>Des entités difformes issues de la corruption du monde. Leur force dépasse l'entendement.</p>
+            </div>
+            <div class="grid-item">
+                <div class="icon"><i class="fas fa-dragon"></i></div>
+                <h3>Abominations</h3>
+                <p>Dragons, rois démoniaques et autres monstres de fin de scénario, réservés aux plus téméraires.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="monster-cta">
+    <div class="container">
+        <h2>Préparez-vous au combat</h2>
+        <p>Maîtriser vos compétences et vous équiper correctement seront indispensables pour survivre. Consultez
+        les sections <a href="{{ url_for('skills') }}">Compétences</a> et <a href="{{ url_for('equipment') }}">Équipements</a> pour être prêt à affronter ces horreurs.</p>
+        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page des monstres */
+.monsters-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.monster-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.monster-grid .grid-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.monster-grid .grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.monster-grid .icon {
+    font-size: 2.5rem;
+    color: var(--accent-teal);
+    margin-bottom: var(--spacing-sm);
+}
+
+.monster-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--secondary-dark);
+}
+
+.monster-cta h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.monster-cta p {
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Stations{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>🚉 Stations</h1>
+        <p class="subtitle">Lieux emblématiques et points de passage du Star Stream</p>
+    </div>
+</section>
+
+<section class="stations-intro">
+    <div class="container">
+        <p>Les stations représentent des zones spéciales reliées au Star Stream. Certaines servent de refuge,
+        d'autres sont des arènes de combat ou des lieux chargés d'histoire. Explorez-les pour en comprendre
+        l'importance et trouver des ressources précieuses.</p>
+    </div>
+</section>
+
+<section class="stations-map">
+    <div class="container">
+        <img src="/img/carte_stations.png" alt="Carte des stations" class="map-image" loading="lazy">
+    </div>
+</section>
+
+<section class="stations-grid">
+    <div class="container">
+        <div class="grid">
+            <div class="station-card">
+                <h3>Hall Obscur</h3>
+                <p>Le point de départ de nombreuses incarnations. Un hall silencieux où les règles du Star Stream sont
+                expliquées pour la première fois.</p>
+            </div>
+            <div class="station-card">
+                <h3>District Céleste</h3>
+                <p>Un quartier suspendu dans le ciel où les incarnations peuvent se reposer et marchander des
+                équipements rares.</p>
+            </div>
+            <div class="station-card">
+                <h3>Arche du Jugement</h3>
+                <p>Une salle ancienne où les incarnations affrontent leur destin. Chaque épreuve réussie forge leur
+                légende.</p>
+            </div>
+            <div class="station-card">
+                <h3>Bibliothèque de la Saga</h3>
+                <p>Un lieu rempli de récits des incarnations passées. On dit que lire ces histoires apporte des
+                révélations et des compétences uniques.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stations-cta">
+    <div class="container">
+        <h2>Prêt pour l'exploration ?</h2>
+        <p>Chaque station abrite ses propres défis et trésors. Préparez votre incarnation et découvrez-les toutes.</p>
+        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page des stations */
+.stations-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.stations-map .map-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    margin: var(--spacing-md) 0;
+}
+
+.stations-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.station-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.station-card:hover {
+    transform: translateY(-5px);
+}
+
+.station-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stations-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--secondary-dark);
+}
+
+.stations-cta h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.stations-cta p {
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+{% endblock %}

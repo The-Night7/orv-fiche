@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient – Scénarios{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>📜 Scénarios</h1>
+        <p class="subtitle">Les épreuves imposées par le Star Stream</p>
+    </div>
+</section>
+
+<section class="scenarios-intro">
+    <div class="container">
+        <p>Les scénarios sont des défis que les incarnations doivent surmonter pour survivre et progresser dans le
+        Star Stream. Chaque scénario possède des règles, un objectif et une récompense. Leur difficulté augmente
+        progressivement, testant la force, l'intelligence et la détermination des participants.</p>
+    </div>
+</section>
+
+<section class="scenario-list">
+    <div class="container">
+        <div class="scenario-card">
+            <h3>Scénario 1 – Le Tutoriel</h3>
+            <p><strong>Objectif :</strong> Survivez à la première vague de monstres après l'apparition du Star Stream.</p>
+            <p><strong>Récompense :</strong> Pièces et première compétence.</p>
+            <p><strong>Différence :</strong> Facile</p>
+        </div>
+        <div class="scenario-card">
+            <h3>Scénario 3 – Le Pont Cassé</h3>
+            <p><strong>Objectif :</strong> Traversez un pont infesté de créatures sans être éliminé.</p>
+            <p><strong>Récompense :</strong> Accès à une nouvelle zone et bonus de vitalité.</p>
+            <p><strong>Différence :</strong> Moyen</p>
+        </div>
+        <div class="scenario-card">
+            <h3>Scénario 5 – Jeu d'Invasion</h3>
+            <p><strong>Objectif :</strong> Repoussez des hordes d'envahisseurs d'un serveur voisin.</p>
+            <p><strong>Récompense :</strong> Points de réputation et artefact rare.</p>
+            <p><strong>Différence :</strong> Difficile</p>
+        </div>
+        <div class="scenario-card">
+            <h3>Scénario 7 – Le Duel des Rois</h3>
+            <p><strong>Objectif :</strong> Affrontez d'autres incarnations pour déterminer un champion.</p>
+            <p><strong>Récompense :</strong> Soutien d'une constellation supérieure.</p>
+            <p><strong>Différence :</strong> Très difficile</p>
+        </div>
+        <div class="scenario-card">
+            <h3>Scénario 10 – Apocalypse</h3>
+            <p><strong>Objectif :</strong> Empêchez la destruction totale du serveur. Les conséquences sont
+            irréversibles.</p>
+            <p><strong>Récompense :</strong> Gloire éternelle ou la mort.</p>
+            <p><strong>Différence :</strong> Catastrophique</p>
+        </div>
+    </div>
+</section>
+
+<section class="scenarios-cta">
+    <div class="container">
+        <h2>Participerez-vous ?</h2>
+        <p>Les scénarios évoluent constamment et de nouvelles épreuves apparaissent. Soyez prêt à les affronter en
+        créant votre incarnation et en développant vos compétences.</p>
+        <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Styles spécifiques à la page des scénarios */
+.scenarios-intro {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.scenario-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.scenario-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.scenario-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.scenarios-cta {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background-color: var(--secondary-dark);
+}
+
+.scenarios-cta h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.scenarios-cta p {
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+{% endblock %}
