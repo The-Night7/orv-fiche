@@ -8,7 +8,7 @@ app.secret_key = 'lecteur_omniscient_secret_key'
 # Routes principales
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('main.html')
 
 @app.route('/rules')
 def rules():
