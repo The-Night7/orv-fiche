@@ -1,39 +1,406 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de personnage</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-<header>
-    <img src="/assets/img/logo.png" alt="Logo" id="logo">
-    <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/context">Contexte</a></li>
-            <li><a href="/character-sheet">Fiche de personnage</a></li>
-        </ul>
-    </nav>
-</header>
+{% extends "layout.html" %}
 
-<main>
-    <section class="character">
-        <h1>Fiche de Personnage</h1>
-        <h2>Informations de base</h2>
-        <p><strong>Nom:</strong> Yu<br><strong>Prénom:</strong> Seolha<br><strong>Age:</strong> 22 ans<br><strong>Sexe:</strong> Féminin</p>
-        <h2>Caractère</h2>
-        <p>Seolha est pragmatique et réserve ses émotions pour des moments cruciaux. Elle préfère l'efficacité à l'héroïsme inutile.</p>
-        <h2>Compétences</h2>
-        <ul>
-            <li>Vitalité : Niveau 3</li>
-            <li>Force physique : Niveau 4</li>
-            <li>Agilité : Niveau 2</li>
-        </ul>
-        <h2>Histoire</h2>
-        <p>Seolha a grandi en marge des grandes villes, cultivant des compétences pratiques de survie. Elle a su s'adapter aux épreuves imposées par le Star Stream, où elle a appris à survivre avec efficacité.</p>
-    </section>
-</main>
-</body>
-</html>
+{% block title %}Lecteur Omniscient - Créer votre fiche de personnage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/character_sheet.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="character-sheet-header">
+    <div class="container">
+        <h1>Créer votre incarnation</h1>
+        <p class="subtitle">Complétez les informations ci-dessous pour rejoindre le Star Stream</p>
+    </div>
+</section>
+
+<section class="character-sheet-form">
+    <div class="container">
+        <div class="form-wrapper">
+            <form id="character-form" action="{{ url_for('character_sheet') }}" method="post">
+                <!-- Onglets de navigation -->
+                <div class="tabs">
+                    <button type="button" class="tab-btn active" data-tab="basic-info">Informations de base</button>
+                    <button type="button" class="tab-btn" data-tab="character">Caractère</button>
+                    <button type="button" class="tab-btn" data-tab="appearance">Apparence</button>
+                    <button type="button" class="tab-btn" data-tab="abilities">Compétences</button>
+                    <button type="button" class="tab-btn" data-tab="constellation">Constellation</button>
+                    <button type="button" class="tab-btn" data-tab="history">Histoire</button>
+                </div>
+                
+                <!-- Section Informations de base -->
+                <div class="tab-content active" id="basic-info">
+                    <h3>𒆜 - Informations de base</h3>
+                    
+                    <div class="form-group">
+                        <label for="character-name">Nom</label>
+                        <input type="text" id="character-name" name="character-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-firstname">Prénom</label>
+                        <input type="text" id="character-firstname" name="character-firstname" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-age">Âge</label>
+                        <input type="number" id="character-age" name="character-age" min="16" max="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-birthday">Date de naissance</label>
+                        <input type="text" id="character-birthday" name="character-birthday" placeholder="Ex: 21 juin AAAA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-gender">Sexe</label>
+                        <select id="character-gender" name="character-gender" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="Masculin">Masculin</option>
+                            <option value="Féminin">Féminin</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-orientation">Orientation</label>
+                        <input type="text" id="character-orientation" name="character-orientation">
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" class="next-btn" data-next="character">Suivant</button>
+                    </div>
+                </div>
+                
+                <!-- Section Caractère -->
+                <div class="tab-content" id="character">
+                    <h3>𒆜 - Caractère</h3>
+                    
+                    <div class="form-group">
+                        <label for="character-trait1">Trait de caractère 1</label>
+                        <textarea id="character-trait1" name="character-trait1" rows="3" placeholder="Ex: Réservé et pragmatique"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-trait2">Trait de caractère 2</label>
+                        <textarea id="character-trait2" name="character-trait2" rows="3" placeholder="Ex: Loyauté sélective"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-trait3">Trait de caractère 3</label>
+                        <textarea id="character-trait3" name="character-trait3" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-trait4">Trait de caractère 4</label>
+                        <textarea id="character-trait4" name="character-trait4" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="character-trait5">Trait de caractère 5</label>
+                        <textarea id="character-trait5" name="character-trait5" rows="3"></textarea>
+                    </div>
+                    
+                    <h3>𒆜 - Goûts</h3>
+                    
+                    <div class="form-group">
+                        <textarea id="character-tastes" name="character-tastes" rows="5" placeholder="Décrivez les goûts et préférences de votre personnage"></textarea>
+                    </div>
+                    
+                    <h3>𒆜 - Passions</h3>
+                    
+                    <div class="form-group">
+                        <textarea id="character-passions" name="character-passions" rows="5" placeholder="Décrivez les passions et intérêts de votre personnage"></textarea>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn" data-prev="basic-info">Précédent</button>
+                        <button type="button" class="next-btn" data-next="appearance">Suivant</button>
+                    </div>
+                </div>
+                
+                <!-- Section Apparence -->
+                <div class="tab-content" id="appearance">
+                    <h3>𒆜 - Description physique</h3>
+                    
+                    <div class="form-group">
+                        <textarea id="physical-description" name="physical-description" rows="6" placeholder="Décrivez l'apparence physique de votre personnage (taille, silhouette, posture, etc.)"></textarea>
+                    </div>
+                    
+                    <h3>𒆜 - Signe distinctif</h3>
+                    
+                    <div class="form-group">
+                        <textarea id="distinctive-signs" name="distinctive-signs" rows="4" placeholder="Décrivez les signes distinctifs de votre personnage (cicatrices, marques, particularités physiques, etc.)"></textarea>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn" data-prev="character">Précédent</button>
+                        <button type="button" class="next-btn" data-next="abilities">Suivant</button>
+                    </div>
+                </div>
+                
+                <!-- Section Compétences -->
+                <div class="tab-content" id="abilities">
+                    <h3>𒆜 - Compétences générales</h3>
+                    
+                    <div class="skills-container">
+                        <div class="form-group">
+                            <label for="vitality">Vitalité</label>
+                            <div class="skill-level">
+                                <input type="range" id="vitality" name="vitality" min="1" max="10" value="1">
+                                <span class="level-display">1</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="physical-strength">Force physique</label>
+                            <div class="skill-level">
+                                <input type="range" id="physical-strength" name="physical-strength" min="1" max="10" value="1">
+                                <span class="level-display">1</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="agility">Agilité</label>
+                            <div class="skill-level">
+                                <input type="range" id="agility" name="agility" min="1" max="10" value="1">
+                                <span class="level-display">1</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="magical-strength">Force magique</label>
+                            <div class="skill-level">
+                                <input type="range" id="magical-strength" name="magical-strength" min="1" max="10" value="1">
+                                <span class="level-display">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>𒆜 - Compétences spéciales</h3>
+                    
+                    <div id="special-skills-container">
+                        <div class="special-skill">
+                            <div class="form-group">
+                                <input type="text" name="special-skill-name[]" placeholder="Nom de la compétence">
+                                <div class="skill-level">
+                                    <label>Niveau: </label>
+                                    <input type="number" name="special-skill-level[]" min="1" max="10" value="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="add-special-skill" class="add-btn">+ Ajouter une compétence</button>
+                    
+                    <h3>𒆜 - Caractéristiques</h3>
+                    
+                    <div id="characteristics-container">
+                        <div class="characteristic">
+                            <div class="form-group">
+                                <input type="text" name="characteristic-name[]" placeholder="Nom de la caractéristique">
+                                <select name="characteristic-rarity[]">
+                                    <option value="">Rareté</option>
+                                    <option value="Commune">Commune</option>
+                                    <option value="Rare">Rare</option>
+                                    <option value="Unique">Unique</option>
+                                    <option value="Légendaire">Légendaire</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="add-characteristic" class="add-btn">+ Ajouter une caractéristique</button>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn" data-prev="appearance">Précédent</button>
+                        <button type="button" class="next-btn" data-next="constellation">Suivant</button>
+                    </div>
+                </div>
+                
+                <!-- Section Constellation -->
+                <div class="tab-content" id="constellation">
+                    <h3>𒆜 - Constellation sponsor</h3>
+                    
+                    <div class="form-group">
+                        <input type="text" id="constellation-name" name="constellation-name" placeholder="Nom de la constellation">
+                    </div>
+                    
+                    <h3>𒆜 - Rang de la constellation</h3>
+                    
+                    <div class="form-group">
+                        <select id="constellation-rank" name="constellation-rank">
+                            <option value="">Sélectionnez</option>
+                            <option value="Historique">Historique (Rang inférieur)</option>
+                            <option value="Haut-rang">Haut-rang</option>
+                            <option value="Légendaire">Légendaire (Narrative)</option>
+                            <option value="Mythique">Mythique</option>
+                        </select>
+                    </div>
+                    
+                    <h3>𒆜 - Marques de la constellation</h3>
+                    
+                    <div id="constellation-marks-container">
+                        <div class="constellation-mark">
+                            <div class="form-group">
+                                <input type="text" name="constellation-mark[]" placeholder="Nom et description de la marque">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="add-constellation-mark" class="add-btn">+ Ajouter une marque</button>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn" data-prev="abilities">Précédent</button>
+                        <button type="button" class="next-btn" data-next="history">Suivant</button>
+                    </div>
+                </div>
+                
+                <!-- Section Histoire -->
+                <div class="tab-content" id="history">
+                    <h3>𒆜 - Histoire</h3>
+                    
+                    <div class="form-group">
+                        <textarea id="character-history" name="character-history" rows="15" placeholder="Racontez l'histoire de votre personnage, son passé, ses motivations et comment l'apocalypse l'a affecté."></textarea>
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn" data-prev="constellation">Précédent</button>
+                        <button type="submit" class="submit-btn">Créer votre personnage</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Prévisualisation de la fiche -->
+        <div class="preview-wrapper">
+            <div class="preview-header">
+                <h3>Prévisualisation</h3>
+                <button id="toggle-preview" type="button">Afficher/Masquer</button>
+                <button id="export-markdown" type="button">Exporter en Markdown</button>
+            </div>
+            
+            <div id="character-preview" class="character-sheet-preview">
+                <h2><span id="preview-firstname">Prénom</span> <span id="preview-name">Nom</span></h2>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Informations de base</h3>
+                    <ul>
+                        <li><strong>Nom:</strong> <span id="preview-name-value">—</span></li>
+                        <li><strong>Prénom:</strong> <span id="preview-firstname-value">—</span></li>
+                        <li><strong>Âge:</strong> <span id="preview-age">—</span></li>
+                        <li><strong>Date de naissance:</strong> <span id="preview-birthday">—</span></li>
+                        <li><strong>Sexe:</strong> <span id="preview-gender">—</span></li>
+                        <li><strong>Orientation:</strong> <span id="preview-orientation">—</span></li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Caractère</h3>
+                    <ul id="preview-traits">
+                        <li>—</li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Goûts</h3>
+                    <p id="preview-tastes">—</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Passions</h3>
+                    <p id="preview-passions">—</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Description physique</h3>
+                    <p id="preview-physical">—</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Signe distinctif</h3>
+                    <p id="preview-distinctive">—</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Compétences générales</h3>
+                    <ul>
+                        <li><strong>Vitalité:</strong> <span id="preview-vitality">1</span></li>
+                        <li><strong>Force physique:</strong> <span id="preview-physical-strength">1</span></li>
+                        <li><strong>Agilité:</strong> <span id="preview-agility">1</span></li>
+                        <li><strong>Force magique:</strong> <span id="preview-magical-strength">1</span></li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Compétences spéciales</h3>
+                    <ul id="preview-special-skills">
+                        <li>—</li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Caractéristiques</h3>
+                    <ul id="preview-characteristics">
+                        <li>—</li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Constellation sponsor</h3>
+                    <p id="preview-constellation">—</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Rang de la constellation</h3>
+                    <p id="preview-constellation-rank">—</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Marques de la constellation</h3>
+                    <ul id="preview-constellation-marks">
+                        <li>—</li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>𒆜 - Histoire</h3>
+                    <div id="preview-history">—</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tips-section">
+    <div class="container">
+        <h2>Conseils pour créer votre personnage</h2>
+        
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4>Équilibrez vos compétences</h4>
+                <p>Un personnage avec des compétences équilibrées aura plus de chances de survivre dans différentes situations du Star Stream.</p>
+            </div>
+            
+            <div class="tip-card">
+                <h4>Choisissez une constellation adaptée</h4>
+                <p>Votre constellation sponsor devrait compléter le style et l'histoire de votre personnage.</p>
+            </div>
+            
+            <div class="tip-card">
+                <h4>Développez une histoire cohérente</h4>
+                <p>Une histoire solide expliquant comment votre personnage a vécu avant et pendant l'apocalypse rendra votre fiche plus immersive.</p>
+            </div>
+            
+            <div class="tip-card">
+                <h4>Ajoutez des détails distinctifs</h4>
+                <p>Les traits de caractère uniques et les signes distinctifs aideront votre personnage à se démarquer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/character_sheet.js') }}"></script>
+{% endblock %}

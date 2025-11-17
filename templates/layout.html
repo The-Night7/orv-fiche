@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Lecteur Omniscient - ORV{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_css %}{% endblock %}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="star-stream-container">
+        <div class="star-stream"></div>
+    </div>
+
+    <header class="site-header">
+        <div class="logo">
+            <a href="/">
+                <span class="logo-text">🌟 Lecteur Omniscient</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <button id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('rules') }}">Règles</a></li>
+                <li><a href="{{ url_for('context') }}">Contexte</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Univers</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('constellations') }}">Constellations</a></li>
+                        <li><a href="{{ url_for('monsters') }}">Monstres</a></li>
+                        <li><a href="{{ url_for('equipment') }}">Équipements</a></li>
+                        <li><a href="{{ url_for('skills') }}">Compétences</a></li>
+                        <li><a href="{{ url_for('scenarios') }}">Scénarios</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('character_sheet') }}" class="featured">Créer une Fiche</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Archives</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('timeline') }}">Chronologie</a></li>
+                        <li><a href="{{ url_for('stations') }}">Stations</a></li>
+                        <li><a href="{{ url_for('deaths') }}">Liste des morts</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lecteur Omniscient</h3>
+                <p>Basé sur l'univers d'Omniscient Reader's Viewpoint</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="{{ url_for('rules') }}">Règlement RP</a></li>
+                    <li><a href="{{ url_for('character_sheet') }}">Créer une fiche</a></li>
+                    <li><a href="{{ url_for('scenarios') }}">Scénarios actuels</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Rejoindre le RP</h3>
+                <p>Créez votre personnage et rejoignez le monde du Star Stream</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; {% raw %}{{ year }}{% endraw %} Lecteur Omniscient - Un site créé pour le RP d'ORV</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

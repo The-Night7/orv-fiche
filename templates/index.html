@@ -1,28 +1,133 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omniscient Reader's Viewpoint</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-<header>
-    <img src="/assets/img/logo.png" alt="Logo" id="logo">
-    <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/context">Contexte</a></li>
-            <li><a href="/character-sheet">Fiche de personnage</a></li>
-        </ul>
-    </nav>
-</header>
+{% extends "layout.html" %}
 
-<main>
-    <section class="intro">
-        <h1>Bienvenue dans l'univers de "Omniscient Reader's Viewpoint"</h1>
-        <p>Explorez l'univers de ce récit épique où les incarnations affrontent des scénarios sur une Terre ravagée. Vous pouvez découvrir ici le contexte et les fiches des personnages !</p>
-    </section>
-</main>
-</body>
-</html>
+{% block title %}Lecteur Omniscient - Bienvenue dans le Star Stream{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Bienvenue dans le <span class="highlight">Star Stream</span></h1>
+        <p class="tagline">Survivez aux scénarios, gagnez le soutien des constellations et changez votre destin</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+            <a href="{{ url_for('context') }}" class="cta-button secondary">Découvrir l'univers</a>
+        </div>
+    </div>
+    <div class="hero-overlay"></div>
+</section>
+
+<section class="introduction">
+    <div class="container">
+        <h2>Le monde a changé <span class="star-icon">⭐</span></h2>
+        <p class="lead-text">
+            Dans un monde autrefois tout à fait normal se déroule aujourd'hui ce que les gens appellent la fin du monde.
+            Cette histoire se déroule dorénavant sur une Terre dominée par le <strong>'Star Stream'</strong>, 
+            un système où les individus doivent surmonter divers défis appelés <strong>'scénarios'</strong>.
+        </p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="card-icon"><i class="fas fa-meteor"></i></div>
+                <h3>Les Scénarios</h3>
+                <p>Participez aux épreuves orchestrées par les dokkaebis pour gagner des récompenses et progresser dans ce nouveau monde.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon"><i class="fas fa-star"></i></div>
+                <h3>Les Constellations</h3>
+                <p>Gagnez le soutien d'entités mythiques et historiques qui vous accorderont des pouvoirs en échange de divertissement.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon"><i class="fas fa-dragon"></i></div>
+                <h3>Les Monstres</h3>
+                <p>Affrontez des créatures dangereuses qui ont remplacé la faune normale et menacent la survie des incarnations.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>Votre Personnage</h3>
+                <p>Développez vos compétences, obtenez des équipements et façonnez votre propre légende dans le Star Stream.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-content">
+    <div class="container">
+        <h2>Derniers événements à Séoul <span class="dokkaebi-icon">👹</span></h2>
+        
+        <div class="event-timeline">
+            <div class="timeline-item">
+                <div class="date">15 octobre</div>
+                <div class="event">
+                    <h4>Le Dark Castle apparaît</h4>
+                    <p>Une île volante avec un immense château est apparue au-dessus de Geoyeo-dong, accessible par des roches lévitantes.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">12 octobre</div>
+                <div class="event">
+                    <h4>Le Sacrifice le Plus Fort</h4>
+                    <p>Un scénario de difficulté S a frappé Séoul, exigeant soit la mort de la moitié des incarnations, soit celle de l'incarnation la plus puissante.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">7 octobre</div>
+                <div class="event">
+                    <h4>Compétition entre incarnations</h4>
+                    <p>Le début du scénario 7 a marqué une période de calme relatif pour les monstres, mais a intensifié la compétition entre incarnations.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-more">
+            <a href="{{ url_for('timeline') }}" class="text-link">Voir la chronologie complète <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="character-creation-promo">
+    <div class="container">
+        <div class="promo-content">
+            <h2>Créez votre incarnation</h2>
+            <p>Rejoignez l'univers du Star Stream en créant votre propre personnage. Définissez ses compétences, son histoire et découvrez quelle constellation pourrait le soutenir.</p>
+            <a href="{{ url_for('character_sheet') }}" class="cta-button primary large">Créer votre fiche de personnage</a>
+        </div>
+        <div class="promo-image">
+            <!-- Image placeholder - sera remplacée par une image réelle -->
+            <div class="character-silhouette"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Animation pour la timeline
+    document.addEventListener('DOMContentLoaded', function() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkIfInView() {
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const isInViewport = (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+                
+                if (isInViewport) {
+                    item.classList.add('animate');
+                }
+            });
+        }
+        
+        // Vérifier au chargement
+        checkIfInView();
+        
+        // Vérifier au scroll
+        window.addEventListener('scroll', checkIfInView);
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,244 @@
+{% extends "layout.html" %}
+
+{% block title %}Lecteur Omniscient - Règlement RP{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>📜 Règlement RP</h1>
+        <p class="subtitle">Les règles fondamentales pour participer au roleplay d'Omniscient Reader's Viewpoint</p>
+    </div>
+</section>
+
+<section class="rules-section">
+    <div class="container">
+        <div class="content-card">
+            <h2>📜 Règles générales</h2>
+            
+            <ul class="rule-list">
+                <li>
+                    <div class="rule-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="rule-content">
+                        <p>Un modèle de fiche de personnage est fourni pour faciliter l'écriture de votre fiche. Vous pouvez toutefois utiliser un modèle différent si les informations demandées sont présentes.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-comment-slash"></i></div>
+                    <div class="rule-content">
+                        <p>Le langage SMS est <strong>strictement interdit</strong> dans les messages RP, sauf lorsque votre personnage envoie des messages.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-spell-check"></i></div>
+                    <div class="rule-content">
+                        <p>L'orthographe n'est pas pénalisée. Chacun a ses forces et ses faiblesses en écriture, donc faites de votre mieux.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="rule-content">
+                        <p>Le <strong>fast RP est interdit</strong>. Il n'est pas nécessaire d'écrire de longues actions, cependant il est demandé de faire entre 4 à 5 lignes lors de vos actions, en particulier durant les combats.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="rule-content">
+                        <p>Votre personnage peut être puissant, mais il doit rester dans les limites du scénario au risque de subir des pénalités.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-user-secret"></i></div>
+                    <div class="rule-content">
+                        <p>Toute forme de <strong>méta RP</strong>, <strong>force RP</strong>, etc. est bien évidemment interdite. Votre personnage n'est pas omniscient et n'est pas invincible.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-users"></i></div>
+                    <div class="rule-content">
+                        <p>Il est possible que votre personnage soit confronté à d'autres incarnations.</p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="rule-icon"><i class="fas fa-star"></i></div>
+                    <div class="rule-content">
+                        <p>Au cours du RP, vous ferez la rencontre de constellations. Certaines vous supporteront, d'autres vous détesteront. Vous ne pourrez pas être supporté par une constellation de votre propre création à moins que celle-ci soit jouée par un autre membre.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="participate-section">
+    <div class="container">
+        <h2>Comment participer au RP ?</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Créez votre personnage</h3>
+                <p>Utilisez notre système de création de fiche pour concevoir votre incarnation avec toutes les informations nécessaires.</p>
+                <a href="{{ url_for('character_sheet') }}" class="cta-button secondary">Créer une fiche</a>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Maîtrisez l'univers</h3>
+                <p>Familiarisez-vous avec le contexte, les scénarios et les mécaniques de jeu spécifiques à Omniscient Reader's Viewpoint.</p>
+                <a href="{{ url_for('context') }}" class="cta-button secondary">Découvrir le contexte</a>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Rejoignez l'aventure</h3>
+                <p>Intégrez le RP et commencez à interagir avec les autres joueurs dans le monde du Star Stream.</p>
+                <a href="#" class="cta-button primary">Rejoindre le Discord</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .rules-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .content-card {
+        background-color: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        padding: var(--spacing-lg);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .rule-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .rule-list li {
+        display: flex;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .rule-list li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .rule-icon {
+        flex: 0 0 50px;
+        height: 50px;
+        background-color: rgba(61, 90, 254, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: var(--spacing-md);
+        font-size: 1.5rem;
+        color: var(--accent-blue);
+    }
+    
+    .rule-content {
+        flex: 1;
+    }
+    
+    .rule-content p {
+        margin: 0;
+    }
+    
+    .rule-content p strong {
+        color: var(--accent-gold);
+    }
+    
+    .page-header {
+        background: linear-gradient(135deg, #1a1f2c, #0a0e17);
+        padding: var(--spacing-xl) 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--accent-gold);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    
+    .page-header .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-gray);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .participate-section {
+        background-color: var(--secondary-dark);
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .steps-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+    }
+    
+    .step-card {
+        background-color: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        padding: var(--spacing-lg);
+        text-align: center;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .step-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        background-color: var(--accent-gold);
+        color: var(--primary-dark);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0 auto var(--spacing-md);
+    }
+    
+    .step-card h3 {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .step-card .cta-button {
+        margin-top: var(--spacing-md);
+    }
+    
+    @media (max-width: 768px) {
+        .rule-list li {
+            flex-direction: column;
+        }
+        
+        .rule-icon {
+            margin-bottom: var(--spacing-sm);
+        }
+    }
+</style>
+{% endblock %}

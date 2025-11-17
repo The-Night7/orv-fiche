@@ -1,32 +1,178 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contexte - Omniscient Reader's Viewpoint</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-<header>
-    <img src="/assets/img/logo.png" alt="Logo" id="logo">
-    <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/context">Contexte</a></li>
-            <li><a href="/character-sheet">Fiche de personnage</a></li>
-        </ul>
-    </nav>
-</header>
+{% extends "layout.html" %}
 
-<main>
-    <section>
-        <h1>Le Contexte de l'Univers</h1>
-        <p>Dans un monde autrefois normal, l'humanité vit l'apocalypse. La Terre est désormais dominée par un système mystérieux appelé <strong>'Star Stream'</strong>, où des scénarios sont diffusés aux incarnations humaines par des entités appelées <strong>'Constellations'</strong>.</p>
-        <h2>Les Constellations</h2>
-        <p>Les constellations sont des entités mythologiques et divines qui parrainent les incarnations, leur offrant pouvoirs et compétences. Ces entités peuvent se regrouper en nébuleuses et possèdent un immense pouvoir.</p>
-        <h2>Les Scénarios</h2>
-        <p>Les scénarios sont des épreuves orchestrées par les Dokkaebis, dans lesquelles les incarnations doivent participer pour survivre. Les récompenses pour ces défis sont précieuses et indispensables pour progresser.</p>
-    </section>
-</main>
-</body>
-</html>
+{% block title %}Lecteur Omniscient - Contexte du monde{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>🌍 Contexte du monde</h1>
+        <p class="subtitle">Découvrez l'univers du Star Stream et les fondements de l'apocalypse</p>
+    </div>
+</section>
+
+<section class="context-section">
+    <div class="container">
+        <div class="content-card">
+            <h2>Le Star Stream</h2>
+            
+            <div class="context-intro">
+                <p>Dans un monde autrefois tout à fait normal se déroule aujourd'hui ce que les gens appellent la fin du monde.</p>
+                <p>Cette histoire se déroule dorénavant sur une Terre dominée par le <strong>'Star Stream'</strong>, un système où les individus doivent surmonter divers défis appelés <strong>'scénarios'</strong>. Ces scénarios sont (re)diffusés par des dokkaebis à des êtres supérieurs appelés <strong>'Constellations'</strong> pour leur divertissement.</p>
+            </div>
+            
+            <div class="info-columns">
+                <div class="info-column">
+                    <div class="info-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <h3>Les Incarnations</h3>
+                    <p>Chaque <strong>'Incarnation'</strong> (être humain participant aux scénarios) se voit offrir le choix entre une ou plusieurs constellations comme sponsor. Celles-ci participent même à des scénarios. Ce sont des entités historiques, divines ou mythologiques qui parrainent des incarnations, leur accordent des pouvoirs et des pièces en échange de la notoriété que les incarnations amènent.</p>
+                </div>
+                
+                <div class="info-column">
+                    <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Le Dôme de Séoul</h3>
+                    <p>Le serveur prend place à <strong>Séoul</strong> au moment où l'apocalypse débute. Vous aurez maintenant le choix : vous faire des alliés, rester seul pour garder toute la gloire ou même chercher à ramener l'ancien monde.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-card">
+            <h2>La nouvelle réalité</h2>
+            <p>Dans ce nouveau monde régit par les scénarios, l'humanité doit s'adapter rapidement pour survivre. Les incarnations qui réussissent à compléter les scénarios gagnent des récompenses, des compétences et la faveur des constellations.</p>
+            
+            <div class="highlight-box">
+                <div class="highlight-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="highlight-content">
+                    <h4>Important à savoir</h4>
+                    <p>Le monde tel que vous le connaissiez n'existe plus. Les animaux ont été remplacés par des monstres, les lois humaines ont été supplantées par les règles du Star Stream, et la survie dépend désormais de votre capacité à naviguer dans ce nouveau système.</p>
+                </div>
+            </div>
+            
+            <p>Avec l'apparition des dokkaebis, des constellations et des monstres, la Terre est devenue un terrain de jeu où les humains sont à la fois acteurs et divertissement. Seules les incarnations les plus adaptables et stratégiques pourront s'élever au-dessus du chaos.</p>
+        </div>
+    </div>
+</section>
+
+<section class="join-section">
+    <div class="container">
+        <h2>Prêt à rejoindre l'aventure ?</h2>
+        <p class="lead-text">Créez votre propre personnage et plongez dans l'univers du Star Stream</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('character_sheet') }}" class="cta-button primary">Créer votre personnage</a>
+            <a href="{{ url_for('constellations') }}" class="cta-button secondary">Découvrir les constellations</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .context-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .content-card {
+        background-color: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        padding: var(--spacing-lg);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .context-intro {
+        border-left: 3px solid var(--accent-gold);
+        padding-left: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+    }
+    
+    .info-columns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+    }
+    
+    .info-column {
+        text-align: center;
+        padding: var(--spacing-md);
+        background-color: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    
+    .info-column:hover {
+        transform: translateY(-5px);
+    }
+    
+    .info-icon {
+        font-size: 2.5rem;
+        color: var(--accent-teal);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .info-column h3 {
+        color: var(--accent-gold);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .highlight-box {
+        display: flex;
+        background-color: rgba(255, 152, 0, 0.1);
+        border-left: 4px solid var(--warning);
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+        border-radius: 4px;
+    }
+    
+    .highlight-icon {
+        font-size: 2rem;
+        color: var(--warning);
+        margin-right: var(--spacing-md);
+        display: flex;
+        align-items: center;
+    }
+    
+    .highlight-content {
+        flex: 1;
+    }
+    
+    .highlight-content h4 {
+        color: var(--warning);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .highlight-content p {
+        margin: 0;
+    }
+    
+    .join-section {
+        background-color: var(--secondary-dark);
+        padding: var(--spacing-xl) 0;
+        text-align: center;
+    }
+    
+    .join-section .lead-text {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-lg);
+        color: var(--text-light);
+    }
+    
+    .join-section .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+    }
+    
+    @media (max-width: 768px) {
+        .highlight-box {
+            flex-direction: column;
+        }
+        
+        .highlight-icon {
+            margin-right: 0;
+            margin-bottom: var(--spacing-sm);
+            justify-content: center;
+        }
+    }
+</style>
+{% endblock %}
