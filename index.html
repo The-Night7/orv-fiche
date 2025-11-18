@@ -543,6 +543,26 @@
             display: block;
         }
 
+        .rarity-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .rarity-common {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .rarity-rare {
+            background-color: #0d6efd;
+            color: white;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .character-header {
@@ -733,27 +753,15 @@
                 <h2>Caractéristiques</h2>
                 <div class="characteristics-list">
                     <div class="characteristic-item">
-                        <span class="characteristic-name">Polyglotte naturel</span>
-                        <p>Facilité inhabituelle à comprendre les structures linguistiques et à saisir le sens général de langues inconnues.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Résilience physique</span>
-                        <p>Endurance et récupération supérieures à la moyenne, permettant de supporter l'effort prolongé et les blessures mineures.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Méthodique</span>
+                        <span class="characteristic-name">Méthodique <span class="rarity-tag rarity-common">Commun</span></span>
                         <p>Organisation rigoureuse dans ses actions et pensées, créant des systèmes, listes et protocoles pour optimiser chaque situation.</p>
                     </div>
                     <div class="characteristic-item">
-                        <span class="characteristic-name">Solitaire fonctionnelle</span>
-                        <p>Préférence pour l'autonomie et les marges, tout en sachant collaborer efficacement quand la situation l'exige.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Minimaliste</span>
+                        <span class="characteristic-name">Minimaliste <span class="rarity-tag rarity-common">Commun</span></span>
                         <p>Valorise l'essentiel et l'utile, éliminant le superflu tant dans son équipement que dans ses relations et communications.</p>
                     </div>
                     <div class="characteristic-item">
-                        <span class="characteristic-name">Cartographe</span>
+                        <span class="characteristic-name">Cartographe <span class="rarity-tag rarity-rare">Rare</span></span>
                         <p>Obsession naturelle pour les structures spatiales, les issues et les points stratégiques de tout environnement.</p>
                     </div>
                 </div>
@@ -816,7 +824,7 @@
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Firewall Mental</span>
-                            <span class="skill-level">Niveau 3</span>
+                            <span class="skill-level">Niveau 2</span>
                         </div>
                         <p class="skill-desc">Protection psychique développée par nécessité dans les scénarios, cette barrière mentale protège l'esprit de Seolha contre les intrusions et influences extérieures.</p>
 
@@ -907,22 +915,6 @@
                         </div>
                     </div>
 
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Premiers soins</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">Techniques médicales d'urgence adaptées aux conditions extrêmes, permettant de stabiliser des blessures graves avec des ressources limitées.</p>
-
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Diagnostic rapide et précis des blessures traumatiques et de leur gravité.</p>
-                            <p class="skill-ability">Traitement efficace des hémorragies, fractures, brûlures et autres traumatismes courants.</p>
-                            <p class="skill-ability">Improvisation d'équipement médical à partir de matériaux disponibles.</p>
-                            <p class="skill-ability">Stabilisation de patients critiques pour permettre leur transport ou survie jusqu'à un traitement plus complet.</p>
-                            <p class="skill-ability">Connaissance des protocoles de triage pour optimiser les soins en situation de ressources limitées.</p>
-                        </div>
-                    </div>
-
                     <!-- Nouvelles compétences ajoutées (celles qui étaient marquées comme compétences) -->
                     <div class="skill-card">
                         <div class="skill-header">
@@ -983,23 +975,8 @@
                             <p class="skill-ability">Capacité à prendre des décisions difficiles sans être paralysée par la peur ou l'anxiété.</p>
                         </div>
                     </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Mémoire visuelle</span>
-                            <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Capacité à retenir et reproduire mentalement des détails visuels complexes comme des cartes, configurations spatiales ou visages.</p>
-
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Mémorisation instantanée de plans, schémas et environnements après une brève exposition.</p>
-                            <p class="skill-ability">Reconnaissance précise des visages et capacité à les associer à des informations pertinentes.</p>
-                            <p class="skill-ability">Reproduction mentale détaillée de scènes observées pour analyse ultérieure.</p>
-                            <p class="skill-ability">Détection des changements subtils dans un environnement familier.</p>
                         </div>
-                    </div>
-                </div>
-            </div>
             <div class="info-card">
                 <h2>Spécialisations</h2>
                 <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
