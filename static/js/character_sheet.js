@@ -280,84 +280,81 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('input', updatePreview);
     });
     
-    // Exportation en Markdown
-    const exportBtn = document.getElementById('export-markdown');
-    
-    if (exportBtn) {
-        exportBtn.addEventListener('click', function() {
-            // Récupérer les valeurs du formulaire
-            const name = document.getElementById('character-name').value || '—';
-            const firstname = document.getElementById('character-firstname').value || '—';
-            const age = document.getElementById('character-age').value || '—';
-            const birthday = document.getElementById('character-birthday').value || '—';
-            const gender = document.getElementById('character-gender').value || '—';
-            const orientation = document.getElementById('character-orientation').value || '—';
-            
-            // Traits de caractère
-            let traitsMarkdown = '';
-            for (let i = 1; i <= 5; i++) {
-                const trait = document.getElementById(`character-trait${i}`).value.trim();
-                if (trait) {
-                    traitsMarkdown += `- ${trait}\n`;
-                }
+    // Fonction pour générer le contenu Markdown
+    function generateMarkdownContent() {
+        // Récupérer les valeurs du formulaire
+        const name = document.getElementById('character-name').value || '—';
+        const firstname = document.getElementById('character-firstname').value || '—';
+        const age = document.getElementById('character-age').value || '—';
+        const birthday = document.getElementById('character-birthday').value || '—';
+        const gender = document.getElementById('character-gender').value || '—';
+        const orientation = document.getElementById('character-orientation').value || '—';
+        
+        // Traits de caractère
+        let traitsMarkdown = '';
+        for (let i = 1; i <= 5; i++) {
+            const trait = document.getElementById(`character-trait${i}`).value.trim();
+            if (trait) {
+                traitsMarkdown += `- ${trait}\n`;
             }
-            
-            // Goûts et passions
-            const tastes = document.getElementById('character-tastes').value || '—';
-            const passions = document.getElementById('character-passions').value || '—';
-            
-            // Description physique et signes distinctifs
-            const physical = document.getElementById('physical-description').value || '—';
-            const distinctive = document.getElementById('distinctive-signs').value || '—';
-            
-            // Compétences générales
-            const vitality = document.getElementById('vitality').value;
-            const physicalStrength = document.getElementById('physical-strength').value;
-            const agility = document.getElementById('agility').value;
-            const magicalStrength = document.getElementById('magical-strength').value;
-            
-            // Compétences spéciales
-            let specialSkillsMarkdown = '';
-            const specialSkillNames = document.getElementsByName('special-skill-name[]');
-            const specialSkillLevels = document.getElementsByName('special-skill-level[]');
-            
-            for (let i = 0; i < specialSkillNames.length; i++) {
-                if (specialSkillNames[i].value.trim()) {
-                    specialSkillsMarkdown += `- ${specialSkillNames[i].value} (niveau ${specialSkillLevels[i].value})\n`;
-                }
+        }
+        
+        // Goûts et passions
+        const tastes = document.getElementById('character-tastes').value || '—';
+        const passions = document.getElementById('character-passions').value || '—';
+        
+        // Description physique et signes distinctifs
+        const physical = document.getElementById('physical-description').value || '—';
+        const distinctive = document.getElementById('distinctive-signs').value || '—';
+        
+        // Compétences générales
+        const vitality = document.getElementById('vitality').value;
+        const physicalStrength = document.getElementById('physical-strength').value;
+        const agility = document.getElementById('agility').value;
+        const magicalStrength = document.getElementById('magical-strength').value;
+        
+        // Compétences spéciales
+        let specialSkillsMarkdown = '';
+        const specialSkillNames = document.getElementsByName('special-skill-name[]');
+        const specialSkillLevels = document.getElementsByName('special-skill-level[]');
+        
+        for (let i = 0; i < specialSkillNames.length; i++) {
+            if (specialSkillNames[i].value.trim()) {
+                specialSkillsMarkdown += `- ${specialSkillNames[i].value} (niveau ${specialSkillLevels[i].value})\n`;
             }
-            
-            // Caractéristiques
-            let characteristicsMarkdown = '';
-            const characteristicNames = document.getElementsByName('characteristic-name[]');
-            const characteristicRarities = document.getElementsByName('characteristic-rarity[]');
-            
-            for (let i = 0; i < characteristicNames.length; i++) {
-                if (characteristicNames[i].value.trim()) {
-                    const rarity = characteristicRarities[i].value ? ` (${characteristicRarities[i].value})` : '';
-                    characteristicsMarkdown += `- ${characteristicNames[i].value}${rarity}\n`;
-                }
+        }
+        
+        // Caractéristiques
+        let characteristicsMarkdown = '';
+        const characteristicNames = document.getElementsByName('characteristic-name[]');
+        const characteristicRarities = document.getElementsByName('characteristic-rarity[]');
+        
+        for (let i = 0; i < characteristicNames.length; i++) {
+            if (characteristicNames[i].value.trim()) {
+                const rarity = characteristicRarities[i].value ? ` (${characteristicRarities[i].value})` : '';
+                characteristicsMarkdown += `- ${characteristicNames[i].value}${rarity}\n`;
             }
-            
-            // Constellation
-            const constellation = document.getElementById('constellation-name').value || '—';
-            const constellationRank = document.getElementById('constellation-rank').value || '—';
-            
-            // Marques de la constellation
-            let constellationMarksMarkdown = '';
-            const constellationMarkInputs = document.getElementsByName('constellation-mark[]');
-            
-            for (let i = 0; i < constellationMarkInputs.length; i++) {
-                if (constellationMarkInputs[i].value.trim()) {
-                    constellationMarksMarkdown += `- ${constellationMarkInputs[i].value}\n`;
-                }
+        }
+        
+        // Constellation
+        const constellation = document.getElementById('constellation-name').value || '—';
+        const constellationRank = document.getElementById('constellation-rank').value || '—';
+        
+        // Marques de la constellation
+        let constellationMarksMarkdown = '';
+        const constellationMarkInputs = document.getElementsByName('constellation-mark[]');
+        
+        for (let i = 0; i < constellationMarkInputs.length; i++) {
+            if (constellationMarkInputs[i].value.trim()) {
+                constellationMarksMarkdown += `- ${constellationMarkInputs[i].value}\n`;
             }
-            
-            // Histoire
-            const history = document.getElementById('character-history').value || '—';
-            
-            // Construire le markdown
-            const markdown = `# 🌟 Fiche de personnage - ${firstname} ${name} 🌟
+        }
+        
+        // Histoire
+        const history = document.getElementById('character-history').value || '—';
+        
+        // Construire le markdown
+        return `# 🌟 Fiche de personnage - ${firstname} ${name} 🌟
 
 ## 𒆜 - Informations de base
 - **Nom** : ${name}
@@ -406,6 +403,35 @@ ${constellationMarksMarkdown || '- —'}
 ## 𒆜 - Histoire
 ${history}
 `;
+    }
+    
+    // Exportation en Markdown
+    const exportBtn = document.getElementById('export-markdown');
+
+    if (exportBtn) {
+        exportBtn.addEventListener('click', function() {
+            // Vérifier si les champs requis sont remplis
+            const requiredFields = ['character-name', 'character-firstname', 'character-age', 'character-gender'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('error');
+                }
+            });
+            
+            if (!isValid) {
+                // Afficher un message d'erreur
+                showNotification('Veuillez remplir tous les champs obligatoires avant d\'exporter.', 'error');
+                return;
+            }
+            
+            // Générer le contenu Markdown
+            const markdown = generateMarkdownContent();
+            const name = document.getElementById('character-name').value || 'personnage';
+            const firstname = document.getElementById('character-firstname').value || 'nouveau';
             
             // Créer un élément temporaire pour le téléchargement
             const element = document.createElement('a');
@@ -415,30 +441,72 @@ ${history}
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
+            
+            // Afficher une notification de succès
+            showNotification('Votre fiche a été téléchargée avec succès !', 'success');
+            
+            // Soumettre également le formulaire pour sauvegarder dans la base de données
+            if (confirm('Voulez-vous également sauvegarder cette fiche dans la base de données ?')) {
+                document.getElementById('character-form').submit();
+            }
         });
     }
-    
+
+    // Fonction pour afficher des notifications
+    function showNotification(message, type = 'info') {
+        // Créer l'élément de notification
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        // Ajouter un bouton de fermeture
+        const closeBtn = document.createElement('span');
+        closeBtn.className = 'notification-close';
+        closeBtn.innerHTML = '&times;';
+        closeBtn.addEventListener('click', function() {
+            notification.remove();
+        });
+        
+        notification.appendChild(closeBtn);
+        
+        // Ajouter au DOM
+        document.body.appendChild(notification);
+        
+        // Animer l'entrée
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        // Supprimer après un délai
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 5000);
+    }
+
     // Validation du formulaire
     const characterForm = document.getElementById('character-form');
-    
+
     if (characterForm) {
         characterForm.addEventListener('submit', function(event) {
             let isValid = true;
-            
-            // Validation des champs obligatoires (à adapter selon vos besoins)
+
+            // Validation des champs obligatoires
             const requiredFields = ['character-name', 'character-firstname', 'character-age', 'character-gender'];
-            
+
             requiredFields.forEach(fieldId => {
                 const field = document.getElementById(fieldId);
                 if (!field.value.trim()) {
                     isValid = false;
                     field.classList.add('error');
-                    
+
                     // Afficher un message d'erreur
                     const errorMsg = document.createElement('div');
                     errorMsg.className = 'error-message';
                     errorMsg.textContent = 'Ce champ est obligatoire';
-                    
+
                     // Vérifier si un message d'erreur existe déjà
                     const existingError = field.parentElement.querySelector('.error-message');
                     if (!existingError) {
@@ -452,22 +520,22 @@ ${history}
                     }
                 }
             });
-            
+
             if (!isValid) {
                 event.preventDefault();
-                
+
                 // Afficher un message global
                 const formWrapper = document.querySelector('.form-wrapper');
                 const globalError = document.createElement('div');
                 globalError.className = 'alert alert-danger';
                 globalError.textContent = 'Veuillez corriger les erreurs dans le formulaire.';
-                
+
                 // Vérifier si un message global existe déjà
                 const existingGlobalError = formWrapper.querySelector('.alert.alert-danger');
                 if (!existingGlobalError) {
                     formWrapper.insertBefore(globalError, characterForm);
                 }
-                
+
                 // Faire défiler jusqu'à la première erreur
                 const firstErrorField = document.querySelector('.error');
                 if (firstErrorField) {
@@ -476,4 +544,17 @@ ${history}
             }
         });
     }
+    
+    // Vérifier s'il y a des messages flash à afficher (après soumission du formulaire)
+    document.querySelectorAll('.flash-message').forEach(message => {
+        const messageText = message.textContent;
+        const messageType = message.classList.contains('success') ? 'success' : 'error';
+        
+        showNotification(messageText, messageType);
+        
+        // Supprimer le message flash du DOM après l'avoir affiché
+        setTimeout(() => {
+            message.remove();
+        }, 500);
+    });
 });

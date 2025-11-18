@@ -14,6 +14,15 @@
     </div>
 </section>
 
+<!-- Messages flash invisibles qui seront traités par JavaScript -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash-message {{ category }}" style="display: none;">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <section class="character-sheet-form">
     <div class="container">
         <div class="form-wrapper">
@@ -187,6 +196,7 @@
                                     <label>Niveau: </label>
                                     <input type="number" name="special-skill-level[]" min="1" max="10" value="1">
                                 </div>
+                                <button type="button" class="remove-btn"><i class="fas fa-times"></i></button>
                             </div>
                         </div>
                     </div>
@@ -206,6 +216,7 @@
                                     <option value="Unique">Unique</option>
                                     <option value="Légendaire">Légendaire</option>
                                 </select>
+                                <button type="button" class="remove-btn"><i class="fas fa-times"></i></button>
                             </div>
                         </div>
                     </div>
@@ -244,6 +255,7 @@
                         <div class="constellation-mark">
                             <div class="form-group">
                                 <input type="text" name="constellation-mark[]" placeholder="Nom et description de la marque">
+                                <button type="button" class="remove-btn"><i class="fas fa-times"></i></button>
                             </div>
                         </div>
                     </div>
@@ -276,8 +288,10 @@
         <div class="preview-wrapper">
             <div class="preview-header">
                 <h3>Prévisualisation</h3>
-                <button id="toggle-preview" type="button">Afficher/Masquer</button>
-                <button id="export-markdown" type="button">Exporter en Markdown</button>
+                <div>
+                    <button id="toggle-preview" type="button">Masquer la prévisualisation</button>
+                    <button id="export-markdown" type="button">Exporter en Markdown</button>
+                </div>
             </div>
             
             <div id="character-preview" class="character-sheet-preview">
