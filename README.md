@@ -547,14 +547,15 @@ OC = Incarnée par un Rôle Playeur
 
 ---
 
-## 📋 Fiche de personnage
+## 📋 Fiche de personnage - Seolha Yu
 
 ### 𒆜 - Informations de base
 - **Nom** : Yu
 - **Prénom** : Seolha
-- **Age** : 22 ans et née le 21 juin AAAA
+- **Age** : 22 ans
+- **Date de naissance** : 21 juin
 - **Sexe** : Féminin
-- **Orientation** : Aroace
+- **Orientation** : Panromantic Asexual
 
 ### 𒆜 - Caractère
 - **Réservée et pragmatique** : Seolha observe d'abord, agit ensuite. Elle parle peu, mais quand elle s'exprime, c'est pesé et pertinent. Elle privilégie l'efficacité et la lucidité au romantisme de l'héroïsme.
@@ -582,48 +583,92 @@ OC = Incarnée par un Rôle Playeur
 - Teint pâle, cernes légers dus au sommeil morcelé. Mains calleuses, ongles courts, phalanges parfois bandées.
 - Vêtements fonctionnels : couches superposées neutres, coupe ample pour la mobilité, genouillères, gants fins, chaussures accrocheuses; une veste technique avec poches internes pour caches.
 
-### 𒆜 - Signe distinctif
+### 𒆜 - Signes distinctifs
 - Une cicatrice fine et nette sous la clavicule gauche (ancienne entaille contrôlée, refermée proprement) et un trait plus rugueux au poignet droit (lacération suturée en urgence).
 - Un fil rouge discret noué au passant de sa veste : repère visuel pour ses alliés et rappel personnel d'un engagement passé.
 - Odeur subtile d'iode et d'alcool isopropylique, trahissant ses habitudes de stérilisation.
 
-### 𒆜 - Compétences générales
-- [Vitalité, niveau...]
-- [Force physique, niveau...]
-- [Agilité, niveau...]
-- [Force magique, niveau...]
+### 𒆜 - Statistiques de base
+- **Force physique (Strength)** : 7/10
+- **Agilité (Agility)** : 8/10
+- **Vitalité (Physique)** : 7/10
+- **Force magique (Magic Power)** : 4/10
+- **Pièces** : 6100
 
-### 𒆜 - Compétences spéciales (niveau de la compétence)
-- [À remplir]
+### 𒆜 - Caractéristiques
+- **Polyglotte naturel** : Facilité inhabituelle à comprendre les structures linguistiques et à saisir le sens général de langues inconnues.
+- **Résilience physique** : Endurance et récupération supérieures à la moyenne, permettant de supporter l'effort prolongé et les blessures mineures.
+- **Méthodique** : Organisation rigoureuse dans ses actions et pensées, créant des systèmes, listes et protocoles pour optimiser chaque situation.
+- **Solitaire fonctionnelle** : Préférence pour l'autonomie et les marges, tout en sachant collaborer efficacement quand la situation l'exige.
+- **Minimaliste** : Valorise l'essentiel et l'utile, éliminant le superflu tant dans son équipement que dans ses relations et communications.
+- **Cartographe** : Obsession naturelle pour les structures spatiales, les issues et les points stratégiques de tout environnement.
 
-### 𒆜 - Caractéristiques (rareté)
-- [À remplir]
+### 𒆜 - Compétences spéciales
+- **Vol éclair** (Niveau 3) : Déplacement à vitesse surhumaine, subtilisation d'objets avec précision chirurgicale, extraction d'informations par contact, déplacement aérien rapide.
+- **Base de Données** (Niveau 4) : Stockage organisé d'informations, accès instantané aux données mémorisées, analyse croisée, préservation des données sous stress.
+- **Firewall Mental** (Niveau 3) : Protection contre les attaques psychiques, neutralisation des tentatives d'influence mentale, compartimentage émotionnel.
+- **Brouillage de Données** (Niveau 2) : Dissimulation des capacités réelles, projection de fausses informations, protection contre l'analyse.
+- **Gestion de la douleur** (Niveau 2) : Réduction de l'impact de la douleur physique, fonctionnement malgré les blessures.
+- **Traduction intuitive** (Niveau 2) : Compréhension rapide des langues inconnues, déchiffrement de textes étrangers.
+- **Cartographie** (Niveau 3) : Mémorisation précise des environnements, identification des points stratégiques, planification d'itinéraires optimaux.
+- **Premiers soins** (Niveau 3) : Diagnostic rapide des blessures, traitement efficace des traumatismes, improvisation d'équipement médical.
+- **Observation calme** (Niveau 3) : Analyse des situations sous pression, identification rapide des détails critiques.
+- **Agilité de mouvement** (Niveau 3) : Déplacements fluides et précis, mouvements silencieux, équilibre exceptionnel.
+- **Adaptation anormale** (Niveau 3) : Ajustement rapide à de nouvelles situations, apprentissage accéléré de compétences de survie.
+- **Sang-froid** (Niveau 3) : Maîtrise émotionnelle en situation de stress, contrôle des réactions physiologiques.
+- **Mémoire visuelle** (Niveau 3) : Rétention de détails visuels complexes, reconnaissance précise des visages et environnements.
+
+### 𒆜 - Spécialisations
+- **Cartographie urbaine** : Experte
+- **Premiers secours** : Avancé
+- **Infiltration** : Avancé
+- **Combat rapproché** : Intermédiaire
+- **Analyse de données** : Experte
+- **Survie urbaine** : Experte
+- **Planification tactique** : Avancé
+- **Reconnaissance** : Avancé
+- **Traduction** : Intermédiaire
+
+### 𒆜 - Équipement
+- **Kit de premiers soins improvisé** : Bandages, antiseptiques, aiguilles de suture et fil médical dans une pochette compacte.
+- **Carnet de cartographie** : Petit carnet résistant à l'eau avec des plans détaillés des tunnels et stations.
+- **Couteau multifonction** : Outil polyvalent avec lame, ciseaux, pince et tournevis.
+- **Veste technique** : Veste renforcée avec multiples poches cachées et fil rouge distinctif.
 
 ### 𒆜 - Constellation sponsor
-- [À remplir]
+- À déterminer
 
 ### 𒆜 - Rang de la constellation
-- [À remplir]
+- À déterminer
 
 ### 𒆜 - Marques de la constellation
-- [À remplir]
+- À déterminer
 
 ### 𒆜 - Histoire
-En marge. C’est ainsi que Seolha a toujours vécu—au bord des foules, là où l’on voit les entrées et les sorties, où l’on peut partir sans bruit si nécessaire. Enfant, elle passait ses weekends à assembler des kits de premiers secours, à réparer des sacs, à comprendre comment tenir debout quand tout autour chancelle. Elle a grandi dans l’ombre des grandes villes, fascinée non par l’éclat du centre mais par la logique silencieuse des structures: couloirs de service, escaliers techniques, routines de nettoyage, horaires d’ouverture. Le monde lui semblait un mécanisme; elle voulait savoir où étaient les vis.
+En marge. C'est ainsi que Seolha a toujours vécu—au bord des foules, là où l'on voit les entrées et les sorties, où l'on peut partir sans bruit si nécessaire. Enfant, elle passait ses weekends à assembler des kits de premiers secours, à réparer des sacs, à comprendre comment tenir debout quand tout autour chancelle. Elle a grandi dans l'ombre des grandes villes, fascinée non par l'éclat du centre mais par la logique silencieuse des structures: couloirs de service, escaliers techniques, routines de nettoyage, horaires d'ouverture. Le monde lui semblait un mécanisme; elle voulait savoir où étaient les vis.
 
-Étudiante, elle a choisi la voie de l’utile. Informatique appliquée, méthodologie, ergonomie de terrain; elle a complété avec des modules de physiologie de l’effort, de soins d’urgence et des disciplines de contact qui forgent le sens de la distance—boxe, corps à corps, chute contrôlée. Sa vie sociale était simple, honnête, mais tenue: des gens de bonne volonté qui supportent le poids des jours. Elle n’a jamais cherché l’amour, ni éprouvé l’envie de le simuler. Elle préférait les accords clairs, les objectifs partagés, les dettes que l’on reconnaît.
+Très tôt, elle a développé une capacité d'observation aiguë, ne se contentant pas de regarder mais d'analyser les gestes, les techniques, les mouvements des autres. Quand sa mère réparait un appareil, Seolha ne se contentait pas de mémoriser les étapes—elle absorbait la pression des doigts, l'angle du poignet, la séquence précise. Puis, dans le silence de sa chambre, elle reproduisait ces mouvements jusqu'à ce que son corps les comprenne. Cette habitude d'imiter pour apprendre est devenue sa méthode: observer, déconstruire mentalement, puis reproduire avec une précision méthodique.
 
-Quand le Star Stream a fracturé Séoul, Seolha ne s’est pas effondrée. Elle a relevé la tête, pris le temps d’inspirer, et a fait ce qu’elle fait toujours: établir un protocole minimal viable. Le premier scénario a paru grotesque dans sa simplicité—une injonction brutale à prouver sa valeur par la mort. Elle a refusé la précipitation, s’est extraite des grappes paniquées, a trouvé un perchoir visuel dans une cage d’escalier, a observé les flux. Elle n’a pas cherché une gloire vaine; elle a cherché une ligne sûre. Le hasard a biaisé la conclusion—une semelle, une fourmi, une notification froide—mais ce n’était pas l’acte qui lui importait, c’était la suite: survivre aux scénarios qui viennent, protéger le minimum d’humain chez ceux qui restent, et ne rien devoir à l’hystérie.
+Étudiante, elle a choisi la voie de l'utile. Informatique appliquée, méthodologie, ergonomie de terrain; elle a complété avec des modules de physiologie de l'effort, de soins d'urgence et des disciplines de contact qui forgent le sens de la distance—boxe, corps à corps, chute contrôlée. Sa vie sociale était simple, honnête, mais tenue: des gens de bonne volonté qui supportent le poids des jours. Elle n'a jamais cherché l'amour, ni éprouvé l'envie de le simuler. Elle préférait les accords clairs, les objectifs partagés, les dettes que l'on reconnaît.
 
-Dans les tunnels du second scénario, elle a conçu ses premières cartes: sorties latérales, conduites d’air, points d’eau, zones d’échos à éviter pour ne pas attirer les groupes de rats terrestres. Elle a appris les familles de pas—boîteux, pressés, traînants—et leur a donné des codes. La première base n’a pas été une communauté; ça a été une arête logistique. Elle s’est rendue utile: pansements compressifs, couture d’équipement, répartition de vivres, consignation des heures de veille. Elle n’a pas cherché à diriger—elle a mis de l’ordre, ce qui, souvent, revient au même.
+Dans ses études d'informatique, elle excellait particulièrement dans l'analyse de code—capable de comprendre et de reproduire des structures algorithmiques complexes après une simple lecture. Ses professeurs notaient cette capacité inhabituelle à "penser comme le programme" plutôt que simplement l'écrire.
 
-Quand les zones vertes ont été annoncées, elle a fait le calcul des distances, du cycle nocturne, et des fenêtres de passage. Elle a posé sa règle: on ne court pas pour courir; on court quand on sait où l’on va. La nuit des rats et des ours à corne a confirmé ses intuitions: ancrages bas, mouvements par vagues, priorité aux couloirs où l’on peut couper la ligne de charge. Elle a testé, corrigé, transmis. Sa parole commençait à compter, non par charisme, mais parce que ses plans fonctionnaient.
+Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a relevé la tête, pris le temps d'inspirer, et a fait ce qu'elle fait toujours: établir un protocole minimal viable. Le premier scénario a paru grotesque dans sa simplicité—une injonction brutale à prouver sa valeur par la mort. Elle a refusé la précipitation, s'est extraite des grappes paniquées, a trouvé un perchoir visuel dans une cage d'escalier, a observé les flux. Elle n'a pas cherché une gloire vaine; elle a cherché une ligne sûre.
 
-À l’est, lors de la chute des météorites, l’air s’est déchiré. Le fléau des questions a donné au ciel un œil qui ne clignait pas. Seolha a retenu la topologie: comment les vortex imposent leurs conduites à la ville, comment les monstres volants prennent les hauteurs et poussent les survivants dans les gorges urbaines. Elle a compris que la surface n’était plus un terrain neutre. Elle a appris à aimer les plafonds.
+Dans les tunnels du second scénario, elle a conçu ses premières cartes: sorties latérales, conduites d'air, points d'eau, zones d'échos à éviter pour ne pas attirer les groupes de rats terrestres. Elle a appris les familles de pas—boîteux, pressés, traînants—et leur a donné des codes. La première base n'a pas été une communauté; ça a été une arête logistique. Elle s'est rendue utile: pansements compressifs, couture d'équipement, répartition de vivres, consignation des heures de veille.
 
-Plus les scénarios s’empilaient—la lutte pour les drapeaux, la chasse, la vague sacrificielle—plus elle a déplié sa méthode: constituer des binômes autonomes, coudre des signaux discrets dans les vêtements (fil rouge à gauche pour “guide”, bleu pour “médic,” noir pour “éclaireur”), marquer les couloirs “morts” par des nœuds inversés. Quand la moitié des incarnations a été offerte à l’autel d’une difficulté absurde, elle n’a pas participé à l’hécatombe: elle a choisi les petites victoires qui sauvent des vies qu’on n’a pas eu le temps d’apprendre à connaître. Elle ne tue pas pour le score; elle neutralise pour la voie libre.
+C'est durant ces premiers scénarios que sa capacité d'observation s'est transformée en quelque chose de plus—quelque chose qu'elle ne comprenait pas entièrement. Après avoir observé attentivement un survivant expert en combat au couteau neutraliser un monstre, elle s'est surprise à reproduire exactement la même séquence de mouvements face à une menace similaire, alors qu'elle n'avait jamais pratiqué cette technique auparavant.
 
-Son nom a circulé dans un murmure: pas une héroïne, mais quelqu’un qui arrive quand la panique fend l’équipe. On l’a parfois suppliée de devenir représentante; elle a refusé, sans détour. “Je ne m’assois pas sur un trône qui m’empêcherait de marcher.” Elle préfère les bordures et les mezzanines, les points d’appui d’où l’on voit venir les vagues. Elle échange des services contre des informations, tient des promesses, ne signe pas des pactes qu’elle ne peut honorer. Si une constellation devait se pencher sur elle, ce ne serait ni pour le drame ni pour la flamboyance, mais pour ce calme obstiné qui, soir après soir, fait la différence entre une station qui tient et une station qui s’effondre.
+Quand les zones vertes ont été annoncées, elle a fait le calcul des distances, du cycle nocturne, et des fenêtres de passage. Elle a posé sa règle: on ne court pas pour courir; on court quand on sait où l'on va. La nuit des rats et des ours à corne a confirmé ses intuitions: ancrages bas, mouvements par vagues, priorité aux couloirs où l'on peut couper la ligne de charge. Elle a testé, corrigé, transmis. Sa parole commençait à compter, non par charisme, mais parce que ses plans fonctionnaient.
 
-Aujourd’hui, Seolha se déplace entre les stations et les ruines, cordant les plans, resserrant les coutures, ajustant les trajectoires humaines comme on ajuste une attelle: fermement, sans douleur inutile. Elle ne promet rien d’autre que ceci: si vous marchez avec elle, vous saurez où poser le pied suivant. Et souvent, c’est tout ce qu’il faut pour survivre dans le dôme de Séoul.
+Plus les scénarios s'empilaient—la lutte pour les drapeaux, la chasse, la vague sacrificielle—plus elle a déplié sa méthode: constituer des binômes autonomes, coudre des signaux discrets dans les vêtements (fil rouge à gauche pour "guide", bleu pour "médic," noir pour "éclaireur"), marquer les couloirs "morts" par des nœuds inversés. Elle ne tue pas pour le score; elle neutralise pour la voie libre.
 
+Sa capacité d'adaptation technique s'est affinée au fil des scénarios. Elle a commencé à cataloguer mentalement les techniques qu'elle observait, ce qui était autrefois une simple habitude d'apprentissage par observation s'est transformé en une compétence presque surnaturelle.
+
+Son nom a circulé dans un murmure: pas une héroïne, mais quelqu'un qui arrive quand la panique fend l'équipe. On l'a parfois suppliée de devenir représentante; elle a refusé, sans détour. "Je ne m'assois pas sur un trône qui m'empêcherait de marcher." Elle préfère les bordures et les mezzanines, les points d'appui d'où l'on voit venir les vagues.
+
+Aujourd'hui, Seolha se déplace entre les stations et les ruines, cordant les plans, resserrant les coutures, ajustant les trajectoires humaines comme on ajuste une attelle: fermement, sans douleur inutile. Elle ne promet rien d'autre que ceci: si vous marchez avec elle, vous saurez où poser le pied suivant. Et souvent, c'est tout ce qu'il faut pour survivre dans le dôme de Séoul.
+
+### 𒆜 - Situation actuelle
+- **Scénario actuel** : Dark Castle (Scénario #9)
+- **Jour** : 25 (15 octobre)
