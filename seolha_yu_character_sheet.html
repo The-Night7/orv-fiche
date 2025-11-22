@@ -258,6 +258,60 @@
             gap: var(--spacing-md);
         }
 
+        .skill-card {
+            background-color: rgba(15, 52, 96, 0.6);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            border: 1px solid var(--border-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .skill-level {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .skill-desc {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .skill-abilities h4 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-top: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .skill-ability {
+            padding-left: var(--spacing-md);
+            position: relative;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .skill-ability::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
         /* Équipement */
         .equipment-container {
             display: grid;
@@ -623,8 +677,7 @@
                             <span class="skill-name">Déplacement tactique</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Capacité à se déplacer efficacement dans des environnements urbains, développée pendant ses six années d'entraînement intensif en parkour et ses trois ans d'expérience en tant qu'assistante pour une équipe de sécurité spécialisée dans les tests d'intrusion physique.</p>
-
+                        <p class="skill-desc">6 ans de parkour + 3 ans d'expérience en tests d'intrusion physique</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Capacité à se déplacer silencieusement dans des environnements encombrés ou surveillés.</p>
                             <p class="skill-ability">Optimisation des trajets pour minimiser l'exposition aux dangers et aux regards.</p>
@@ -637,7 +690,7 @@
                             <span class="skill-name">Manipulation précise</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Compétence développée pendant ses deux années de travail dans une équipe d'intervention médicale d'urgence où elle devait manipuler avec précision des équipements médicaux délicats dans des situations de stress intense.</p>
+                        <p class="skill-desc">2 ans dans une équipe d'intervention médicale d'urgence</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Permet de manipuler des objets avec précision même dans des situations stressantes.</p>
                             <p class="skill-ability">Capacité à extraire et manipuler des objets fragiles sans les endommager.</p>
@@ -650,7 +703,7 @@
                             <span class="skill-name">Mémoire renforcée</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Issue de son travail en cybersécurité et de sa pratique intensive de mémorisation de codes et structures complexes pendant quatre ans, cette compétence permet à Seolha de stocker et d'organiser mentalement une quantité importante d'informations.</p>
+                        <p class="skill-desc">4 ans de travail en cybersécurité avec mémorisation de codes complexes</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Mémoire visuelle permettant de se rappeler avec précision des détails visuels, textuels ou auditifs.</p>
                             <p class="skill-ability">Organisation mentale structurée des informations, facilitant leur récupération même sous pression.</p>
@@ -664,7 +717,7 @@
                             <span class="skill-name">Firewall Mental</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Protection psychique développée pendant ses quatre années de formation en cybersécurité où elle a appris à compartimenter l'information et à résister aux techniques d'ingénierie sociale, renforcée par sa pratique de méditation disciplinée.</p>
+                        <p class="skill-desc">4 ans de formation en cybersécurité + pratique de méditation</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Crée une barrière contre les tentatives d'influence mentale de faible niveau.</p>
                             <p class="skill-ability">Permet de compartimenter les émotions pour maintenir un jugement rationnel en situation de crise.</p>
@@ -678,7 +731,7 @@
                             <span class="skill-name">Sabotage numérique</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Extension défensive de ses compétences en cybersécurité acquises pendant ses quatre années d'études spécialisées et son travail comme consultante en sécurité informatique.</p>
+                        <p class="skill-desc">4 ans d'études en cybersécurité + travail comme consultante</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Capacité à perturber temporairement les caméras de surveillance, communications radio et systèmes électroniques simples.</p>
                             <p class="skill-ability">Peut brouiller un signal numérique pendant quelques minutes, créant une fenêtre d'opportunité.</p>
@@ -692,7 +745,7 @@
                             <span class="skill-name">Endurance au stress</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Technique mentale développée pendant ses cinq années de pratique intensive du rugby de haut niveau, où elle a dû apprendre à gérer la douleur physique et la pression mentale des compétitions, renforcée par son expérience en intervention d'urgence.</p>
+                        <p class="skill-desc">5 ans de rugby de haut niveau + expérience en intervention d'urgence</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Permet de maintenir la concentration malgré l'inconfort physique.</p>
                             <p class="skill-ability">Capacité à rester fonctionnelle sous stress prolongé.</p>
@@ -706,7 +759,7 @@
                             <span class="skill-name">Sens linguistique</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Compétence développée pendant ses trois années d'études en linguistique appliquée et ses voyages dans plusieurs pays asiatiques où elle a dû s'adapter rapidement à différentes langues.</p>
+                        <p class="skill-desc">3 ans d'études en linguistique appliquée + voyages internationaux</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Capacité à saisir la structure et les bases d'une langue inconnue après une période d'exposition.</p>
                             <p class="skill-ability">Déchiffrement progressif de textes et symboles étrangers en identifiant des motifs linguistiques récurrents.</p>
@@ -720,7 +773,7 @@
                             <span class="skill-name">Cartographie mentale</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Capacité développée pendant ses six années d'exploration urbaine et perfectionnée par sa formation en cartographie d'urgence pour les équipes d'intervention en zones sinistrées.</p>
+                        <p class="skill-desc">6 ans d'exploration urbaine + formation en cartographie d'urgence</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Mémorisation précise des environnements après exploration, incluant les détails structurels importants.</p>
                             <p class="skill-ability">Identification rapide des points stratégiques: sorties, couvertures, lignes de vue, points faibles structurels.</p>
@@ -734,7 +787,7 @@
                             <span class="skill-name">Perception analytique</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Capacité à analyser les situations sous pression, développée pendant ses deux années de travail en équipe d'intervention d'urgence et renforcée par son expérience en cybersécurité.</p>
+                        <p class="skill-desc">2 ans en équipe d'intervention d'urgence + expérience en cybersécurité</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Maintien d'une perception claire même dans des situations de stress intense.</p>
                             <p class="skill-ability">Identification rapide des détails critiques et des anomalies dans l'environnement.</p>
@@ -748,8 +801,7 @@
                             <span class="skill-name">Sens du déplacement</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Coordination corporelle développée pendant ses cinq années de pratique sportive intensive en rugby et ses six années d'entraînement en parkour, renforcée par son expérience en exploration urbaine.</p>
-
+                        <p class="skill-desc">5 ans de rugby + 6 ans de parkour + exploration urbaine</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Équilibre exceptionnel permettant de se déplacer sur des surfaces instables ou en hauteur.</p>
                             <p class="skill-ability">Capacité à se faufiler dans des espaces étroits et à franchir des obstacles avec fluidité.</p>
@@ -763,7 +815,7 @@
                             <span class="skill-name">Adaptation aux scénarios</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Faculté à comprendre et accepter rapidement les règles et contraintes d'un nouveau scénario, développée à travers l'expérience de multiples scénarios de catastrophe.</p>
+                        <p class="skill-desc">Expérience de multiples scénarios de catastrophe</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Compréhension rapide des règles et mécaniques d'un nouveau scénario.</p>
                             <p class="skill-ability">Acceptation et intégration de lois physiques ou sociales différentes.</p>
@@ -776,7 +828,7 @@
                             <span class="skill-name">Sang-froid</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Maîtrise émotionnelle développée pendant ses deux années de travail en intervention d'urgence et renforcée par son expérience dans les premiers scénarios catastrophiques.</p>
+                        <p class="skill-desc">2 ans en intervention d'urgence + premiers scénarios catastrophiques</p>
                         <div class="skill-abilities">
                             <p class="skill-ability">Contrôle des réactions physiologiques de stress (rythme cardiaque, respiration).</p>
                             <p class="skill-ability">Maintien de la clarté mentale face à des situations traumatiques ou horrifiques.</p>
@@ -786,17 +838,16 @@
                     </div>
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name"><span class="censored">Imitation</span></span>
-                            <span class="skill-level">Niveau <span class="censored">5</span></span>
+                            <span class="skill-name">Apprentissage mimétique</span>
+                            <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Cette compétence active permet à Seolha d'imiter temporairement les capacités et savoir-faire qu'elle a précédemment enregistrés dans sa mémoire renforcée. Cette compétence est une extension de <span class="censored">imitation</span> qui lui permet d'exploiter activement les informations collectées.</p>
-
+                        <p class="skill-desc">3 ans d'observation d'experts en tests d'intrusion + 2 ans en intervention médicale d'urgence + 5 ans d'analyse tactique au rugby</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Permet <span class="censored">de reproduire temporairement</span> les compétences techniques, mouvements et capacités observées et stockées dans sa mémoire renforcée.</p>
-                            <p class="skill-ability">L'efficacité de <span class="censored">l'imitation</span> dépend de la qualité et de la quantité d'informations collectées sur la technique ciblée.</p>
-                            <p class="skill-ability">L'utilisation de cette compétence consomme de l'énergie proportionnellement à la complexité de la capacité <span class="censored">imitée</span>.</p>
-                            <p class="skill-ability"><span class="censored">Les capacités imitées</span> sont généralement moins puissantes que les originales, mais peuvent être combinées de façon créative.</p>
-                            <p class="skill-ability">La durée et la précision de <span class="censored">l'imitation</span> sont limitées par <span class="censored">imitation</span> et nécessitent une concentration constante.</p>
+                            <p class="skill-ability">Permet de reproduire des techniques observées après une période d'analyse et de pratique considérablement plus courte que la normale.</p>
+                            <p class="skill-ability">L'efficacité de la reproduction dépend de la qualité de l'observation et de la compréhension des principes sous-jacents.</p>
+                            <p class="skill-ability">Nécessite une concentration intense et une dépense d'énergie proportionnelle à la complexité de la technique reproduite.</p>
+                            <p class="skill-ability">Les techniques reproduites sont généralement moins efficaces que celles des experts, mais peuvent être adaptées créativement à différentes situations.</p>
+                            <p class="skill-ability">Particulièrement efficace pour les compétences physiques et techniques, moins pour les capacités nécessitant des années de développement théorique.</p>
                         </div>
                     </div>
                 </div>
