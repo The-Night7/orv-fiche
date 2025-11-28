@@ -594,6 +594,11 @@
             color: white;
         }
 
+        .rarity-unique {
+            background-color: darkgoldenrod;
+            color: white;
+        }
+
         /* Caractéristiques */
         .characteristics-list {
             display: grid;
@@ -832,8 +837,15 @@
                         <p>Obsession naturelle pour les structures spatiales.</p>
                     </div>
                     <div class="characteristic-item">
-                        <span class="characteristic-name">Jack of All Trades <span class="rarity-tag rarity-nerfed">Nerfed</span></span>
+                        <span class="characteristic-name">Jack of All Trades <span class="rarity-tag rarity-unique">Unique</span></span>
                         <p>Capacité naturelle à assimiler rapidement les bases de diverses compétences, sans pouvoir atteindre la maîtrise complète dans la plupart des domaines.</p>
+                        <div class="system-note">
+                            svp 🥺 (pour la rareté)
+                        </div>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Vision Structurelle <span class="rarity-tag rarity-rare">Rare</span></span>
+                        <p>Capacité intuitive à lire les points faibles et les structures portantes des bâtiments.</p>
                     </div>
                 </div>
             </div>
@@ -940,9 +952,9 @@
                         </div>
                         <p class="skill-desc">Conditionnement mental par la compétition et l'urgence.</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Suppression totale des tremblements musculaires dus à l'adrénaline.</p>
-                            <p class="skill-ability">Immunité fonctionnelle à l'horreur visuelle (gore, monstres).</p>
-                            <p class="skill-ability">Analyse froide des ratios risque/bénéfice en temps réel.</p>
+                            <div class="skill-ability">Capacité à rester calme en situation de stress.</div>
+                            <div class="skill-ability">Réduction des tremblements et de la panique physiologique.</div>
+                            <div class="skill-ability">Ne donne PAS d'analyse tactique surnaturelle, juste le calme nécessaire pour réfléchir.</div>
                         </div>
                         <div class="approved-note">
                             Remplace "Perception Analytique".
@@ -1048,7 +1060,7 @@
                 </div>
 
                 <div class="dead-skill">
-                    <span class="dead-skill-name">Firewall Mental & Perception Analytique</span>
+                    <span class="dead-skill-name">Perception Analytique</span>
                     <div class="dead-reason">
                         <strong>Verdict :</strong> "C'est littéralement Sang-froid. Arrête de multiplier les compétences pour rien."<br>
                         <strong>Conséquence :</strong> Fusionnés dans Sang-froid.
