@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seolha Yu - Fiche de personnage (Corrigée)</title>
+    <title>Seolha Yu - Fiche de personnage</title>
     <style>
         :root {
             /* Couleurs */
@@ -424,6 +424,38 @@
             border-left: 2px solid var(--approved);
         }
 
+        /* Header de réponse directe au GM */
+        .gm-response {
+            background: rgba(77, 171, 245, 0.1);
+            border: 1px solid var(--accent);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .gm-response h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .gm-response ul {
+            list-style: none;
+        }
+        .gm-response li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .gm-response li::before {
+            content: '>';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
         /* Cimetière des compétences */
         .graveyard {
             opacity: 0.8;
@@ -612,6 +644,17 @@
 </head>
 <body>
 <div class="container">
+
+    <div class="gm-response">
+        <h3>Note de mise à jour (Réponse aux retours)</h3>
+        <ul>
+            <li><strong>Sanctuaire Tactique :</strong> SUPPRIMÉ. Vous avez raison, c'est de la logique/RP, pas une compétence évolutive.</li>
+            <li><strong>Sang-froid :</strong> CORRIGÉ. Retrait de la mention "analyse risques/bénéfices" (trop OP/Gong Pildu). Ne concerne que la suppression des tremblements/panique.</li>
+            <li><strong>Firewall Mental :</strong> RÉINTÉGRÉ. Comme validé par Akidai (différent du sang-froid), sert uniquement de défense contre les intrusions mentales/magiques.</li>
+            <li><strong>Maîtrise des Liens :</strong> MAINTENU avec précision. Ce n'est pas un ajout panique, cela vient de la section "Passions" de ma fiche originale (Couture/Nœuds). J'ai réduit l'efficacité pour que ce soit réaliste.</li>
+            <li><strong>Général :</strong> J'ai retiré les termes trop techniques/OP pour revenir à des compétences "humaines" basées sur le background (Rugby/Archi/Médic).</li>
+        </ul>
+    </div>
 
     <!-- En-tête de conformité -->
     <div class="header-compliance">
@@ -850,27 +893,14 @@
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Vision Structurelle</span>
-                            <span class="skill-level">Niveau 3</span>
+                            <span class="skill-level">Niveau 2</span>
                         </div>
                         <p class="skill-desc">Source : Fille d'architecte + Exploration urbaine intensive.</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Identification immédiate des "Points de Rupture" d'un bâtiment ou d'une structure.</p>
-                            <p class="skill-ability">Sait exactement où frapper pour provoquer un effondrement localisé ou abattre un mur porteur.</p>
-                            <p class="skill-ability">Lecture instinctive des plans 3D : anticipe les pièces cachées, les vides sanitaires et les conduits avant même de les voir.</p>
+                            <p class="skill-ability">Repérer les murs porteurs et les points faibles d'un bâtiment.</p>
+                            <p class="skill-ability">Estimer la solidité d'un sol avant de marcher dessus.</p>
                         </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Sanctuaire Tactique</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">Source : Audit de sécurité physique + Ingéniosité.</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Transformation de n'importe quel environnement urbain en forteresse temporaire en moins de 10 minutes.</p>
-                            <p class="skill-ability">Création de "Kill Zones" (goulets d'étranglement) où les ennemis sont forcés de passer un par un.</p>
-                            <p class="skill-ability">Utilisation optimale du mobilier urbain pour bloquer les lignes de vue et les tirs.</p>
-                        </div>
+                        <div class="admin-note">Progression logique : Niv 10 permettrait de voir les micro-fissures invisibles.</div>
                     </div>
 
                     <!-- --- TECHNIQUE & MÉDICAL (Précision Chirurgicale) --- -->
@@ -891,21 +921,21 @@
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Maîtrise des Liens</span>
-                            <span class="skill-level">Niveau 3</span>
+                            <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Source : Passion obsessionnelle pour les nœuds + Escalade.</p>
+                        <p class="skill-desc">Source : Section "Passions" de la fiche originale (Couture/Nœuds).</p>
                         <div class="skill-abilities">
+                            <p class="skill-ability">Réalisation rapide de nœuds solides (mais pas "indestructibles").</p>
                             <p class="skill-ability">Peut sécuriser, immobiliser ou étrangler n'importe quoi avec un simple bout de corde ou de câble.</p>
-                            <p class="skill-ability">Création de systèmes de poulies improvisés pour déplacer des charges lourdes.</p>
-                            <p class="skill-ability">Les nœuds réalisés sont impossibles à défaire sans couper la corde.</p>
                         </div>
+                        <div class="valid-note">Ce n'est pas un ajout, c'était dans mon background initial.</div>
                     </div>
 
                     <!-- --- MENTAL & CYBER (Les rescapés du Nerf) --- -->
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Sang-froid Absolu</span>
+                            <span class="skill-name">Sang-froid</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
                         <p class="skill-desc">Conditionnement mental par la compétition et l'urgence.</p>
@@ -915,8 +945,21 @@
                             <p class="skill-ability">Analyse froide des ratios risque/bénéfice en temps réel.</p>
                         </div>
                         <div class="approved-note">
-                            Remplace "Firewall Mental" et "Perception Analytique".
+                            Remplace "Perception Analytique".
                         </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Firewall Mental</span>
+                            <span class="skill-level">Niveau 5</span>
+                        </div>
+                        <p class="skill-desc">Source : Méditation et compartimentation.</p>
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Résistance passive contre les tentatives d'intrusion mentale ou de lecture de pensées (Bas niveau).</p>
+                            <p class="skill-ability">Capacité à isoler un traumatisme pour continuer à avancer (ne le soigne pas).</p>
+                        </div>
+                        <div class="valid-note">Réintégré suite à la validation d'Akidai (Protection vs Calme).</div>
                     </div>
 
                     <div class="skill-card">
