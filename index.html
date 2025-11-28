@@ -19,6 +19,7 @@
             /* Couleurs Admin / Correction */
             --correction: #ff5252; /* Rouge pour les corrections */
             --approved: #69f0ae; /* Vert pour ce qui est validé */
+            --system-note: #9dd9ff; /* Couleur pour les notes "système" */
             --warning-bg: rgba(255, 82, 82, 0.05);
 
             /* Espacement */
@@ -112,6 +113,19 @@
             padding: var(--spacing-lg);
             margin-bottom: var(--spacing-lg);
             border: 1px solid var(--border-color);
+        }
+
+        .character-header::after {
+            content: "SYSTEM CHECK: VALID";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.7rem;
+            color: var(--system-note);
+            opacity: 0.7;
+            border: 1px solid var(--system-note);
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .character-portrait {
@@ -368,6 +382,16 @@
             color: var(--accent);
             position: absolute;
             left: 0;
+        }
+
+        /* Note système */
+        .system-note {
+            font-size: 0.85rem;
+            color: var(--system-note);
+            margin-top: 8px;
+            font-style: italic;
+            border-left: 2px solid var(--system-note);
+            padding-left: 8px;
         }
 
         /* Notes Admin */
@@ -781,7 +805,7 @@
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Impact Cinétique (Breaker)</span>
+                            <span class="skill-name">Impact Cinétique</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
                         <p class="skill-desc">Source : 5 ans de Rugby (Ailière) + Physique appliquée.</p>
@@ -794,7 +818,7 @@
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Appuis de Rugbyman (Reforged)</span>
+                            <span class="skill-name">Appuis de Rugbyman</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
                         <p class="skill-desc">Source : Entraînement fractionné haute intensité.</p>
@@ -808,11 +832,24 @@
                         </div>
                     </div>
 
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Endurance au stress</span>
+                            <span class="skill-level">Niveau 2</span>
+                        </div>
+                        <p class="skill-desc">5 ans de rugby de haut niveau + expérience en intervention</p>
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Permet de maintenir la performance malgré la douleur musculaire et l'épuisement.</p>
+                            <p class="skill-ability">Gestion de l'acide lactique et du souffle.</p>
+                            <div class="system-note">Note : Distinct du Sang-froid. Avoir la tête froide n'empêche pas les jambes de brûler.</div>
+                        </div>
+                    </div>
+
                     <!-- --- TACTIQUE & ENVIRONNEMENT (L'Héritage de l'Architecte) --- -->
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Vision Structurelle (Blueprint)</span>
+                            <span class="skill-name">Vision Structurelle</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
                         <p class="skill-desc">Source : Fille d'architecte + Exploration urbaine intensive.</p>
@@ -825,7 +862,7 @@
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Sanctuaire Tactique (Trapping)</span>
+                            <span class="skill-name">Sanctuaire Tactique</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
                         <p class="skill-desc">Source : Audit de sécurité physique + Ingéniosité.</p>
@@ -853,7 +890,7 @@
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Maîtrise des Liens (Rigger)</span>
+                            <span class="skill-name">Maîtrise des Liens</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
                         <p class="skill-desc">Source : Passion obsessionnelle pour les nœuds + Escalade.</p>
@@ -899,7 +936,7 @@
 
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Sabotage Numérique (Hardware)</span>
+                            <span class="skill-name">Sabotage Numérique</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
                         <p class="skill-desc">Expertise en vulnérabilités physiques des systèmes.</p>
