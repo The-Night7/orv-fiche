@@ -178,17 +178,6 @@
             display: block;
         }
 
-        /* Censored text - MODIFIÉ */
-        .censored {
-            background-color: var(--censor);
-            color: var(--censor);
-            border-radius: 2px;
-            user-select: none;
-            padding: 0 2px;
-            display: inline-block;
-            width: auto;
-        }
-
         /* Cartes d'information */
         .info-card {
             background-color: var(--card-bg);
@@ -594,7 +583,7 @@
         <div>
             <h2 style="color: var(--correction); border: none; margin: 0;">RAPPORT DE VALIDATION</h2>
             <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
-                Statut: <span style="color: var(--correction); font-weight: bold;">Corrigé selon les directives</span><br>
+                Statut: <span style="color: var(--correction); font-weight: bold;">PARTIELLEMENT APPROUVÉ APRÈS NERF MASSIF</span><br>
                 Commentaire: "Arrête d'essayer d'être le protagoniste stp."
             </p>
         </div>
@@ -676,38 +665,6 @@
                     <p>Vêtements fonctionnels : couches superposées neutres, coupe ample pour la mobilité.</p>
                 </div>
             </div>
-
-            <div class="info-card">
-                <h2>Signes distinctifs</h2>
-                <ul class="trait-list">
-                    <li>Une cicatrice fine et nette sous la clavicule gauche (ancienne entaille contrôlée, refermée proprement) et un trait plus rugueux au poignet droit (lacération suturée en urgence).</li>
-                    <li>Un fil rouge discret noué au passant de sa veste : repère visuel pour ses alliés et rappel personnel d'un engagement passé.</li>
-                    <li>Odeur subtile d'iode et d'alcool isopropylique, trahissant ses habitudes de stérilisation.</li>
-                </ul>
-            </div>
-
-            <div class="double-column">
-                <div class="info-card">
-                    <h2>Goûts</h2>
-                    <ul class="simple-list">
-                        <li>Structure et routines : inventaires carrés, checklists, planifications par créneaux.</li>
-                        <li>Thé noir fort, cuisine sobre mais nourrissante, rationnelle (bouillons, riz, algues).</li>
-                        <li>Topographies urbaines : cartes de stations, sorties de secours, repères visuels.</li>
-                        <li>Lecture de notes techniques et carnets de terrain; préférences pour les récits laconiques factuels plutôt que la fiction.</li>
-                        <li>Silences tactiques, lieux élevés avec vue d'ensemble (ponts, mezzanines, toits).</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h2>Passions</h2>
-                    <ul class="simple-list">
-                        <li>Travail du fil et du nœud (couture, ligatures, réparations) : transformer des restes en équipement fiable.</li>
-                        <li>Cartographie improvisée : créer des plans évolutifs des tunnels et zones vertes, noter dynamiques de monstres et fenêtres de sécurité.</li>
-                        <li>Conditionnement fonctionnel : tractions, dips, gainage, frappes en tempo; routines courtes mais régulières.</li>
-                        <li>Soin de terrain : pansements compressifs, attelles de fortune, protocoles de triage.</li>
-                    </ul>
-                </div>
-            </div>
         </section>
 
         <section id="stats" class="tab-content">
@@ -757,16 +714,12 @@
                         <p>Organisation rigoureuse, listes et protocoles.</p>
                     </div>
                     <div class="characteristic-item">
-                        <span class="characteristic-name">Minimaliste <span class="rarity-tag rarity-common">Commun</span></span>
-                        <p>Valorise l'essentiel et l'utile, éliminant le superflu tant dans son équipement que dans ses relations et communications.</p>
-                    </div>
-                    <div class="characteristic-item">
                         <span class="characteristic-name">Cartographe <span class="rarity-tag rarity-rare">Rare</span></span>
                         <p>Obsession naturelle pour les structures spatiales.</p>
                     </div>
                     <div class="characteristic-item">
                         <span class="characteristic-name">Jack of All Trades <span class="rarity-tag rarity-nerfed">Nerfed</span></span>
-                        <p>Capacité naturelle à assimiler rapidement les bases de diverses compétences, sans pouvoir atteindre la maîtrise complète dans la plupart des domaines.</p>
+                        <p>Apprend un peu plus vite que la moyenne, mais sans magie.</p>
                     </div>
                 </div>
             </div>
@@ -804,7 +757,7 @@
                             <p class="skill-ability">Stabilité anormale au sol, rendant le personnage quasi-impossible à renverser par simple choc.</p>
                         </div>
                         <div class="approved-note">
-                            (Anciennement "Sens du déplacement").
+                            VALIDÉ. (Anciennement "Sens du déplacement"). Tant que ça reste de la physique et pas du vol plané, c'est bon.
                         </div>
                     </div>
 
@@ -878,7 +831,7 @@
                             <p class="skill-ability">Analyse froide des ratios risque/bénéfice en temps réel.</p>
                         </div>
                         <div class="approved-note">
-                            Remplace "Firewall Mental" et "Perception Analytique".
+                            VALIDÉ. Remplace "Firewall Mental" et "Perception Analytique". C'est propre.
                         </div>
                     </div>
 
@@ -923,7 +876,7 @@
                             <p class="skill-ability">Intégration instantanée des nouvelles règles du jeu pour en exploiter les failles.</p>
                         </div>
                         <div class="approved-note">
-                            (Anciennement "Adaptation aux scénarios").
+                            VALIDÉ. (Anciennement "Adaptation aux scénarios").
                         </div>
                     </div>
 
@@ -936,7 +889,7 @@
                 <h2>🪦 Cimetière des Espoirs (Refusés par le GM)</h2>
 
                 <div class="dead-skill">
-                    <span class="dead-skill-name"><span class="censored">Apprentissage mimétique</span></span>
+                    <span class="dead-skill-name">Apprentissage mimétique (Copycat)</span>
                     <div class="dead-reason">
                         <strong>Verdict :</strong> "Gros t'es humain, t'es pas le prota. Même le prota est jaloux."<br>
                         <strong>Conséquence :</strong> Tu apprendras à la dure comme tout le monde. InRP only.
@@ -975,127 +928,31 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <div class="info-card">
-                <h2>Spécialisations</h2>
-                <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-                    <div class="info-item">
-                        <span class="info-label">Cartographie urbaine</span>
-                        <span class="info-value">Experte</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Premiers secours</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Déplacement tactique</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Combat rapproché</span>
-                        <span class="info-value">Intermédiaire</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Analyse de données</span>
-                        <span class="info-value">Experte</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Survie urbaine</span>
-                        <span class="info-value">Experte</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Planification tactique</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Reconnaissance</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Traduction</span>
-                        <span class="info-value">Intermédiaire</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2>Équipement</h2>
-                <div class="equipment-container">
-                    <div class="equipment-item">
-                        <span class="equipment-name">Kit de premiers soins improvisé</span>
-                        <p class="equipment-desc">Bandages, antiseptiques, aiguilles de suture et fil médical, le tout dans une pochette compacte.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Carnet de cartographie</span>
-                        <p class="equipment-desc">Petit carnet résistant à l'eau avec des plans détaillés des tunnels et stations.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Couteau multifonction</span>
-                        <p class="equipment-desc">Outil polyvalent avec lame, ciseaux, pince et tournevis.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Veste technique</span>
-                        <p class="equipment-desc">Veste renforcée avec multiples poches cachées et fil rouge distinctif.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Gonfleur de ballon de rugby</span>
-                        <p class="equipment-desc">Un outil compact et robuste utilisé pour les ballons de rugby, transformé en arme improvisée pour des situations critiques.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Cordes et nœuds</span>
-                        <p class="equipment-desc">Corde robuste et divers nœuds préparés pour sécuriser des charges, créer des pièges ou escalader des obstacles.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Cartes des tunnels urbains</span>
-                        <p class="equipment-desc">Plans dessinés à la main des tunnels, conduites d'air et zones d'échos, créés pendant les explorations urbaines.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Signalisation textile</span>
-                        <p class="equipment-desc">Petits morceaux de tissu utilisés pour marquer les zones dangereuses ou les chemins sécurisés.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Barre de métal</span>
-                        <p class="equipment-desc">Une barre solide récupérée dans le chantier voisin au club de rugby. Utilisée comme arme improvisée ou outil pour forcer des portes et structures.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Sac à dos</span>
-                        <p class="equipment-desc">Un sac à dos robuste avec plusieurs compartiments, utilisé pour transporter des fournitures essentielles, des outils et des provisions.</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <section id="story" class="tab-content">
             <div class="info-card story-card">
                 <h2>Histoire (Revue et corrigée)</h2>
                 <div class="story-content">
-                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte, elle a appris à lire les structures urbaines. <span class="redacted-story">Dès son plus jeune âge, elle passait ses weekends à explorer...</span> Bon, elle aimait juste se balader. Fille unique d'un père architecte et d'une mère ingénieure en sécurité, elle a grandi dans un environnement où l'observation méthodique et la planification étaient valorisées. Dès son plus jeune âge, elle passait ses weekends à explorer les recoins de Séoul avec son père, apprenant à lire les structures urbaines, à comprendre comment les bâtiments s'articulent, où se trouvent les passages oubliés.</p>
+                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte, elle a appris à lire les structures urbaines. <span class="redacted-story">Dès son plus jeune âge, elle passait ses weekends à explorer...</span> Bon, elle aimait juste se balader.</p>
 
-                    <p>À 17 ans, un accident l'a laissée avec une fracture. <span class="redacted-story">Son kiné lui a enseigné des techniques secrètes de gestion de la douleur...</span> <span class="story-correction">[Correction: Elle a juste fait sa rééducation normalement. Elle a toujours mal quand il pleut.]</span> La rééducation a été longue et douloureuse, mais cette expérience a transformé sa relation avec son corps. Pendant six mois intensifs, elle a appris à comprendre les signaux de son corps, à distinguer la douleur dangereuse de l'inconfort normal de l'effort.</p>
+                    <p>À 17 ans, un accident l'a laissée avec une fracture. <span class="redacted-story">Son kiné lui a enseigné des techniques secrètes de gestion de la douleur...</span> <span class="story-correction">[Correction: Elle a juste fait sa rééducation normalement. Elle a toujours mal quand il pleut.]</span></p>
 
-                    <p>Elle s'est tournée vers le rugby à 18 ans. <span class="redacted-story">Elle a développé une capacité à lire le terrain digne d'un général d'armée...</span> Elle a surtout appris à courir vite et à encaisser des plaquages. Pendant cinq ans, elle a joué comme ailière dans une équipe universitaire de haut niveau, développant non seulement sa force et son endurance, mais aussi sa capacité à lire le terrain, à anticiper les mouvements, à exploiter les failles défensives. Le rugby lui a appris la valeur du positionnement stratégique, de l'adaptation rapide, et surtout, de la résilience face à l'adversité physique.</p>
+                    <p>Elle s'est tournée vers le rugby à 18 ans. <span class="redacted-story">Elle a développé une capacité à lire le terrain digne d'un général d'armée...</span> Elle a surtout appris à courir vite et à encaisser des plaquages. C'est là qu'elle a gagné ses "Appuis de Rugbyman", la seule compétence physique validée par l'administration.</p>
 
-                    <p>Études en cybersécurité. <span class="redacted-story">Elle a mémorisé des séquences complexes de codes grâce à sa Mémoire Renforcée...</span> Elle a beaucoup révisé. Parfois elle oublie ses mots de passe. Pendant quatre ans, elle s'est immergée dans le monde des systèmes d'information, développant une compréhension approfondie des réseaux, des protocoles de sécurité et des techniques d'intrusion. Son travail de fin d'études sur les vulnérabilités des systèmes de surveillance urbaine combinait ses deux passions : l'exploration urbaine et la sécurité informatique.</p>
+                    <p>Études en cybersécurité. <span class="redacted-story">Elle a mémorisé des séquences complexes de codes grâce à sa Mémoire Renforcée...</span> Elle a beaucoup révisé. Parfois elle oublie ses mots de passe. Elle sait comment perturber un système, mais si on hacke son téléphone, elle pleure comme tout le monde.</p>
 
-                    <p>Expérience professionnelle : tests d'intrusion. <span class="redacted-story">Ce n'était pas de la simple furtivité mais un art...</span> <span class="story-correction">[Correction: Elle vérifiait si les portes étaient fermées. Elle n'est pas Sam Fisher.]</span> Pendant trois ans, elle a assisté des équipes simulant des effractions dans des bâtiments sécurisés, affinant ses compétences en déplacement tactique sous la supervision d'anciens agents de sécurité. Chaque mission était préparée méticuleusement, renforçant sa Cartographie mentale et sa capacité d'Adaptation aux scénarios.</p>
+                    <p>Expérience professionnelle : tests d'intrusion. <span class="redacted-story">Ce n'était pas de la simple furtivité mais un art...</span> <span class="story-correction">[Correction: Elle vérifiait si les portes étaient fermées. Elle n'est pas Sam Fisher.]</span></p>
 
-                    <p><span class="redacted-story">Elle a appris à créer des barrières mentales (Firewall Mental)...</span> Elle est juste très calme (Sang-froid). C'est tout. Pas de super-pouvoir mental. Durant cette période, elle a également pratiqué diverses techniques de méditation et de compartimentage mental. Ces pratiques se sont révélées particulièrement utiles pour structurer sa pensée et gérer le stress, formant la base de son Firewall Mental.</p>
+                    <p><span class="redacted-story">Elle a appris à créer des barrières mentales (Firewall Mental)...</span> Elle est juste très calme (Sang-froid). C'est tout. Pas de super-pouvoir mental.</p>
 
-                    <p>Volontariat médical. Elle sait faire des bandages. <span class="redacted-story">Elle a perfectionné sa Manipulation précise pour voler des objets...</span> <span class="story-correction">[Correction: ABSOLUMENT PAS. Elle sait juste recoudre une plaie sans trembler. Si elle essaie de voler un truc, elle se fait attraper.]</span> Cette expérience lui a également permis de développer ses compétences en premiers secours, devenant capable de traiter efficacement diverses blessures avec un équipement minimal.</p>
+                    <p>Volontariat médical. Elle sait faire des bandages. <span class="redacted-story">Elle a perfectionné sa Manipulation précise pour voler des objets...</span> <span class="story-correction">[Correction: ABSOLUMENT PAS. Elle sait juste recoudre une plaie sans trembler. Si elle essaie de voler un truc, elle se fait attraper.]</span></p>
 
-                    <p><span class="redacted-story">Son intérêt pour les langues a formé son Sens linguistique...</span> <span class="story-correction">[Correction: Compétence refusée. Elle parle coréen et un anglais cassé. Elle devra apprendre les autres langues en RP en galérant.]</span> Pendant trois ans, elle a suivi des cours du soir en linguistique appliquée. Cette approche analytique lui a permis de déchiffrer plus facilement des systèmes de communication inconnus.</p>
+                    <p><span class="redacted-story">Son intérêt pour les langues a formé son Sens linguistique...</span> <span class="story-correction">[Correction: Compétence refusée. Elle parle coréen et un anglais cassé. Elle devra apprendre les autres langues en RP en galérant.]</span></p>
 
-                    <p><span class="redacted-story">Elle découvrit son Apprentissage mimétique : elle pouvait reproduire les techniques des experts...</span> <span class="story-correction">[Correction: MDR NON. Le GM a dit "Tu veux juste mon suicide". Elle doit s'entraîner des heures pour apprendre un truc.]</span> À mesure que les scénarios se succédaient, elle remarquait qu'elle pouvait assimiler les bases de nouvelles compétences plus rapidement que ses collègues.</p>
+                    <p><span class="redacted-story">Elle découvrit son Apprentissage mimétique : elle pouvait reproduire les techniques des experts...</span> <span class="story-correction">[Correction: MDR NON. Le GM a dit "Tu veux juste mon suicide". Elle doit s'entraîner des heures pour apprendre un truc.]</span></p>
 
-                    <p>Quand le Star Stream a fracturé Séoul, Seolha a utilisé son gonfleur de ballon de rugby. Elle a survécu grâce à son Sang-froid et ses muscles de rugbywoman. Pas de ninja, pas de copie de compétences, juste de la violence basique et une bonne gestion du stress. Contrairement à la panique générale, Seolha a analysé la situation avec une clarté glaciale, sa Perception analytique lui permettant d'évaluer rapidement les menaces et les opportunités. Utilisant le terrain à son avantage, elle a méthodiquement neutralisé ses assaillants un par un. Esquives précises, contres rapides, coups ciblés sur les points vulnérables.</p>
-
-                    <p>Dans les tunnels du second scénario, elle a déployé sa Cartographie mentale, acquise pendant ses années d'exploration urbaine. Elle a conçu ses premières cartes : sorties latérales, conduites d'air, points d'eau, zones d'échos à éviter pour ne pas attirer les groupes de rats terrestres. Sa Manipulation précise lui a permis de traiter les blessures des survivants, gagnant leur confiance non par charisme, mais par compétence démontrable.</p>
-
-                    <p>Quand les zones vertes ont été annoncées, elle a utilisé sa Perception analytique pour calculer les distances, le cycle nocturne et les fenêtres de passage. Elle a posé sa règle : on ne court pas pour courir ; on court quand on sait où l'on va. Son Adaptation aux scénarios lui a permis de comprendre rapidement les nouvelles règles et contraintes, d'identifier les objectifs prioritaires, et de les expliquer clairement aux autres survivants.</p>
-
-                    <p>Plus les scénarios s'empilaient — la lutte pour les drapeaux, la chasse, la vague sacrificielle — plus elle a déplié sa méthode : constituer des binômes autonomes, coudre des signaux discrets dans les vêtements, marquer les couloirs morts par des nœuds inversés. Son Sabotage numérique lui a permis de perturber temporairement certains systèmes électroniques hostiles, créant des fenêtres d'opportunité pour son groupe.</p>
-
-                    <p>Aujourd'hui, Seolha se déplace entre les stations et les ruines, cordant les plans, resserrant les coutures, ajustant les trajectoires humaines comme on ajuste une attelle : fermement, sans douleur inutile. Elle ne promet rien d'autre que ceci : si vous marchez avec elle, vous saurez où poser le pied suivant. Et souvent, c'est tout ce qu'il faut pour survivre dans le dôme de Séoul.</p>
+                    <p>Quand le Star Stream a fracturé Séoul, Seolha a utilisé son gonfleur de ballon de rugby. Elle a survécu grâce à son Sang-froid et ses muscles de rugbywoman. Pas de ninja, pas de copie de compétences, juste de la violence basique et une bonne gestion du stress.</p>
                 </div>
             </div>
         </section>

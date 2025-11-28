@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seolha Yu - Dossier Analytique</title>
+    <title>Seolha Yu - Fiche (Nerfée pour le MJ)</title>
     <style>
         :root {
             /* Couleurs */
@@ -14,7 +14,8 @@
             --text-secondary: #90caf9;
             --border-color: rgba(77, 171, 245, 0.3);
             --white: #ffffff;
-            --system-note: #64ffda; /* Couleur pour les notes "système" */
+            --censor: #333333;
+            --sarcasm: #ff4081; /* Nouvelle couleur pour le sarcasme */
 
             /* Espacement */
             --spacing-xs: 0.25rem;
@@ -68,21 +69,6 @@
             padding: var(--spacing-lg);
             margin-bottom: var(--spacing-lg);
             border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .character-header::after {
-            content: "SYSTEM CHECK: VALID";
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 0.7rem;
-            color: var(--system-note);
-            opacity: 0.7;
-            border: 1px solid var(--system-note);
-            padding: 2px 6px;
-            border-radius: 4px;
         }
 
         .character-portrait {
@@ -108,6 +94,16 @@
             font-size: 1.2rem;
             color: var(--text-secondary);
             font-style: italic;
+        }
+
+        .nerf-badge {
+            background-color: var(--sarcasm);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         /* Onglets */
@@ -305,8 +301,8 @@
 
         .skill-desc {
             margin-bottom: var(--spacing-md);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+            font-style: italic;
+            color: var(--sarcasm);
         }
 
         .skill-abilities h4 {
@@ -327,16 +323,6 @@
             color: var(--accent);
             position: absolute;
             left: 0;
-        }
-
-        /* Note système */
-        .system-note {
-            font-size: 0.85rem;
-            color: var(--system-note);
-            margin-top: 8px;
-            font-style: italic;
-            border-left: 2px solid var(--system-note);
-            padding-left: 8px;
         }
 
         /* Équipement */
@@ -403,6 +389,28 @@
         .placeholder-text {
             color: var(--text-secondary);
             font-style: italic;
+        }
+
+        /* Rarity tags */
+        .rarity-common {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .rarity-rare {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        /* Censored text - MODIFIÉ */
+        .censored {
+            background-color: var(--censor);
+            color: var(--censor);
+            border-radius: 2px;
+            user-select: none;
+            padding: 0 2px;
+            display: inline-block;
+            width: auto;
         }
 
         /* Caractéristiques */
@@ -480,16 +488,16 @@
             <img src="static/img/Yu_Seolha_2.jpeg" alt="Seolha Yu" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="character-title">
-            <h1>Seolha Yu</h1>
-            <div class="subtitle">L'Observatrice des Marges</div>
+            <h1>Seolha Yu <span class="nerf-badge">Nerfée v1.1</span></h1>
+            <div class="subtitle">L'Observatrice qui "tape sur le système"</div>
         </div>
     </header>
 
     <div class="character-tabs">
         <button class="tab-button active" data-tab="profile">Profil</button>
         <button class="tab-button" data-tab="stats">Statistiques</button>
-        <button class="tab-button" data-tab="skills">Compétences</button>
-        <button class="tab-button" data-tab="story">Histoire</button>
+        <button class="tab-button" data-tab="skills">Compétences (Approuvées)</button>
+        <button class="tab-button" data-tab="story">Histoire (Maths corrigées)</button>
     </div>
 
     <main class="character-content">
@@ -507,21 +515,15 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">Âge</span>
-                        <span class="info-value">22 ans</span>
+                        <span class="info-value">22 ans (Ressenti : 90 ans selon la police)</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Date de naissance</span>
                         <span class="info-value">21 juin</span>
                     </div>
-                    <!-- Ajout subtil pour répondre à la critique sur l'âge/expérience -->
                     <div class="info-item">
-                        <span class="info-label">Gestion du temps</span>
-                        <span class="info-value">Multitasking Intensif</span>
-                    </div>
-                    <!-- Ajout pour rassurer sur le rôle -->
-                    <div class="info-item">
-                        <span class="info-label">Rôle Narratif</span>
-                        <span class="info-value">Soutien Tactique (Non-Prota)</span>
+                        <span class="info-label">Occupation</span>
+                        <span class="info-value">Humaine (Pas Prota, promis)</span>
                     </div>
                 </div>
             </div>
@@ -530,28 +532,14 @@
                 <h2>Caractère</h2>
                 <ul class="trait-list">
                     <li>
-                        <span class="trait-name">Réservée et pragmatique</span>
-                        <p class="trait-desc">Seolha observe d'abord, agit ensuite. Elle parle peu, mais quand elle s'exprime, c'est pesé et pertinent. Elle privilégie l'efficacité et la lucidité au romantisme de l'héroïsme.</p>
+                        <span class="trait-name">Pragmatique (Trop ?)</span>
+                        <p class="trait-desc">Seolha observe d'abord, agit ensuite. Apparemment, c'est un trait de protagoniste jaloux, donc disons qu'elle est juste lente à la détente.</p>
                     </li>
                     <li>
                         <span class="trait-name">Loyauté sélective</span>
-                        <p class="trait-desc">Elle ne s'attache pas facilement aux groupes; sa loyauté va aux personnes qui assument leurs choix et paient leurs dettes.</p>
-                    </li>
-                    <li>
-                        <span class="trait-name">Résilience froide</span>
-                        <p class="trait-desc">Elle encaisse, range l'émotion, avance. Sa manière de survivre consiste à planifier des issues et à préférer les risques calculés aux coups d'éclat.</p>
+                        <p class="trait-desc">Elle ne s'attache pas facilement. Surtout pas aux gens qui calculent ses années de vie comme des comptables fiscaux.</p>
                     </li>
                 </ul>
-            </div>
-
-            <!-- Le reste du profil reste inchangé -->
-            <div class="info-card">
-                <h2>Description physique</h2>
-                <div class="physical-desc">
-                    <p>Taille moyenne, silhouette athlétique sèche, gestes économes. Épaules tenues, centre de gravité bas, démarche stable prête à pivoter ou décoller en sprint.</p>
-                    <p>Cheveux noirs attachés simplement, quelques mèches libres encadrant un visage calme, regard sombre, attentif, rarement surpris.</p>
-                    <p>Vêtements fonctionnels : couches superposées neutres, coupe ample pour la mobilité, genouillères, gants fins.</p>
-                </div>
             </div>
         </section>
 
@@ -567,158 +555,111 @@
                         <span class="stat-number">7</span>
                     </div>
                     <div class="stat-bar">
-                        <span class="stat-name">Agilité</span>
+                        <span class="stat-name">Agilité (Pas Copycat)</span>
                         <div class="stat-value">
                             <div class="stat-fill" style="width: 80%"></div>
                         </div>
                         <span class="stat-number">8</span>
                     </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Vitalité</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 70%"></div>
-                        </div>
-                        <span class="stat-number">7</span>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Force magique</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 40%"></div>
-                        </div>
-                        <span class="stat-number">4</span>
-                    </div>
                 </div>
                 <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; align-items: center;">
                     <span style="color: var(--accent); font-weight: 500; margin-right: var(--spacing-sm);">Pièces:</span>
-                    <span style="font-weight: 600; font-size: 1.1rem;">6100</span>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2>Caractéristiques</h2>
-                <div class="characteristics-list">
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Méthodique <span class="rarity-tag rarity-common">Commun</span></span>
-                        <p>Organisation rigoureuse dans ses actions et pensées.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Jack of All Trades <span class="rarity-tag rarity-rare">Rare</span></span>
-                        <p>Capacité à assimiler rapidement les bases de diverses compétences.</p>
-                        <div class="system-note">Permet de justifier la polyvalence sans nécessiter 90 ans de vie réelle.</div>
-                    </div>
+                    <span style="font-weight: 600; font-size: 1.1rem;">6100 (Honnêtement gagnées)</span>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="tab-content">
             <div class="info-card">
-                <h2>Compétences spéciales</h2>
+                <h2>Compétences (Revue et Corrigées)</h2>
                 <div class="skills-container">
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Déplacement tactique</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">6 ans de parkour + 3 ans d'expérience en tests d'intrusion physique</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Capacité à se déplacer silencieusement dans des environnements encombrés.</p>
-                            <p class="skill-ability">Optimisation des trajets pour minimiser l'exposition.</p>
-                        </div>
-                    </div>
 
-                    <div class="skill-card">
+                    <!-- FUSION DES COMPÉTENCES -->
+                    <div class="skill-card" style="border: 2px solid var(--sarcasm);">
                         <div class="skill-header">
-                            <span class="skill-name">Endurance au stress (Physique)</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">5 ans de rugby de haut niveau + expérience en intervention</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Permet de maintenir la performance malgré la douleur musculaire et l'épuisement.</p>
-                            <p class="skill-ability">Gestion de l'acide lactique et du souffle.</p>
-                            <div class="system-note">Note : Distinct du Sang-froid (mental). Avoir la tête froide n'empêche pas les jambes de brûler.</div>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Sang-froid (Mental)</span>
+                            <span class="skill-name">Sang-froid (Édition Fusion)</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">2 ans en intervention d'urgence + premiers scénarios</p>
+                        <p class="skill-desc">Fusionné avec "Endurance au stress" car GAZA a dit que c'était la même chose (aka la compétence que j'ai déjà).</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Maintien de la clarté mentale face à l'horreur.</p>
-                            <p class="skill-ability">Capacité de décision rationnelle sous pression psychologique.</p>
-                            <div class="system-note">Complémentaire à l'endurance physique, non redondant.</div>
+                            <p class="skill-ability">Permet de ne pas pleurer quand on se fait engueuler sur Discord.</p>
+                            <p class="skill-ability">Gère le stress ET garde son calme. Incroyable gain de place sur la fiche.</p>
+                            <p class="skill-ability">Remplace l'endurance au stress qui est partie à la poubelle.</p>
                         </div>
                     </div>
 
+                    <!-- NERF LINGUISTIQUE -->
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Sens linguistique</span>
+                            <span class="skill-name">Baragouinage Intuitif</span>
+                            <span class="skill-level">Niveau 1</span>
+                        </div>
+                        <p class="skill-desc">Anciennement "Sens Linguistique". Renommé car "pourquoi faire même ?".</p>
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Ne permet PAS d'apprendre inRP (trop facile).</p>
+                            <p class="skill-ability">Sert uniquement à demander où sont les toilettes dans 4 langues.</p>
+                            <p class="skill-ability">Existe juste pour "taper sur le système" apparemment.</p>
+                        </div>
+                    </div>
+
+                    <!-- NERF DÉPLACEMENT -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Marche Rapide (Pas Copycat)</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">3 ans d'études en linguistique appliquée</p>
+                        <p class="skill-desc">Anciennement "Sens du déplacement". J'ai retiré le parkour pour ne pas copier.</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Compréhension accélérée des structures grammaticales inconnues.</p>
-                            <div class="system-note">Permet d'éviter les sessions de RP interminables de type "Moi Tarzan, Toi Jane" pour se concentrer sur l'intrigue.</div>
+                            <p class="skill-ability">Capacité à mettre un pied devant l'autre très vite.</p>
+                            <p class="skill-ability">Garanti 100% original, aucune inspiration externe.</p>
+                            <p class="skill-ability">N'utilise pas les années d'expérience ajoutées artificiellement à l'histoire.</p>
                         </div>
                     </div>
 
-                    <div class="skill-card">
+                    <!-- NERF MIMÉTIQUE -->
+                    <div class="skill-card" style="opacity: 0.8;">
                         <div class="skill-header">
-                            <span class="skill-name">Sens du déplacement</span>
-                            <span class="skill-level">Niveau 3</span>
+                            <span class="skill-name">Singage Low-Cost</span>
+                            <span class="skill-level">Niveau 1</span>
                         </div>
-                        <p class="skill-desc">Synthèse de l'expérience sportive et urbaine</p>
+                        <p class="skill-desc">Anciennement "Apprentissage mimétique". Trop OP selon la méta.</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Équilibre et proprioception avancés.</p>
-                            <p class="skill-ability">Fluidité de mouvement sur terrain accidenté.</p>
-                            <div class="system-note">Compétence cinétique personnelle, garantie sans plagiat de protagoniste.</div>
+                            <p class="skill-ability">Permet de copier un mouvement mais en se tordant la cheville 1 fois sur 2.</p>
+                            <p class="skill-ability">Moins efficace que d'apprendre "avec les autres" inRP.</p>
+                            <p class="skill-ability">Compétence "poubelle" assumée.</p>
                         </div>
                     </div>
 
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Apprentissage mimétique</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">Capacité d'analyse et de reproduction motrice</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Reproduction imparfaite mais fonctionnelle de techniques observées.</p>
-                            <p class="skill-ability">Nécessite une compréhension des principes, pas juste une copie aveugle.</p>
-                            <div class="system-note">Outil d'apprentissage accéléré pour compenser l'absence de talent inné ("Cheat Skill" désactivé).</div>
-                        </div>
-                    </div>
-
-                    <!-- Autres compétences conservées mais condensées pour l'affichage -->
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Firewall Mental</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Cybersécurité + Méditation</p>
+                        <p class="skill-desc">Celle-là ça va ? Je peux la garder ?</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Compartimentation des émotions.</p>
-                            <p class="skill-ability">Protection contre les influences mentales mineures.</p>
+                            <p class="skill-ability">Crée une barrière contre les critiques non-constructives.</p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <section id="story" class="tab-content">
             <div class="info-card story-card">
-                <h2>Histoire</h2>
+                <h2>Histoire (Version condensée pour les maths)</h2>
                 <div class="story-content">
-                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte et d'une mère ingénieure en sécurité, elle a grandi dans un environnement où l'observation méthodique était valorisée. Dès son plus jeune âge, elle optimisait son temps : explorer les structures urbaines ne l'empêchait pas d'étudier.</p>
+                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte et d'une mère ingénieure, elle a tout appris en même temps pour gagner du temps sur sa timeline.</p>
 
-                    <p>À 17 ans, après un accident, elle a appris la gestion de la douleur. Puis, le rugby (5 ans) lui a enseigné la tactique et l'endurance physique. Parallèlement — car les journées font 24 heures — elle a mené des études en cybersécurité (4 ans) et en linguistique (3 ans). Cette superposition d'activités, bien que dense, est mathématiquement viable pour une personne dormant peu et n'ayant pas de vie sociale superflue.</p>
+                    <p style="border-left: 3px solid var(--sarcasm); padding-left: 10px;">
+                        <strong>Note de l'auteur :</strong> Pour répondre à la polémique des "90 ans en 22 ans", précisons que Seolha ne dormait jamais.
+                        Rugby (5 ans) + Parkour (6 ans) + Cybersécurité (4 ans) + Linguistique (3 ans) = Tout ça a été fait en multitasque.
+                        Elle lisait des livres de code en plaquant des gens au rugby tout en sautant par-dessus des murs. C'est ça, l'efficacité.
+                    </p>
 
-                    <p>Son travail dans les tests d'intrusion a synthétisé ses compétences : le parkour pour l'accès, l'informatique pour les systèmes, le sang-froid pour l'exécution. Elle n'a pas vécu 90 ans ; elle a simplement vécu ses 22 ans trois fois plus intensément que la moyenne.</p>
+                    <p>Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a utilisé son "Sang-froid" (qui est la même chose que l'endurance au stress, rappelons-le) pour survivre. Elle n'a pas utilisé de "Sens du déplacement" copié sur quelqu'un d'autre, elle a juste couru très bizarrement pour être originale.</p>
 
-                    <p>Quand le Star Stream a fracturé Séoul, Seolha a utilisé ce qu'elle avait. Pas de pouvoirs donnés par le scénario, mais une accumulation de réflexes conditionnés. Son "Sang-froid" lui a permis de garder l'esprit clair, tandis que son "Endurance au stress" permettait à son corps de suivre le rythme imposé par sa tête. Une distinction cruciale qui lui a permis de survivre là où d'autres, simplement calmes mais physiquement non préparés, ont échoué.</p>
-
-                    <p>Aujourd'hui, elle avance avec prudence. Elle sait qu'elle n'est pas le personnage principal de cette histoire, et cela lui convient parfaitement. Les protagonistes attirent les catastrophes ; elle, elle préfère les cartographier pour les éviter.</p>
+                    <p>Aujourd'hui, Seolha se déplace entre les stations, essayant d'apprendre inRP avec les autres plutôt que d'utiliser ses compétences OP qui vont à la poubelle. Elle espère un jour être assez "humaine" pour satisfaire les critères d'admission.</p>
                 </div>
             </div>
         </section>
@@ -729,8 +670,8 @@
             <span class="scenario-value">Dark Castle (Scénario #9)</span>
         </div>
         <div class="date-info">
-            <span class="date-label">Jour :</span>
-            <span class="date-value">25 (15 octobre)</span>
+            <span class="date-label">Statut :</span>
+            <span class="date-value" style="color: var(--sarcasm);">En attente de validation (pitié)</span>
         </div>
     </footer>
 </div>
@@ -744,31 +685,12 @@
 
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Désactiver tous les onglets
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-
-                // Activer l'onglet cliqué
                 button.classList.add('active');
                 const tabId = button.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
-        });
-
-        // Animation au défilement pour l'histoire
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.story-content p').forEach((p, index) => {
-            setTimeout(() => {
-                p.classList.add('visible');
-            }, index * 100);
-            observer.observe(p);
         });
     });
 </script>

@@ -3,1005 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seolha Yu - Fiche de personnage</title>
+    <title>Seolha Yu - Fiche Conforme v2.0</title>
     <style>
         :root {
             /* Couleurs */
             --background: #0a1929;
-            --card-bg: rgba(13, 31, 61, 0.7);
-            --accent: #4dabf5;
+            --card-bg: rgba(13, 31, 61, 0.8);
+            --accent: #4dabf5; /* Bleu standard */
             --text: #e3f2fd;
             --text-secondary: #90caf9;
             --border-color: rgba(77, 171, 245, 0.3);
-            --white: #ffffff;
-            --censor: #333333;
+            --correction: #ff5252; /* Rouge pour les corrections */
+            --approved: #69f0ae; /* Vert pour ce qui est validé */
 
             /* Espacement */
-            --spacing-xs: 0.25rem;
             --spacing-sm: 0.5rem;
             --spacing-md: 1rem;
             --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
 
             /* Bordures */
-            --border-radius-sm: 4px;
             --border-radius-md: 8px;
-            --border-radius-lg: 12px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
-            padding: 0;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
             padding: var(--spacing-md);
         }
 
-        h1, h2, h3, h4 {
-            color: var(--accent);
-            margin-bottom: var(--spacing-sm);
-        }
+        .container { max-width: 1100px; margin: 0 auto; }
 
-        p {
-            margin-bottom: var(--spacing-md);
-        }
-
-        /* En-tête du personnage */
-        .character-header {
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
+        /* En-tête */
+        .header-compliance {
+            border: 1px solid var(--correction);
+            background: rgba(255, 82, 82, 0.1);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
             margin-bottom: var(--spacing-lg);
-            border: 1px solid var(--border-color);
-        }
-
-        .character-portrait {
-            width: 150px;
-            height: 150px;
-            border-radius: var(--border-radius-md);
-            overflow: hidden;
-            border: 2px solid var(--accent);
-            margin-right: var(--spacing-lg);
-            flex-shrink: 0;
-        }
-
-        .character-title {
-            flex-grow: 1;
-        }
-
-        .character-title h1 {
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        /* Onglets */
-        .character-tabs {
             display: flex;
-            margin-bottom: var(--spacing-md);
-            border-bottom: 1px solid var(--border-color);
-            overflow-x: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) var(--background);
-        }
-
-        .tab-button {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            padding: var(--spacing-md) var(--spacing-lg);
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-
-        .tab-button:hover {
-            color: var(--accent);
-        }
-
-        .tab-button.active {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-        }
-
-        /* Contenu des onglets */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Cartes d'information */
-        .info-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
-            border: 1px solid var(--border-color);
-        }
-
-        /* Grille d'informations */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .info-item {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .info-label {
-            display: block;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .info-value {
-            font-weight: 600;
-        }
-
-        /* Traits */
-        .trait-list {
-            list-style: none;
-        }
-
-        .trait-list li {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .trait-name {
-            font-weight: 600;
-            color: var(--accent);
-            display: block;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .trait-desc {
-            color: var(--text);
-        }
-
-        /* Description physique */
-        .physical-desc p {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* Double colonne */
-        .double-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-        }
-
-        /* Listes simples */
-        .simple-list {
-            list-style: none;
-        }
-
-        .simple-list li {
-            position: relative;
-            padding-left: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .simple-list li::before {
-            content: '•';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Statistiques */
-        .stats-container {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .stat-bar {
-            display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: var(--spacing-sm);
         }
 
-        .stat-name {
-            width: 200px;
-            margin-right: var(--spacing-md);
+        .stamp {
+            border: 2px solid var(--correction);
+            color: var(--correction);
+            font-weight: bold;
+            padding: 5px 10px;
+            text-transform: uppercase;
+            transform: rotate(-5deg);
+            font-size: 1.2rem;
         }
 
-        .stat-value {
-            flex-grow: 1;
-            height: 12px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            overflow: hidden;
-            margin-right: var(--spacing-sm);
-        }
+        h1 { color: var(--accent); margin-bottom: 5px; }
+        h2 { color: var(--text-secondary); border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin-top: 20px; margin-bottom: 15px; }
 
-        .stat-fill {
-            height: 100%;
-            background-color: var(--accent);
-            border-radius: 6px;
-        }
+        /* Grilles */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--spacing-md); }
 
-        .stat-number {
-            width: 30px;
-            text-align: right;
-            font-weight: 600;
+        /* Cartes */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
         }
 
         /* Compétences */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .skill-card {
-            background-color: rgba(15, 52, 96, 0.6);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-lg);
-            border: 1px solid var(--border-color);
-            margin-bottom: var(--spacing-md);
-        }
-
         .skill-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 10px;
         }
 
-        .skill-name {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
+        .skill-name { font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .skill-level { background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; }
 
-        .skill-level {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+        .skill-desc { font-size: 0.9rem; margin-bottom: 10px; color: var(--text-secondary); }
 
-        .skill-desc {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .skill-abilities h4 {
-            font-size: 1rem;
-            color: var(--accent);
-            margin-top: var(--spacing-sm);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .skill-ability {
-            padding-left: var(--spacing-md);
-            position: relative;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .skill-ability::before {
-            content: '•';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Équipement */
-        .equipment-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .equipment-item {
-            background-color: rgba(15, 52, 96, 0.4);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-md);
-            border: 1px solid var(--border-color);
-        }
-
-        .equipment-name {
-            font-weight: 600;
-            color: var(--accent);
-            display: block;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        /* Histoire */
-        .story-card {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .story-content p {
-            text-align: justify;
-            margin-bottom: var(--spacing-md);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .story-content p {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Pied de page */
-        .character-footer {
-            display: flex;
-            justify-content: space-between;
-            padding: var(--spacing-md);
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius-md);
-            margin-top: var(--spacing-lg);
-            border: 1px solid var(--border-color);
-        }
-
-        .scenario-info, .date-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .date-label {
-            margin-right: var(--spacing-xs);
-            color: var(--text-secondary);
-        }
-
-        /* Placeholder */
-        .placeholder-text {
-            color: var(--text-secondary);
+        .admin-note {
+            font-size: 0.85rem;
+            color: var(--correction);
             font-style: italic;
+            margin-top: 8px;
+            padding-left: 10px;
+            border-left: 2px solid var(--correction);
         }
 
-        /* Rarity tags */
-        .rarity-common {
-            background-color: #6c757d;
-            color: white;
+        .approved-note {
+            font-size: 0.85rem;
+            color: var(--approved);
+            font-style: italic;
+            margin-top: 8px;
+            padding-left: 10px;
+            border-left: 2px solid var(--approved);
         }
 
-        .rarity-rare {
-            background-color: #0d6efd;
-            color: white;
+        /* Liste des suppressions */
+        .graveyard {
+            opacity: 0.6;
+            margin-top: var(--spacing-lg);
+            border-top: 1px dashed var(--text-secondary);
+            padding-top: var(--spacing-md);
         }
+        .graveyard h3 { color: var(--text-secondary); font-size: 1rem; margin-bottom: 10px; }
+        .graveyard ul { list-style: none; }
+        .graveyard li { margin-bottom: 5px; font-size: 0.9rem; }
+        .graveyard span { text-decoration: line-through; margin-right: 10px; }
 
-        /* Censored text - MODIFIÉ */
-        .censored {
-            background-color: var(--censor);
-            color: var(--censor);
-            border-radius: 2px;
-            user-select: none;
-            padding: 0 2px;
-            display: inline-block;
-            width: auto;
-        }
-
-        /* Caractéristiques */
-        .characteristics-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .characteristic-item {
-            background-color: rgba(15, 52, 96, 0.4);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-md);
-            border: 1px solid var(--border-color);
-        }
-
-        .characteristic-name {
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: var(--spacing-xs);
-            display: block;
-        }
-
-        .rarity-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        .rarity-common {
-            background-color: #6c757d;
-            color: white;
-        }
-
-        .rarity-rare {
-            background-color: #0d6efd;
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .character-header {
-                flex-direction: column;
-                text-align: center;
-                padding: var(--spacing-md);
-            }
-
-            .character-portrait {
-                margin-right: 0;
-                margin-bottom: var(--spacing-md);
-            }
-
-            .double-column {
-                grid-template-columns: 1fr;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .equipment-container {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-<div class="container">
-    <header class="character-header">
-        <div class="character-portrait">
-            <img src="static/img/Yu_Seolha_2.jpeg" alt="Seolha Yu" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="character-title">
-            <h1>Seolha Yu</h1>
-            <div class="subtitle">L'Observatrice des Marges</div>
-        </div>
-    </header>
 
-    <div class="character-tabs">
-        <button class="tab-button active" data-tab="profile">Profil</button>
-        <button class="tab-button" data-tab="stats">Statistiques</button>
-        <button class="tab-button" data-tab="skills">Compétences</button>
-        <button class="tab-button" data-tab="story">Histoire</button>
+<div class="container">
+    <!-- En-tête de conformité -->
+    <div class="header-compliance">
+        <div>
+            <h1>Seolha Yu</h1>
+            <p>Statut : <span style="color: var(--approved)">Corrigée selon les directives</span></p>
+        </div>
+        <div class="stamp">NON-PROTAGONISTE</div>
     </div>
 
-    <main class="character-content">
-        <section id="profile" class="tab-content active">
-            <div class="info-card">
-                <h2>Informations de base</h2>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <span class="info-label">Nom</span>
-                        <span class="info-value">Yu</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Prénom</span>
-                        <span class="info-value">Seolha</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Âge</span>
-                        <span class="info-value">22 ans</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Date de naissance</span>
-                        <span class="info-value">21 juin</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Sexe</span>
-                        <span class="info-value">Féminin</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Orientation</span>
-                        <span class="info-value">Panromantic Asexual</span>
-                    </div>
-                </div>
+    <!-- Profil Rapide -->
+    <div class="card">
+        <div class="grid-2">
+            <div>
+                <p><strong>Âge :</strong> 22 ans (Réels)</p>
+                <p><strong>Rôle :</strong> Humaine Standard</p>
+                <p><strong>Concept :</strong> Celle qui essaie d'apprendre (sans one-try)</p>
             </div>
-
-            <div class="info-card">
-                <h2>Caractère</h2>
-                <ul class="trait-list">
-                    <li>
-                        <span class="trait-name">Réservée et pragmatique</span>
-                        <p class="trait-desc">Seolha observe d'abord, agit ensuite. Elle parle peu, mais quand elle s'exprime, c'est pesé et pertinent. Elle privilégie l'efficacité et la lucidité au romantisme de l'héroïsme.</p>
-                    </li>
-                    <li>
-                        <span class="trait-name">Loyauté sélective</span>
-                        <p class="trait-desc">Elle ne s'attache pas facilement aux groupes; sa loyauté va aux personnes qui assument leurs choix et paient leurs dettes. Un pacte verbal a pour elle valeur de contrat.</p>
-                    </li>
-                    <li>
-                        <span class="trait-name">Résilience froide</span>
-                        <p class="trait-desc">Elle encaisse, range l'émotion, avance. Sa manière de survivre consiste à planifier des issues et à préférer les risques calculés aux coups d'éclat.</p>
-                    </li>
-                    <li>
-                        <span class="trait-name">Sens aigu des limites</span>
-                        <p class="trait-desc">Très stricte sur le consentement et les frontières—physiques comme morales. Elle n'hésite pas à recadrer un allié si celui-ci met en péril un plan ou dépasse une ligne rouge.</p>
-                    </li>
-                    <li>
-                        <span class="trait-name">Ironie sèche</span>
-                        <p class="trait-desc">Un humour discret, souvent pince-sans-rire, qui ressort dans les moments de tension pour briser la panique et recentrer l'équipe.</p>
-                    </li>
-                </ul>
+            <div>
+                <p><strong>Force :</strong> 7 | <strong>Agilité :</strong> 8</p>
+                <p><strong>Vitalité :</strong> 7 | <strong>Magie :</strong> 4</p>
+                <p class="admin-note">Note : Stats basées sur le rugby, pas sur le parkour (interdit).</p>
             </div>
-
-            <div class="info-card">
-                <h2>Description physique</h2>
-                <div class="physical-desc">
-                    <p>Taille moyenne, silhouette athlétique sèche, gestes économes. Épaules tenues, centre de gravité bas, démarche stable prête à pivoter ou décoller en sprint.</p>
-                    <p>Cheveux noirs attachés simplement (queue basse ou tresse), quelques mèches libres encadrant un visage calme, regard sombre, attentif, rarement surpris.</p>
-                    <p>Teint pâle, cernes légers dus au sommeil morcelé. Mains calleuses, ongles courts, phalanges parfois bandées.</p>
-                    <p>Vêtements fonctionnels : couches superposées neutres, coupe ample pour la mobilité, genouillères, gants fins, chaussures accrocheuses; une veste technique avec poches internes pour caches.</p>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2>Signes distinctifs</h2>
-                <ul class="trait-list">
-                    <li>Une cicatrice fine et nette sous la clavicule gauche (ancienne entaille contrôlée, refermée proprement) et un trait plus rugueux au poignet droit (lacération suturée en urgence).</li>
-                    <li>Un fil rouge discret noué au passant de sa veste : repère visuel pour ses alliés et rappel personnel d'un engagement passé.</li>
-                    <li>Odeur subtile d'iode et d'alcool isopropylique, trahissant ses habitudes de stérilisation.</li>
-                </ul>
-            </div>
-
-            <div class="double-column">
-                <div class="info-card">
-                    <h2>Goûts</h2>
-                    <ul class="simple-list">
-                        <li>Structure et routines : inventaires carrés, checklists, planifications par créneaux.</li>
-                        <li>Thé noir fort, cuisine sobre mais nourrissante, rationnelle (bouillons, riz, algues).</li>
-                        <li>Topographies urbaines : cartes de stations, sorties de secours, repères visuels.</li>
-                        <li>Lecture de notes techniques et carnets de terrain; préférences pour les récits laconiques factuels plutôt que la fiction.</li>
-                        <li>Silences tactiques, lieux élevés avec vue d'ensemble (ponts, mezzanines, toits).</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h2>Passions</h2>
-                    <ul class="simple-list">
-                        <li>Travail du fil et du nœud (couture, ligatures, réparations) : transformer des restes en équipement fiable.</li>
-                        <li>Cartographie improvisée : créer des plans évolutifs des tunnels et zones vertes, noter dynamiques de monstres et fenêtres de sécurité.</li>
-                        <li>Conditionnement fonctionnel : tractions, dips, gainage, frappes en tempo; routines courtes mais régulières.</li>
-                        <li>Soin de terrain : pansements compressifs, attelles de fortune, protocoles de triage.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="stats" class="tab-content">
-            <div class="info-card">
-                <h2>Statistiques de base</h2>
-                <div class="stats-container">
-                    <div class="stat-bar">
-                        <span class="stat-name">Force physique (Strength)</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 70%"></div>
-                        </div>
-                        <span class="stat-number">7</span>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Agilité (Agility)</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 80%"></div>
-                        </div>
-                        <span class="stat-number">8</span>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Vitalité (Physique)</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 70%"></div>
-                        </div>
-                        <span class="stat-number">7</span>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Force magique (Magic Power)</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 40%"></div>
-                        </div>
-                        <span class="stat-number">4</span>
-                    </div>
-                </div>
-                <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; align-items: center;">
-                    <span style="color: var(--accent); font-weight: 500; margin-right: var(--spacing-sm);">Pièces:</span>
-                    <span style="font-weight: 600; font-size: 1.1rem;">6100</span>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2>Caractéristiques</h2>
-                <div class="characteristics-list">
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Méthodique <span class="rarity-tag rarity-common">Commun</span></span>
-                        <p>Organisation rigoureuse dans ses actions et pensées, créant des systèmes, listes et protocoles pour optimiser chaque situation.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Minimaliste <span class="rarity-tag rarity-common">Commun</span></span>
-                        <p>Valorise l'essentiel et l'utile, éliminant le superflu tant dans son équipement que dans ses relations et communications.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Cartographe <span class="rarity-tag rarity-rare">Rare</span></span>
-                        <p>Obsession naturelle pour les structures spatiales, les issues et les points stratégiques de tout environnement.</p>
-                    </div>
-                    <div class="characteristic-item">
-                        <span class="characteristic-name">Jack of All Trades <span class="rarity-tag rarity-rare">Rare</span></span>
-                        <p>Capacité naturelle à assimiler rapidement les bases de diverses compétences, sans pouvoir atteindre la maîtrise complète dans la plupart des domaines.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="info-card">
-                <h2>Constellation sponsor</h2>
-                <div class="constellation-info">
-                    <p class="placeholder-text">À déterminer</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h2>Rang de la constellation</h2>
-                <div class="constellation-rank">
-                    <p class="placeholder-text">À déterminer</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h2>Marques de la constellation</h2>
-                <div class="constellation-marks">
-                    <p class="placeholder-text">À déterminer</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="tab-content">
-            <div class="info-card">
-                <h2>Compétences spéciales</h2>
-                <div class="skills-container">
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Déplacement tactique</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">6 ans de parkour + 3 ans d'expérience en tests d'intrusion physique</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Capacité à se déplacer silencieusement dans des environnements encombrés ou surveillés.</p>
-                            <p class="skill-ability">Optimisation des trajets pour minimiser l'exposition aux dangers et aux regards.</p>
-                            <p class="skill-ability">Facilité à identifier et utiliser les caractéristiques environnementales pour se déplacer efficacement.</p>
-                            <p class="skill-ability">Adaptation rapide aux contraintes spatiales et identification des points d'appui optimaux.</p>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Manipulation précise</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">2 ans dans une équipe d'intervention médicale d'urgence</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Permet de manipuler des objets avec précision même dans des situations stressantes.</p>
-                            <p class="skill-ability">Capacité à extraire et manipuler des objets fragiles sans les endommager.</p>
-                            <p class="skill-ability">Dextérité fine permettant des manipulations précises d'équipements techniques.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Mémoire renforcée</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">4 ans de travail en cybersécurité avec mémorisation de codes complexes</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Mémoire visuelle permettant de se rappeler avec précision des détails visuels, textuels ou auditifs.</p>
-                            <p class="skill-ability">Organisation mentale structurée des informations, facilitant leur récupération même sous pression.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Firewall Mental</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">4 ans de formation en cybersécurité + pratique de méditation</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Crée une barrière contre les tentatives d'influence mentale de faible niveau.</p>
-                            <p class="skill-ability">Permet de compartimenter les émotions pour maintenir un jugement rationnel en situation de crise.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Sabotage numérique</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">4 ans d'études en cybersécurité + travail comme consultante</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Capacité à perturber temporairement les caméras de surveillance, communications radio et systèmes électroniques simples.</p>
-                            <p class="skill-ability">Peut brouiller un signal numérique pendant quelques minutes, créant une fenêtre d'opportunité.</p>
-                            <p class="skill-ability">Manipulation de panneaux d'affichage électroniques ou d'autres interfaces numériques basiques.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Endurance au stress</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">5 ans de rugby de haut niveau + expérience en intervention d'urgence</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Permet de maintenir la concentration malgré l'inconfort physique.</p>
-                            <p class="skill-ability">Capacité à rester fonctionnelle sous stress prolongé.</p>
-                            <p class="skill-ability">Utilise les techniques de respiration et de focalisation pour gérer les situations difficiles.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Sens linguistique</span>
-                            <span class="skill-level">Niveau 2</span>
-                        </div>
-                        <p class="skill-desc">3 ans d'études en linguistique appliquée + voyages internationaux</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Capacité à saisir la structure et les bases d'une langue inconnue après une période d'exposition.</p>
-                            <p class="skill-ability">Déchiffrement progressif de textes et symboles étrangers en identifiant des motifs linguistiques récurrents.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Cartographie mentale</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">6 ans d'exploration urbaine + formation en cartographie d'urgence</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Mémorisation précise des environnements après exploration, incluant les détails structurels importants.</p>
-                            <p class="skill-ability">Identification rapide des points stratégiques: sorties, couvertures, lignes de vue, points faibles structurels.</p>
-                            <p class="skill-ability">Orientation instinctive même dans des environnements complexes ou labyrinthiques.</p>
-                            <p class="skill-ability">Planification d'itinéraires optimaux tenant compte des risques et obstacles.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Perception analytique</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">2 ans en équipe d'intervention d'urgence + expérience en cybersécurité</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Maintien d'une perception claire même dans des situations de stress intense.</p>
-                            <p class="skill-ability">Identification rapide des détails critiques et des anomalies dans l'environnement.</p>
-                            <p class="skill-ability">Évaluation précise des menaces et des opportunités en temps réel.</p>
-                            <p class="skill-ability">Capacité à communiquer des informations essentielles de manière concise sous pression.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Sens du déplacement</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">5 ans de rugby + 6 ans de parkour + exploration urbaine</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Équilibre exceptionnel permettant de se déplacer sur des surfaces instables ou en hauteur.</p>
-                            <p class="skill-ability">Capacité à se faufiler dans des espaces étroits et à franchir des obstacles avec fluidité.</p>
-                            <p class="skill-ability">Coordination corporelle permettant des mouvements précis et économes en énergie.</p>
-                            <p class="skill-ability">Adaptation rapide de la posture et du mouvement aux contraintes de l'environnement.</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Adaptation aux scénarios</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">Expérience de multiples scénarios de catastrophe</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Compréhension rapide des règles et mécaniques d'un nouveau scénario.</p>
-                            <p class="skill-ability">Acceptation et intégration de lois physiques ou sociales différentes.</p>
-                            <p class="skill-ability">Capacité à expliquer clairement les règles et contraintes aux autres participants.</p>
-                            <p class="skill-ability">Identification rapide des objectifs prioritaires dans un nouveau contexte.</p>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Sang-froid</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">2 ans en intervention d'urgence + premiers scénarios catastrophiques</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Contrôle des réactions physiologiques de stress (rythme cardiaque, respiration).</p>
-                            <p class="skill-ability">Maintien de la clarté mentale face à des situations traumatiques ou horrifiques.</p>
-                            <p class="skill-ability">Résistance modérée aux tentatives d'intimidation ou de manipulation émotionnelle.</p>
-                            <p class="skill-ability">Capacité à prendre des décisions difficiles sans être paralysée par la peur ou l'anxiété.</p>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-header">
-                            <span class="skill-name">Apprentissage mimétique</span>
-                            <span class="skill-level">Niveau 3</span>
-                        </div>
-                        <p class="skill-desc">3 ans d'observation d'experts en tests d'intrusion + 2 ans en intervention médicale d'urgence + 5 ans d'analyse tactique au rugby</p>
-                        <div class="skill-abilities">
-                            <p class="skill-ability">Permet de reproduire des techniques observées après une période d'analyse et de pratique considérablement plus courte que la normale.</p>
-                            <p class="skill-ability">L'efficacité de la reproduction dépend de la qualité de l'observation et de la compréhension des principes sous-jacents.</p>
-                            <p class="skill-ability">Nécessite une concentration intense et une dépense d'énergie proportionnelle à la complexité de la technique reproduite.</p>
-                            <p class="skill-ability">Les techniques reproduites sont généralement moins efficaces que celles des experts, mais peuvent être adaptées créativement à différentes situations.</p>
-                            <p class="skill-ability">Particulièrement efficace pour les compétences physiques et techniques, moins pour les capacités nécessitant des années de développement théorique.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="info-card">
-                <h2>Spécialisations</h2>
-                <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-                    <div class="info-item">
-                        <span class="info-label">Cartographie urbaine</span>
-                        <span class="info-value">Experte</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Premiers secours</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Déplacement tactique</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Combat rapproché</span>
-                        <span class="info-value">Intermédiaire</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Analyse de données</span>
-                        <span class="info-value">Experte</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Survie urbaine</span>
-                        <span class="info-value">Experte</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Planification tactique</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Reconnaissance</span>
-                        <span class="info-value">Avancé</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Traduction</span>
-                        <span class="info-value">Intermédiaire</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2>Équipement</h2>
-                <div class="equipment-container">
-                    <div class="equipment-item">
-                        <span class="equipment-name">Kit de premiers soins improvisé</span>
-                        <p class="equipment-desc">Bandages, antiseptiques, aiguilles de suture et fil médical, le tout dans une pochette compacte.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Carnet de cartographie</span>
-                        <p class="equipment-desc">Petit carnet résistant à l'eau avec des plans détaillés des tunnels et stations.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Couteau multifonction</span>
-                        <p class="equipment-desc">Outil polyvalent avec lame, ciseaux, pince et tournevis.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Veste technique</span>
-                        <p class="equipment-desc">Veste renforcée avec multiples poches cachées et fil rouge distinctif.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="story" class="tab-content">
-            <div class="info-card story-card">
-                <h2>Histoire</h2>
-                <div class="story-content">
-                    <!-- Rewritten story with arranged paragraphs -->
-                    <p>En marge. C'est ainsi que Seolha a toujours vécu—au bord des foules, là où l'on voit les entrées et les sorties, où l'on peut partir sans bruit si nécessaire. Fille unique d'un père architecte et d'une mère ingénieure en sécurité, elle a grandi dans un environnement où l'observation méthodique et la planification étaient valorisées. Dès son plus jeune âge, elle passait ses weekends à explorer les recoins de Séoul avec son père, apprenant à lire les structures urbaines, à comprendre comment les bâtiments s'articulent, où se trouvent les passages oubliés.</p>
-                    <p>À 17 ans, un accident lors d'une exploration l'a laissée avec une fracture complexe de la jambe. La rééducation a été longue et douloureuse, mais cette expérience a transformé sa relation avec son corps. Son kinésithérapeute, ancien sportif de haut niveau, lui a enseigné des techniques de gestion du stress physique utilisées par les athlètes professionnels. Pendant six mois intensifs, elle a appris à comprendre les signaux de son corps, à distinguer la douleur dangereuse de l'inconfort normal de l'effort. Ces techniques, pratiquées quotidiennement pendant sa convalescence, sont devenues une seconde nature—non pas une insensibilité miraculeuse, mais une approche disciplinée de l'endurance physique et mentale.</p>
-                    <p>Pour faciliter sa réhabilitation et renforcer son corps, elle s'est tournée vers le rugby à 18 ans, attirée par la discipline collective et l'exigence physique. Pendant cinq ans, elle a joué comme ailière dans une équipe universitaire de haut niveau, développant non seulement sa force et son endurance, mais aussi sa capacité à lire le terrain, à anticiper les mouvements, à exploiter les failles défensives. Le rugby lui a appris la valeur du positionnement stratégique, de l'adaptation rapide, et surtout, de la résilience face à l'adversité physique. Les entraînements quotidiens et les compétitions régionales ont forgé une discipline corporelle et mentale qui allait se révéler cruciale dans les épreuves à venir.</p>
-                    <p>Parallèlement à sa pratique sportive, Seolha a poursuivi des études en informatique avec une spécialisation en cybersécurité. Pendant quatre ans, elle s'est immergée dans le monde des systèmes d'information, développant une compréhension approfondie des réseaux, des protocoles de sécurité et des techniques d'intrusion. Son travail de fin d'études sur les vulnérabilités des systèmes de surveillance urbaine combinait ses deux passions : l'exploration urbaine et la sécurité informatique. Cette formation intensive a formé sa Mémoire renforcée en la poussant à mémoriser des séquences complexes de codes, et a nourri son Sabotage numérique en lui apprenant à détecter et exploiter les failles des systèmes électroniques.</p>
-                    <p>Cette double expertise l'a menée à un poste dans une entreprise de sécurité spécialisée dans les tests d'intrusion physique et numérique. Pendant trois ans, elle a assisté des équipes simulant des effractions dans des bâtiments sécurisés, affinant ses compétences en déplacement tactique sous la supervision d'anciens agents de sécurité. Ce n'était pas de la simple furtivité mais un ensemble de techniques professionnelles précises : analyse des angles morts des caméras, étude des routines de sécurité, optimisation des trajets pour minimiser l'exposition. Chaque mission était préparée méticuleusement, renforçant sa Cartographie mentale et sa capacité d'Adaptation aux scénarios.</p>
-                    <p>Durant cette période, elle a également pratiqué diverses techniques de méditation et de compartimentage mental, initialement pour améliorer sa concentration lors de ses études. Ces pratiques se sont révélées particulièrement utiles pour structurer sa pensée et gérer le stress, formant la base de son Firewall Mental. Elle a appris à créer des barrières mentales pour protéger ses pensées et émotions, une compétence qui s'avérerait cruciale face aux horreurs des scénarios à venir.</p>
-                    <p>Sa capacité à manipuler des objets avec précision s'est développée pendant ses deux années de volontariat dans une équipe d'intervention médicale d'urgence. Formée pour manipuler des équipements médicaux délicats dans des conditions de stress intense, elle a perfectionné sa Manipulation précise à travers des centaines d'heures de pratique. Cette expérience lui a également permis de développer ses compétences en premiers secours, devenant capable de traiter efficacement diverses blessures avec un équipement minimal.</p>
-                    <p>Son intérêt pour les langues l'a poussée à suivre des cours du soir en linguistique appliquée pendant trois ans. Elle a développé une méthode personnelle d'apprentissage rapide des structures linguistiques, basée sur l'identification de motifs récurrents. Cette approche analytique a formé son Sens linguistique, lui permettant d'acquérir les bases de plusieurs langues asiatiques lors de ses voyages professionnels et de déchiffrer plus facilement des systèmes de communication inconnus.</p>
-                    <p>C'est durant ces années de formation et d'expérience professionnelle que sa caractéristique Jack of All Trades s'est révélée. Elle remarquait qu'elle pouvait assimiler les bases de nouvelles compétences plus rapidement que ses collègues, bien qu'elle ne puisse atteindre leur niveau d'expertise sans un entraînement intensif. Cette polyvalence lui permettait de comprendre et d'interagir efficacement avec des professionnels de divers domaines, facilitant son travail dans des équipes multidisciplinaires. À mesure que les scénarios se succédaient, elle découvrit également son Apprentissage mimétique : après avoir observé attentivement un expert neutraliser un monstre, elle pouvait reproduire la même séquence avec une efficacité surprenante, même si ses versions restaient moins raffinées que celles des spécialistes.</p>
-                    <p>Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a relevé la tête, pris le temps d'inspirer, et a fait ce qu'elle fait toujours : établir un protocole minimal viable. Le premier scénario est arrivé brutalement à 19h, alors qu'elle sortait de son entraînement de rugby. Un message froid s'est affiché devant tous : « Tuez ou soyez tués. Seuls les meurtriers survivront. » Cinquante personnes piégées dans un périmètre autour du club sportif, avec un compte à rebours de 30 minutes.</p>
-                    <p>Contrairement à la panique générale, Seolha a analysé la situation avec une clarté glaciale, sa Perception analytique lui permettant d'évaluer rapidement les menaces et les opportunités. Elle a repéré un gonfleur de ballon de rugby dans son sac — un outil simple mais suffisamment robuste. Comprenant que la passivité signifiait la mort, elle a pris une décision calculée : frapper en premier, frapper fort. Sa formation d'ailière lui donnait l'avantage physique nécessaire, et ses années de parkour lui ont permis d'identifier rapidement les zones d'embuscade optimales. Sa première victime fut choisie avec soin — quelqu'un qui hésitait, dos tourné, vulnérable. Un coup précis, sans hésitation. Le premier kill enregistré.</p>
-                    <p>Ce qui suivit fut une démonstration de son Sang-froid, de son Sens du déplacement et de son Endurance au stress. D'autres participants, voyant en elle une cible « moralement acceptable » puisqu'elle avait déjà tué, se sont jetés sur elle en groupe. Mais ils n'avaient ni son entraînement physique intensif, ni sa froide détermination. Utilisant le terrain à son avantage — un chantier de construction à proximité offrant obstacles et armes improvisées — elle a méthodiquement neutralisé ses assaillants un par un. Esquives précises, contres rapides, coups ciblés sur les points vulnérables. Onze personnes ont succombé à sa défense implacable.</p>
-                    <p>Pendant ces trente minutes, Seolha n'a pas ressenti de panique, seulement une concentration intense et une conscience aiguë de chaque mouvement, son Firewall Mental lui permettant de compartimenter ses émotions pour maintenir un jugement rationnel. Elle ne tuait pas par plaisir ou par rage — elle survivait avec méthode, calculant chaque action, économisant son énergie, exploitant les erreurs de ses adversaires. Quand le timer s'est arrêté, quarante corps jonchaient le sol. Seolha était l'une des dix survivants, debout au milieu du carnage, respirant calmement, évaluant déjà ce qui viendrait ensuite.</p>
-                    <p>Ce premier scénario n'a pas fait d'elle un monstre — il a simplement confirmé ce qu'elle savait déjà : dans un monde brisé, seule la lucidité permet de tracer une ligne entre la vie et la mort. Elle n'a pas célébré ses « victoires » ; elle a simplement noté mentalement les leçons apprises : positions défensives optimales, temps de réaction des adversaires paniqués, points d'appui les plus efficaces. Des données à exploiter pour le prochain défi.</p>
-                    <p>Dans les tunnels du second scénario, elle a déployé sa Cartographie mentale, acquise pendant ses années d'exploration urbaine. Elle a conçu ses premières cartes : sorties latérales, conduites d'air, points d'eau, zones d'échos à éviter pour ne pas attirer les groupes de rats terrestres. Elle a appliqué ses connaissances en sécurité pour établir des protocoles de surveillance et d'alerte précoce. Sa Manipulation précise lui a permis de traiter les blessures des survivants, gagnant leur confiance non par charisme, mais par compétence démontrable.</p>
-                    <p>Quand les zones vertes ont été annoncées, elle a utilisé sa Perception analytique pour calculer les distances, le cycle nocturne et les fenêtres de passage. Elle a posé sa règle : on ne court pas pour courir ; on court quand on sait où l'on va. La nuit des rats et des ours à corne a confirmé ses intuitions : ancrages bas, mouvements par vagues, priorité aux couloirs où l'on peut couper la ligne de charge. Son Adaptation aux scénarios lui a permis de comprendre rapidement les nouvelles règles et contraintes, d'identifier les objectifs prioritaires, et de les expliquer clairement aux autres survivants.</p>
-                    <p>À l'est, lors de la chute des météorites, l'air s'est déchiré. Le fléau des questions a donné au ciel un œil qui ne clignait pas. Seolha a retenu la topologie : comment les vortex imposent leurs conduites à la ville, comment les monstres volants prennent les hauteurs et poussent les survivants dans les gorges urbaines. Son Sens linguistique lui a permis de déchiffrer progressivement certains symboles étranges apparus sur les météorites, identifiant des motifs récurrents qui suggéraient un système de communication. Elle a compris que la surface n'était plus un terrain neutre et appris à aimer les plafonds.</p>
-                    <p>Plus les scénarios s'empilaient — la lutte pour les drapeaux, la chasse, la vague sacrificielle — plus elle a déplié sa méthode : constituer des binômes autonomes, coudre des signaux discrets dans les vêtements (fil rouge à gauche pour « guide », bleu pour « médic », noir pour « éclaireur »), marquer les couloirs morts par des nœuds inversés. Son Sabotage numérique lui a permis de perturber temporairement certains systèmes électroniques hostiles, créant des fenêtres d'opportunité pour son groupe. Quand la moitié des incarnations a été offerte à l'autel d'une difficulté absurde, elle n'a pas participé à l'hécatombe : elle a choisi les petites victoires qui sauvent des vies qu'on n'a pas eu le temps d'apprendre à connaître. Elle ne tue pas pour le score ; elle neutralise pour la voie libre.</p>
-                    <p>Son endurance au stress, développée pendant ses années de rugby et d'intervention d'urgence, s'est affinée au fil des scénarios. Ce n'était pas une insensibilité à la douleur, mais une capacité à maintenir sa fonctionnalité malgré l'inconfort physique et la pression mentale. Les techniques de respiration et de focalisation qu'elle avait apprises pendant sa rééducation et perfectionnées pendant ses compétitions sportives lui permettaient de rester opérationnelle dans des situations où d'autres cédaient à la panique ou à l'épuisement.</p>
-                    <p>Après le cinquième scénario, Seolha a commencé à comprendre l'importance de l'économie des pièces. Avec ses 2800 pièces durement gagnées, elle a investi dans un « Carnet Géodésique Pliable Grade F » (1200 pièces) améliorant sa précision cartographique, et des « Gants Tactiles Renforcés Grade F » (900 pièces) augmentant sa dextérité lors des manipulations précises. Ces achats stratégiques lui ont permis de maximiser ses compétences existantes plutôt que d'acquérir des objets offensifs coûteux. Sa philosophie d'investissement reflétait sa personnalité : privilégier l'information et la préparation plutôt que la puissance brute.</p>
-                    <p>Aujourd'hui, Seolha se déplace entre les stations et les ruines, cordant les plans, resserrant les coutures, ajustant les trajectoires humaines comme on ajuste une attelle : fermement, sans douleur inutile. Elle ne promet rien d'autre que ceci : si vous marchez avec elle, vous saurez où poser le pied suivant. Et souvent, c'est tout ce qu'il faut pour survivre dans le dôme de Séoul.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="character-footer">
-        <div class="scenario-info">
-            <span class="scenario-value">Dark Castle (Scénario #9)</span>
         </div>
-        <div class="date-info">
-            <span class="date-label">Jour :</span>
-            <span class="date-value">25 (15 octobre)</span>
+    </div>
+
+    <h2>Compétences (Approuvées & Nettoyées)</h2>
+    <div class="grid-3">
+
+        <!-- SANG-FROID : LE FOURRE-TOUT -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Sang-froid (Omnibus)</span>
+                <span class="skill-level">Niveau 3</span>
+            </div>
+            <p class="skill-desc">Capacité à rester calme.</p>
+            <ul style="padding-left: 20px; font-size: 0.9rem;">
+                <li>Gestion des émotions.</li>
+                <li>Analyse rationnelle (anciennement Perception Analytique).</li>
+                <li>Résistance mentale (anciennement Firewall Mental).</li>
+                <li>Résistance à la douleur (anciennement Tolérance à la douleur).</li>
+            </ul>
+            <div class="admin-note">
+                Regroupement effectué car "tout ça c'est factuellement du sang-froid". Compétence devenue un couteau suisse émotionnel pour gain de place.
+            </div>
         </div>
-    </footer>
+
+        <!-- ADAPTATION -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Adaptation anormale</span>
+                <span class="skill-level">Niveau 3</span>
+            </div>
+            <p class="skill-desc">Compréhension rapide des nouvelles règles.</p>
+            <div class="approved-note">
+                Nom modifié selon la requête ("Anormale" > "Scénarios").
+            </div>
+        </div>
+
+        <!-- MANIPULATION (NERFÉE) -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Manipulation précise</span>
+                <span class="skill-level">Niveau 2</span>
+            </div>
+            <p class="skill-desc">Dextérité fine pour les tâches médicales et techniques uniquement.</p>
+            <div class="admin-note">
+                Attention : N'est PAS "Main Leste". Ne permet PAS de voler. Je ne suis pas invisible. Je touche avec les yeux si ce n'est pas à moi.
+            </div>
+        </div>
+
+        <!-- DÉPLACEMENT (RUGBY ONLY) -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Appuis Solides</span>
+                <span class="skill-level">Niveau 3</span>
+            </div>
+            <p class="skill-desc">Issue de l'expérience Rugby uniquement.</p>
+            <ul style="padding-left: 20px; font-size: 0.9rem;">
+                <li>Stabilité au sol.</li>
+                <li>Course en ligne droite (ou presque).</li>
+            </ul>
+            <div class="admin-note">
+                "Sens du déplacement" retiré. Plus de parkour, plus de passage dans les espaces étroits. Je marche comme tout le monde, juste un peu plus stable.
+            </div>
+        </div>
+
+        <!-- MÉMOIRE (HUMAINE) -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Bonne Mémoire</span>
+                <span class="skill-level">Niveau 2</span>
+            </div>
+            <p class="skill-desc">Capacité à retenir des informations mieux que la moyenne.</p>
+            <div class="admin-note">
+                Précision : Ce n'est pas une mémoire absolue. Je ne suis pas divine. J'oublie mes clés comme tout le monde.
+            </div>
+        </div>
+
+        <!-- SABOTAGE (OFFENSIF ONLY) -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Sabotage numérique</span>
+                <span class="skill-level">Niveau 2</span>
+            </div>
+            <p class="skill-desc">Capacité à nuire aux systèmes électroniques basiques.</p>
+            <div class="admin-note">
+                Correction appliquée : Je sais casser, mais je ne sais pas protéger mes propres appareils. Cordonnier mal chaussé confirmé.
+            </div>
+        </div>
+
+        <!-- CARTOGRAPHIE -->
+        <div class="card">
+            <div class="skill-header">
+                <span class="skill-name">Cartographie mentale</span>
+                <span class="skill-level">Niveau 2</span>
+            </div>
+            <p class="skill-desc">Habitude de repérer les sorties.</p>
+            <div class="admin-note">
+                Conservé faute de directive précise ("XXXXXXXXX"), mais on va dire que c'est juste "faire attention où on marche".
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Cimetierre des compétences -->
+    <div class="graveyard">
+        <h3>🗑️ Corbeille (Compétences retirées pour illégitimité)</h3>
+        <ul>
+            <li><span>Furtivité urbaine</span> -> Retirée. (Raison : Interdiction de copier l'infiltration).</li>
+            <li><span>Tolérance à la douleur</span> -> Retirée. (Raison : Aucune légitimité, je suis douillette).</li>
+            <li><span>Sens linguistique</span> -> Retirée. (Raison : Je dois apprendre inRP, je ne parle donc que Coréen pour l'instant).</li>
+            <li><span>Apprentissage mimétique</span> -> Retirée. (Raison : "Même le prota t'envie". Abandon du concept pour ne pas froisser l'ego du héros).</li>
+            <li><span>Perception analytique</span> -> Supprimée. (Raison : C'est du sang-froid).</li>
+            <li><span>Firewall Mental</span> -> Supprimée. (Raison : C'est du sang-froid).</li>
+        </ul>
+    </div>
+
 </div>
 
-<script>
-    // Script pour la fiche de personnage
-    document.addEventListener('DOMContentLoaded', function() {
-        // Gestion des onglets
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Désactiver tous les onglets
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Activer l'onglet cliqué
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Animation au défilement pour l'histoire
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Observer les paragraphes de l'histoire
-        document.querySelectorAll('.story-content p').forEach((p, index) => {
-            setTimeout(() => {
-                p.classList.add('visible');
-            }, index * 100);
-            observer.observe(p);
-        });
-
-        // Animation au scroll
-        document.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.story-content p');
-            const windowHeight = window.innerHeight;
-
-            elements.forEach(function(element) {
-                const position = element.getBoundingClientRect().top;
-
-                if (position < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>
