@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seolha Yu - Fiche (Nerfée pour le MJ)</title>
+    <title>Seolha Yu - Fiche de personnage</title>
     <style>
         :root {
             /* Couleurs */
             --background: #0a1929;
-            --card-bg: rgba(13, 31, 61, 0.7);
+            --card-bg: rgba(13, 31, 61, 0.8);
             --accent: #4dabf5;
             --text: #e3f2fd;
             --text-secondary: #90caf9;
             --border-color: rgba(77, 171, 245, 0.3);
             --white: #ffffff;
             --censor: #333333;
-            --sarcasm: #ff4081; /* Nouvelle couleur pour le sarcasme */
+
+            /* Couleurs Admin / Correction */
+            --correction: #ff5252;
+            --approved: #69f0ae;
+            --system-note: #9dd9ff;
+            --warning-bg: rgba(255, 82, 82, 0.05);
+
+            /* Raretés ORV */
+            --legendary: #ffd700; /* Or pour Légendaire */
 
             /* Espacement */
             --spacing-xs: 0.25rem;
@@ -30,11 +38,7 @@
             --border-radius-lg: 12px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -51,16 +55,48 @@
             padding: var(--spacing-md);
         }
 
-        h1, h2, h3, h4 {
-            color: var(--accent);
-            margin-bottom: var(--spacing-sm);
+        h1, h2, h3, h4 { color: var(--accent); margin-bottom: var(--spacing-sm); }
+        p { margin-bottom: var(--spacing-md); }
+
+        /* Header Compliance */
+        .header-compliance {
+            border: 1px solid var(--approved);
+            background: rgba(105, 240, 174, 0.05);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        p {
-            margin-bottom: var(--spacing-md);
+        .header-compliance::before {
+            content: "FINAL V4";
+            position: absolute;
+            top: -10px; right: -20px;
+            font-size: 5rem;
+            color: rgba(105, 240, 174, 0.1);
+            font-weight: bold;
+            transform: rotate(15deg);
+            pointer-events: none;
         }
 
-        /* En-tête du personnage */
+        .stamp {
+            border: 3px solid var(--approved);
+            color: var(--approved);
+            font-weight: 900;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            transform: rotate(-5deg);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            background: rgba(10, 25, 41, 0.8);
+            box-shadow: 0 0 10px rgba(105, 240, 174, 0.3);
+        }
+
+        /* Character Header */
         .character-header {
             display: flex;
             align-items: center;
@@ -69,11 +105,11 @@
             padding: var(--spacing-lg);
             margin-bottom: var(--spacing-lg);
             border: 1px solid var(--border-color);
+            position: relative;
         }
 
         .character-portrait {
-            width: 150px;
-            height: 150px;
+            width: 150px; height: 150px;
             border-radius: var(--border-radius-md);
             overflow: hidden;
             border: 2px solid var(--accent);
@@ -81,71 +117,28 @@
             flex-shrink: 0;
         }
 
-        .character-title {
-            flex-grow: 1;
-        }
+        .character-title { flex-grow: 1; }
+        .character-title h1 { font-size: 2.5rem; margin-bottom: var(--spacing-xs); }
+        .subtitle { font-size: 1.2rem; color: var(--text-secondary); font-style: italic; }
 
-        .character-title h1 {
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .nerf-badge {
-            background-color: var(--sarcasm);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        /* Onglets */
+        /* Tabs */
         .character-tabs {
-            display: flex;
-            margin-bottom: var(--spacing-md);
+            display: flex; margin-bottom: var(--spacing-md);
             border-bottom: 1px solid var(--border-color);
             overflow-x: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) var(--background);
         }
-
         .tab-button {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
+            background: none; border: none; color: var(--text-secondary);
             padding: var(--spacing-md) var(--spacing-lg);
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+            font-size: 1rem; cursor: pointer;
+            transition: all 0.3s ease; border-bottom: 2px solid transparent;
         }
+        .tab-button:hover { color: var(--accent); }
+        .tab-button.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
 
-        .tab-button:hover {
-            color: var(--accent);
-        }
-
-        .tab-button.active {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-        }
-
-        /* Contenu des onglets */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Cartes d'information */
+        /* Cards & Grids */
         .info-card {
             background-color: var(--card-bg);
             border-radius: var(--border-radius-md);
@@ -153,351 +146,142 @@
             margin-bottom: var(--spacing-md);
             border: 1px solid var(--border-color);
         }
-
-        /* Grille d'informations */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: var(--spacing-md);
         }
+        .info-item { margin-bottom: var(--spacing-sm); }
+        .info-label { display: block; color: var(--text-secondary); font-size: 0.9rem; }
+        .info-value { font-weight: 600; }
 
-        .info-item {
-            margin-bottom: var(--spacing-sm);
-        }
+        /* Traits & Lists */
+        .trait-list, .simple-list { list-style: none; }
+        .trait-list li { margin-bottom: var(--spacing-md); }
+        .trait-name { font-weight: 600; color: var(--accent); display: block; margin-bottom: var(--spacing-xs); }
+        .trait-desc { color: var(--text); }
+        .simple-list li { position: relative; padding-left: var(--spacing-md); margin-bottom: var(--spacing-sm); }
+        .simple-list li::before { content: '•'; color: var(--accent); position: absolute; left: 0; }
 
-        .info-label {
-            display: block;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .info-value {
-            font-weight: 600;
-        }
-
-        /* Traits */
-        .trait-list {
-            list-style: none;
-        }
-
-        .trait-list li {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .trait-name {
-            font-weight: 600;
-            color: var(--accent);
-            display: block;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .trait-desc {
-            color: var(--text);
-        }
-
-        /* Description physique */
-        .physical-desc p {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* Double colonne */
-        .double-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-        }
-
-        /* Listes simples */
-        .simple-list {
-            list-style: none;
-        }
-
-        .simple-list li {
-            position: relative;
-            padding-left: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .simple-list li::before {
-            content: '•';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Statistiques */
-        .stats-container {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .stat-bar {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .stat-name {
-            width: 200px;
-            margin-right: var(--spacing-md);
-        }
-
+        /* Stats */
+        .stats-container { margin-bottom: var(--spacing-md); }
+        .stat-bar { display: flex; align-items: center; margin-bottom: var(--spacing-sm); }
+        .stat-name { width: 200px; margin-right: var(--spacing-md); }
         .stat-value {
-            flex-grow: 1;
-            height: 12px;
+            flex-grow: 1; height: 12px;
             background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            overflow: hidden;
-            margin-right: var(--spacing-sm);
+            border-radius: 6px; overflow: hidden; margin-right: var(--spacing-sm);
         }
+        .stat-fill { height: 100%; background-color: var(--accent); border-radius: 6px; }
+        .stat-number { width: 30px; text-align: right; font-weight: 600; }
 
-        .stat-fill {
-            height: 100%;
-            background-color: var(--accent);
-            border-radius: 6px;
-        }
-
-        .stat-number {
-            width: 30px;
-            text-align: right;
-            font-weight: 600;
-        }
-
-        /* Compétences */
+        /* Skills */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: var(--spacing-md);
         }
-
         .skill-card {
             background-color: rgba(15, 52, 96, 0.6);
             border-radius: var(--border-radius-md);
             padding: var(--spacing-lg);
             border: 1px solid var(--border-color);
             margin-bottom: var(--spacing-md);
-        }
-
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .skill-name {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        .skill-level {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .skill-desc {
-            margin-bottom: var(--spacing-md);
-            font-style: italic;
-            color: var(--sarcasm);
-        }
-
-        .skill-abilities h4 {
-            font-size: 1rem;
-            color: var(--accent);
-            margin-top: var(--spacing-sm);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .skill-ability {
-            padding-left: var(--spacing-md);
             position: relative;
-            margin-bottom: var(--spacing-sm);
+        }
+        .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-sm); }
+        .skill-name { font-weight: 600; color: var(--accent); font-size: 1.2rem; }
+        .skill-level {
+            background-color: var(--accent); color: var(--white);
+            padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;
+        }
+        .skill-desc { margin-bottom: var(--spacing-md); font-style: italic; color: var(--text-secondary); }
+        .skill-ability { padding-left: var(--spacing-md); position: relative; margin-bottom: var(--spacing-sm); }
+        .skill-ability::before { content: '•'; color: var(--accent); position: absolute; left: 0; }
+
+        /* Notes */
+        .admin-note {
+            font-size: 0.85rem; color: var(--correction); font-style: italic;
+            margin-top: 10px; padding: 8px; background: rgba(255, 82, 82, 0.1);
+            border-left: 3px solid var(--correction); border-radius: 0 4px 4px 0;
+        }
+        .admin-note::before {
+            content: "👮 REMARQUE ADMIN: "; font-weight: bold;
+            text-transform: uppercase; font-size: 0.7rem; display: block; margin-bottom: 2px;
+        }
+        .system-note {
+            font-size: 0.85rem; color: var(--system-note); margin-top: 8px;
+            font-style: italic; border-left: 2px solid var(--system-note); padding-left: 8px;
         }
 
-        .skill-ability::before {
-            content: '•';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
+        /* Rarity Tags */
+        .rarity-tag {
+            display: inline-block; padding: 2px 8px; border-radius: 12px;
+            font-size: 0.7rem; font-weight: 600; margin-left: 8px; vertical-align: middle;
         }
+        .rarity-common { background-color: #6c757d; color: white; }
+        .rarity-rare { background-color: #0d6efd; color: white; }
+        .rarity-legendary { background-color: var(--legendary); color: #000; box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
 
-        /* Équipement */
-        .equipment-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .equipment-item {
-            background-color: rgba(15, 52, 96, 0.4);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-md);
-            border: 1px solid var(--border-color);
-        }
-
-        .equipment-name {
-            font-weight: 600;
-            color: var(--accent);
-            display: block;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        /* Histoire */
-        .story-card {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .story-content p {
-            text-align: justify;
-            margin-bottom: var(--spacing-md);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .story-content p {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Pied de page */
-        .character-footer {
-            display: flex;
-            justify-content: space-between;
-            padding: var(--spacing-md);
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius-md);
-            margin-top: var(--spacing-lg);
-            border: 1px solid var(--border-color);
-        }
-
-        .scenario-info, .date-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .date-label {
-            margin-right: var(--spacing-xs);
-            color: var(--text-secondary);
-        }
-
-        /* Placeholder */
-        .placeholder-text {
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        /* Rarity tags */
-        .rarity-common {
-            background-color: #6c757d;
-            color: white;
-        }
-
-        .rarity-rare {
-            background-color: #0d6efd;
-            color: white;
-        }
-
-        /* Censored text - MODIFIÉ */
-        .censored {
-            background-color: var(--censor);
-            color: var(--censor);
-            border-radius: 2px;
-            user-select: none;
-            padding: 0 2px;
-            display: inline-block;
-            width: auto;
-        }
-
-        /* Caractéristiques */
+        /* Characteristics */
         .characteristics-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: var(--spacing-md);
         }
-
         .characteristic-item {
             background-color: rgba(15, 52, 96, 0.4);
             border-radius: var(--border-radius-md);
             padding: var(--spacing-md);
             border: 1px solid var(--border-color);
         }
+        .characteristic-name { font-weight: 600; color: var(--accent); margin-bottom: var(--spacing-xs); display: block; }
 
-        .characteristic-name {
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: var(--spacing-xs);
-            display: block;
-        }
-
-        .rarity-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        .rarity-common {
-            background-color: #6c757d;
-            color: white;
-        }
-
-        .rarity-rare {
-            background-color: #0d6efd;
-            color: white;
+        /* Footer */
+        .character-footer {
+            display: flex; justify-content: space-between; padding: var(--spacing-md);
+            background-color: var(--card-bg); border-radius: var(--border-radius-md);
+            margin-top: var(--spacing-lg); border: 1px solid var(--border-color);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .character-header {
-                flex-direction: column;
-                text-align: center;
-                padding: var(--spacing-md);
-            }
-
-            .character-portrait {
-                margin-right: 0;
-                margin-bottom: var(--spacing-md);
-            }
-
-            .double-column {
-                grid-template-columns: 1fr;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .equipment-container {
-                grid-template-columns: 1fr;
-            }
+            .character-header { flex-direction: column; text-align: center; }
+            .character-portrait { margin-right: 0; margin-bottom: var(--spacing-md); }
+            .info-grid, .skills-container, .equipment-container { grid-template-columns: 1fr; }
+            .double-column { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 <div class="container">
+
+    <!-- En-tête de conformité -->
+    <div class="header-compliance">
+        <div>
+            <h2 style="color: var(--approved); border: none; margin: 0;">RAPPORT DE VALIDATION V4</h2>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
+                Statut: <span style="color: var(--approved); font-weight: bold;">Corrigé selon directives Akidai</span><br>
+                Modifications : Suppression Endurance, Ajustement Rang JoAT, Clarification RP.
+            </p>
+        </div>
+        <div class="stamp">READY</div>
+    </div>
+
     <header class="character-header">
         <div class="character-portrait">
             <img src="static/img/Yu_Seolha_2.jpeg" alt="Seolha Yu" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="character-title">
-            <h1>Seolha Yu <span class="nerf-badge">Nerfée v1.1</span></h1>
-            <div class="subtitle">L'Observatrice qui "tape sur le système"</div>
+            <h1>Seolha Yu</h1>
+            <div class="subtitle">L'Observatrice des Marges</div>
         </div>
     </header>
 
     <div class="character-tabs">
         <button class="tab-button active" data-tab="profile">Profil</button>
         <button class="tab-button" data-tab="stats">Statistiques</button>
-        <button class="tab-button" data-tab="skills">Compétences (Approuvées)</button>
-        <button class="tab-button" data-tab="story">Histoire (Maths corrigées)</button>
+        <button class="tab-button" data-tab="skills">Compétences</button>
+        <button class="tab-button" data-tab="story">Histoire</button>
     </div>
 
     <main class="character-content">
@@ -505,26 +289,10 @@
             <div class="info-card">
                 <h2>Informations de base</h2>
                 <div class="info-grid">
-                    <div class="info-item">
-                        <span class="info-label">Nom</span>
-                        <span class="info-value">Yu</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Prénom</span>
-                        <span class="info-value">Seolha</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Âge</span>
-                        <span class="info-value">22 ans (Ressenti : 90 ans selon la police)</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Date de naissance</span>
-                        <span class="info-value">21 juin</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Occupation</span>
-                        <span class="info-value">Humaine (Pas Prota, promis)</span>
-                    </div>
+                    <div class="info-item"><span class="info-label">Nom</span><span class="info-value">Yu</span></div>
+                    <div class="info-item"><span class="info-label">Prénom</span><span class="info-value">Seolha</span></div>
+                    <div class="info-item"><span class="info-label">Âge</span><span class="info-value">22 ans</span></div>
+                    <div class="info-item"><span class="info-label">Sexe</span><span class="info-value">Féminin</span></div>
                 </div>
             </div>
 
@@ -532,14 +300,33 @@
                 <h2>Caractère</h2>
                 <ul class="trait-list">
                     <li>
-                        <span class="trait-name">Pragmatique (Trop ?)</span>
-                        <p class="trait-desc">Seolha observe d'abord, agit ensuite. Apparemment, c'est un trait de protagoniste jaloux, donc disons qu'elle est juste lente à la détente.</p>
+                        <span class="trait-name">Réservée et pragmatique</span>
+                        <p class="trait-desc">Seolha observe d'abord, agit ensuite. Elle parle peu, mais quand elle s'exprime, c'est pesé et pertinent.</p>
                     </li>
                     <li>
-                        <span class="trait-name">Loyauté sélective</span>
-                        <p class="trait-desc">Elle ne s'attache pas facilement. Surtout pas aux gens qui calculent ses années de vie comme des comptables fiscaux.</p>
+                        <span class="trait-name">Résilience froide</span>
+                        <p class="trait-desc">Elle encaisse, range l'émotion, avance.</p>
                     </li>
                 </ul>
+            </div>
+
+            <div class="double-column">
+                <div class="info-card">
+                    <h2>Goûts</h2>
+                    <ul class="simple-list">
+                        <li>Structure et routines : inventaires carrés, checklists.</li>
+                        <li>Thé noir fort, cuisine sobre (bouillons, riz).</li>
+                        <li>Topographies urbaines : cartes de stations, sorties de secours.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h2>Passions</h2>
+                    <ul class="simple-list">
+                        <li>Travail du fil et du nœud (couture, ligatures).</li>
+                        <li>Cartographie improvisée (Dessin manuel de plans).</li>
+                        <li>Conditionnement fonctionnel.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -549,117 +336,220 @@
                 <div class="stats-container">
                     <div class="stat-bar">
                         <span class="stat-name">Force physique</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 70%"></div>
-                        </div>
+                        <div class="stat-value"><div class="stat-fill" style="width: 60%"></div></div>
+                        <span class="stat-number">6</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-name">Agilité</span>
+                        <div class="stat-value"><div class="stat-fill" style="width: 70%"></div></div>
                         <span class="stat-number">7</span>
                     </div>
                     <div class="stat-bar">
-                        <span class="stat-name">Agilité (Pas Copycat)</span>
-                        <div class="stat-value">
-                            <div class="stat-fill" style="width: 80%"></div>
-                        </div>
+                        <span class="stat-name">Vitalité</span>
+                        <div class="stat-value"><div class="stat-fill" style="width: 50%"></div></div>
+                        <span class="stat-number">5</span>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-name">Force magique</span>
+                        <div class="stat-value"><div class="stat-fill" style="width: 80%"></div></div>
                         <span class="stat-number">8</span>
                     </div>
                 </div>
-                <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; align-items: center;">
-                    <span style="color: var(--accent); font-weight: 500; margin-right: var(--spacing-sm);">Pièces:</span>
-                    <span style="font-weight: 600; font-size: 1.1rem;">6100 (Honnêtement gagnées)</span>
+                <div class="admin-note">
+                    Profil "Glass Cannon" validé. Force Magique dominante pour compenser la faiblesse physique.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Caractéristiques (Attributs)</h2>
+                <div class="characteristics-list">
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Méthodique <span class="rarity-tag rarity-common">Commun</span></span>
+                        <p>Organisation rigoureuse, listes et protocoles.</p>
+                    </div>
+                    <div class="characteristic-item">
+                        <span class="characteristic-name">Minimaliste <span class="rarity-tag rarity-common">Commun</span></span>
+                        <p>Valorise l'essentiel et l'utile, éliminant le superflu.</p>
+                    </div>
+
+                    <!-- JACK OF ALL TRADES CORRIGÉ -->
+                    <div class="characteristic-item" style="border: 1px solid var(--legendary);">
+                        <span class="characteristic-name" style="color: var(--legendary);">
+                            Jack of All Trades
+                            <span class="rarity-tag rarity-legendary">LÉGENDAIRE</span>
+                        </span>
+                        <p>Capacité naturelle à assimiler les bases de n'importe quelle compétence (magique ou technique) à une vitesse anormale.</p>
+
+                        <div class="admin-note">
+                            <strong>CONTREPARTIE :</strong> Plafond de verre (Max rang 4-5). Tu es l'éternelle apprentie.
+                        </div>
+
+                        <!-- LA NOUVELLE CLAUSE CACHÉE (Narrative) -->
+                        <div class="system-note" style="margin-top: 8px; font-size: 0.8rem; color: #ffcc80; border-left-color: #ffcc80;">
+                            <strong>[Analyse de Potentiel] :</strong> L'assimilation est rapide mais superficielle. Les compétences copiées ne peuvent atteindre la transcendance <em>tant qu'elles restent fragmentées</em>.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="tab-content">
             <div class="info-card">
-                <h2>Compétences (Revue et Corrigées)</h2>
+                <h2>Compétences spéciales</h2>
                 <div class="skills-container">
 
-                    <!-- FUSION DES COMPÉTENCES -->
-                    <div class="skill-card" style="border: 2px solid var(--sarcasm);">
+                    <!-- --- PHYSIQUE --- -->
+                    <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Sang-froid (Édition Fusion)</span>
+                            <span class="skill-name">Impact Cinétique</span>
                             <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Fusionné avec "Endurance au stress" car GAZA a dit que c'était la même chose (aka la compétence que j'ai déjà).</p>
+                        <p class="skill-desc">Arts Martiaux / Physique</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Permet de ne pas pleurer quand on se fait engueuler sur Discord.</p>
-                            <p class="skill-ability">Gère le stress ET garde son calme. Incroyable gain de place sur la fiche.</p>
-                            <p class="skill-ability">Remplace l'endurance au stress qui est partie à la poubelle.</p>
+                            <p class="skill-ability">Concentration de l'inertie sur un point d'impact.</p>
+                            <p class="skill-ability">Conversion Vitesse -> Force.</p>
                         </div>
                     </div>
 
-                    <!-- NERF LINGUISTIQUE -->
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Baragouinage Intuitif</span>
-                            <span class="skill-level">Niveau 1</span>
+                            <span class="skill-name">Appuis de Rugbyman</span>
+                            <span class="skill-level">Niveau 3</span>
                         </div>
-                        <p class="skill-desc">Anciennement "Sens Linguistique". Renommé car "pourquoi faire même ?".</p>
+                        <p class="skill-desc">Déplacement / Posture</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Ne permet PAS d'apprendre inRP (trop facile).</p>
-                            <p class="skill-ability">Sert uniquement à demander où sont les toilettes dans 4 langues.</p>
-                            <p class="skill-ability">Existe juste pour "taper sur le système" apparemment.</p>
+                            <p class="skill-ability">Changements de direction violents.</p>
+                            <p class="skill-ability"><strong>Active :</strong> Ancrage au sol pour résister aux chocs (Consomme de l'endurance).</p>
                         </div>
+                        <div class="approved-note">Corrigé : Plus de passif magique.</div>
                     </div>
 
-                    <!-- NERF DÉPLACEMENT -->
+                    <!-- ENDURANCE AU STRESS SUPPRIMÉE ICI -->
+
+                    <!-- --- TECHNIQUE --- -->
                     <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Marche Rapide (Pas Copycat)</span>
+                            <span class="skill-name">Bio-Mécanique Appliquée</span>
                             <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Anciennement "Sens du déplacement". J'ai retiré le parkour pour ne pas copier.</p>
+                        <p class="skill-desc">Médical</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Capacité à mettre un pied devant l'autre très vite.</p>
-                            <p class="skill-ability">Garanti 100% original, aucune inspiration externe.</p>
-                            <p class="skill-ability">N'utilise pas les années d'expérience ajoutées artificiellement à l'histoire.</p>
+                            <p class="skill-ability">Connaissance des points vitaux.</p>
+                            <p class="skill-ability">Soins d'urgence avec matériel improvisé.</p>
                         </div>
                     </div>
 
-                    <!-- NERF MIMÉTIQUE -->
-                    <div class="skill-card" style="opacity: 0.8;">
+                    <div class="skill-card">
                         <div class="skill-header">
-                            <span class="skill-name">Singage Low-Cost</span>
-                            <span class="skill-level">Niveau 1</span>
+                            <span class="skill-name">Maîtrise des Liens</span>
+                            <span class="skill-level">Niveau 2</span>
                         </div>
-                        <p class="skill-desc">Anciennement "Apprentissage mimétique". Trop OP selon la méta.</p>
+                        <p class="skill-desc">Technique</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Permet de copier un mouvement mais en se tordant la cheville 1 fois sur 2.</p>
-                            <p class="skill-ability">Moins efficace que d'apprendre "avec les autres" inRP.</p>
-                            <p class="skill-ability">Compétence "poubelle" assumée.</p>
+                            <p class="skill-ability">Réalisation rapide de nœuds tactiques.</p>
+                        </div>
+                    </div>
+
+                    <!-- --- MENTAL --- -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Sang-froid</span>
+                            <span class="skill-level">Niveau 3</span>
+                        </div>
+                        <p class="skill-desc">Mental</p>
+                        <div class="skill-abilities">
+                            <div class="skill-ability">Immunité partielle à la panique.</div>
+                            <div class="skill-ability">Gestion du souffle et du stress physiologique.</div>
                         </div>
                     </div>
 
                     <div class="skill-card">
                         <div class="skill-header">
                             <span class="skill-name">Firewall Mental</span>
-                            <span class="skill-level">Niveau 2</span>
+                            <span class="skill-level">Niveau 5</span>
                         </div>
-                        <p class="skill-desc">Celle-là ça va ? Je peux la garder ?</p>
+                        <p class="skill-desc">Défense Psychique</p>
                         <div class="skill-abilities">
-                            <p class="skill-ability">Crée une barrière contre les critiques non-constructives.</p>
+                            <p class="skill-ability">Résistance passive aux intrusions mentales.</p>
+                            <p class="skill-ability">Compartimentation de la douleur (Ne soigne pas, isole l'information).</p>
                         </div>
                     </div>
 
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Sabotage Numérique</span>
+                            <span class="skill-level">Niveau 2</span>
+                        </div>
+                        <p class="skill-desc">Technique</p>
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Identification des failles physiques hardware.</p>
+                            <p class="skill-ability">Neutralisation rapide de serrures/caméras.</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">Adaptation Anormale</span>
+                            <span class="skill-level">Niveau 3</span>
+                        </div>
+                        <p class="skill-desc">Cognitif</p>
+                        <div class="skill-abilities">
+                            <p class="skill-ability">Acceptation immédiate des changements de règles (Scénarios).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Connaissances & Background (RP uniquement)</h2>
+                <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                    <div class="info-item">
+                        <span class="info-label">Cartographie urbaine</span>
+                        <span class="info-value">Experte (Savoir-faire manuel, sans aide système)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Analyse de données</span>
+                        <span class="info-value">Experte</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Survie urbaine</span>
+                        <span class="info-value">Experte</span>
+                    </div>
+                </div>
+                <div class="admin-note">
+                    Ces éléments ne sont pas des compétences système mais reflètent le vécu du personnage.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Équipement</h2>
+                <div class="equipment-container">
+                    <div class="equipment-item">
+                        <span class="equipment-name">Kit de premiers soins improvisé</span>
+                        <p class="equipment-desc">Bandages, antiseptiques, aiguilles de suture.</p>
+                    </div>
+                    <div class="equipment-item">
+                        <span class="equipment-name">Carnet de cartographie</span>
+                        <p class="equipment-desc">Plans dessinés à la main.</p>
+                    </div>
+                    <div class="equipment-item">
+                        <span class="equipment-name">Couteau multifonction</span>
+                    </div>
+                    <div class="equipment-item">
+                        <span class="equipment-name">Barre de métal</span>
+                        <p class="equipment-desc">Arme contondante simple.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="story" class="tab-content">
             <div class="info-card story-card">
-                <h2>Histoire (Version condensée pour les maths)</h2>
+                <h2>Histoire</h2>
                 <div class="story-content">
-                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte et d'une mère ingénieure, elle a tout appris en même temps pour gagner du temps sur sa timeline.</p>
-
-                    <p style="border-left: 3px solid var(--sarcasm); padding-left: 10px;">
-                        <strong>Note de l'auteur :</strong> Pour répondre à la polémique des "90 ans en 22 ans", précisons que Seolha ne dormait jamais.
-                        Rugby (5 ans) + Parkour (6 ans) + Cybersécurité (4 ans) + Linguistique (3 ans) = Tout ça a été fait en multitasque.
-                        Elle lisait des livres de code en plaquant des gens au rugby tout en sautant par-dessus des murs. C'est ça, l'efficacité.
-                    </p>
-
-                    <p>Quand le Star Stream a fracturé Séoul, Seolha ne s'est pas effondrée. Elle a utilisé son "Sang-froid" (qui est la même chose que l'endurance au stress, rappelons-le) pour survivre. Elle n'a pas utilisé de "Sens du déplacement" copié sur quelqu'un d'autre, elle a juste couru très bizarrement pour être originale.</p>
-
-                    <p>Aujourd'hui, Seolha se déplace entre les stations, essayant d'apprendre inRP avec les autres plutôt que d'utiliser ses compétences OP qui vont à la poubelle. Elle espère un jour être assez "humaine" pour satisfaire les critères d'admission.</p>
+                    <p>Fille d'architecte, Seolha a grandi en lisant les structures de Séoul comme un livre ouvert. Ancienne ailière de rugby universitaire, elle a appris à encaisser les chocs et à gérer la douleur, non par magie, mais par discipline.</p>
+                    <p>Quand le Star Stream est arrivé, elle n'a pas cherché à être l'héroïne. Elle a observé. Elle a compris que pour survivre sans être un "Monstre" de puissance, il fallait être un couteau suisse. Elle a sacrifié la spécialisation pour la polyvalence absolue, acceptant d'être moyenne partout pour n'être faible nulle part.</p>
+                    <p>Aujourd'hui, elle est celle qui a toujours un plan, une carte (faite main) et une issue de secours.</p>
                 </div>
             </div>
         </section>
@@ -670,16 +560,14 @@
             <span class="scenario-value">Dark Castle (Scénario #9)</span>
         </div>
         <div class="date-info">
-            <span class="date-label">Statut :</span>
-            <span class="date-value" style="color: var(--sarcasm);">En attente de validation (pitié)</span>
+            <span class="date-label">Jour :</span>
+            <span class="date-value">25</span>
         </div>
     </footer>
 </div>
 
 <script>
-    // Script pour la fiche de personnage
     document.addEventListener('DOMContentLoaded', function() {
-        // Gestion des onglets
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
 

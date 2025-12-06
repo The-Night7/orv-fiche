@@ -22,6 +22,9 @@
             --system-note: #9dd9ff; /* Couleur pour les notes "système" */
             --warning-bg: rgba(255, 82, 82, 0.05);
 
+            /* Raretés ORV */
+            --legendary: #ffd700; /* Or pour Légendaire */
+
             /* Espacement */
             --spacing-xs: 0.25rem;
             --spacing-sm: 0.5rem;
@@ -571,34 +574,12 @@
 
         /* Rarity tags */
         .rarity-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 8px;
-            vertical-align: middle;
+            display: inline-block; padding: 2px 8px; border-radius: 12px;
+            font-size: 0.7rem; font-weight: 600; margin-left: 8px; vertical-align: middle;
         }
-
-        .rarity-common {
-            background-color: #6c757d;
-            color: white;
-        }
-
-        .rarity-rare {
-            background-color: #0d6efd;
-            color: white;
-        }
-
-        .rarity-nerfed {
-            background-color: var(--correction);
-            color: white;
-        }
-
-        .rarity-unique {
-            background-color: darkgoldenrod;
-            color: white;
-        }
+        .rarity-common { background-color: #6c757d; color: white; }
+        .rarity-rare { background-color: #0d6efd; color: white; }
+        .rarity-legendary { background-color: var(--legendary); color: #000; box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
 
         /* Caractéristiques */
         .characteristics-list {
@@ -783,7 +764,7 @@
 
         <section id="stats" class="tab-content">
             <div class="info-card">
-                <h2>Statistiques de base (Ajustement Admin)</h2>
+                <h2>Statistiques de base</h2>
                 <div class="stats-container">
                     <div class="stat-bar">
                         <span class="stat-name">Force physique</span>
@@ -834,22 +815,21 @@
                         <span class="characteristic-name">Minimaliste <span class="rarity-tag rarity-common">Commun</span></span>
                         <p>Valorise l'essentiel et l'utile, éliminant le superflu tant dans son équipement que dans ses relations.</p>
                     </div>
-                    <!-- Cartographe et Vision Structurelle SUPPRIMÉS (Coût du Jack of All Trades) -->
-                    <div class="characteristic-item" style="border: 1px solid darkgoldenrod;">
-                        <span class="characteristic-name" style="color: darkgoldenrod;">
+                    <!-- JACK OF ALL TRADES CORRIGÉ -->
+                    <div class="characteristic-item" style="border: 1px solid var(--legendary);">
+                        <span class="characteristic-name" style="color: var(--legendary);">
                             Jack of All Trades
-                            <span class="rarity-tag rarity-unique">Unique</span>
+                            <span class="rarity-tag rarity-legendary">LÉGENDAIRE</span>
                         </span>
                         <p>Capacité naturelle à assimiler les bases de n'importe quelle compétence (magique ou technique) à une vitesse anormale.</p>
 
                         <div class="admin-note">
-                            <strong>CONTREPARTIE :</strong> Plafond de verre (Max rang 4-5). Tu es l'éternelle apprentie, capable de tout faire, mais maîtresse de rien.
+                            <strong>CONTREPARTIE :</strong> Plafond de verre (Max rang 4-5). Tu es l'éternelle apprentie.
                         </div>
 
-                        <!-- LA CLAUSE CACHÉE : Présentée comme un danger système -->
-                        <div class="system-note" style="margin-top: 8px; border-left-color: #ff5252; color: #ff8a80; font-size: 0.8rem;">
-                            <strong>[Avertissement de Stabilité] :</strong> Risque de <em>Surcharge Cognitive</em>.
-                            Si le nombre de compétences fragmentées dépasse le seuil critique (5 de niveau 5 de même "type" [variantes d'une même chose]), le système initiera une <span title="Protocole caché : La fusion de compétences saturées brise le plafond de verre." style="cursor: help; border-bottom: 1px dotted #ff5252;">[Synthèse d'Urgence]</span> pour préserver l'intégrité mentale.
+                        <!-- LA NOUVELLE CLAUSE CACHÉE (Narrative) -->
+                        <div class="system-note" style="margin-top: 8px; font-size: 0.8rem; color: #ffcc80; border-left-color: #ffcc80;">
+                            <strong>[Analyse de Potentiel] :</strong> L'assimilation est rapide mais superficielle. Les compétences copiées ne peuvent atteindre la transcendance <em>tant qu'elles restent <span title="Protocole caché : La fusion de compétences saturées brise le plafond de verre." style="cursor: help; border-bottom: 1px dotted #ff5252;">fragmentées</span></em>.
                         </div>
                     </div>
                 </div>
