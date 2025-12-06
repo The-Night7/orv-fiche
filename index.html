@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seolha Yu - Fiche de personnage</title>
+    <title>Seolha Yu - Fiche de personnage (Post-Scénario 8)</title>
     <style>
         :root {
             /* Couleurs */
@@ -24,6 +24,7 @@
 
             /* Raretés ORV */
             --legendary: #ffd700; /* Or pour Légendaire */
+            --rare: #9c27b0; /* Violet pour Rare/Hidden */
 
             /* Espacement */
             --spacing-xs: 0.25rem;
@@ -64,8 +65,24 @@
             margin-bottom: var(--spacing-sm);
         }
 
+        h3 {
+            margin-top: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
         p {
             margin-bottom: var(--spacing-md);
+        }
+
+        blockquote {
+            background: rgba(77, 171, 245, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
         }
 
         /* En-tête de conformité (Nouveau) */
@@ -83,7 +100,7 @@
         }
 
         .header-compliance::before {
-            content: "REVISION 4.0";
+            content: "SURVIVANTE";
             position: absolute;
             top: -10px;
             right: -20px;
@@ -120,7 +137,7 @@
         }
 
         .character-header::after {
-            content: "SYSTEM CHECK: VALID";
+            content: "SYSTEM CHECK: ONLINE";
             position: absolute;
             top: 10px;
             right: 15px;
@@ -205,6 +222,11 @@
             padding: 0 2px;
             display: inline-block;
             width: auto;
+        }
+
+        .censored:hover {
+            background-color: transparent;
+            color: inherit;
         }
 
         /* Cartes d'information */
@@ -316,6 +338,12 @@
             height: 100%;
             background-color: var(--accent);
             border-radius: 6px;
+            transition: width 1s ease-in-out;
+        }
+
+        .stat-fill.over-limit {
+            background-color: #ff4081; /* Couleur pour stats surhumaines */
+            box-shadow: 0 0 8px rgba(255, 64, 129, 0.6);
         }
 
         .stat-number {
@@ -428,82 +456,6 @@
             border-left: 2px solid var(--approved);
         }
 
-        /* Header de réponse directe au GM */
-        .gm-response {
-            background: rgba(77, 171, 245, 0.1);
-            border: 1px solid var(--accent);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-        .gm-response h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .gm-response ul {
-            list-style: none;
-        }
-        .gm-response li {
-            margin-bottom: 5px;
-            padding-left: 15px;
-            position: relative;
-        }
-        .gm-response li::before {
-            content: '>';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Cimetière des compétences */
-        .graveyard {
-            opacity: 0.8;
-            margin-top: var(--spacing-lg);
-            border: 2px dashed var(--correction);
-            padding: var(--spacing-md);
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: var(--border-radius-md);
-        }
-
-        .graveyard h2 {
-            color: var(--correction);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-        }
-
-        .graveyard h2::after {
-            content: " (REFUSÉ)";
-            font-size: 0.8rem;
-            margin-left: 10px;
-            opacity: 0.7;
-        }
-
-        .dead-skill {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 82, 82, 0.2);
-        }
-
-        .dead-skill-name {
-            text-decoration: line-through;
-            color: var(--text-secondary);
-            font-weight: bold;
-        }
-
-        .dead-reason {
-            color: var(--correction);
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
-
         /* Équipement */
         .equipment-container {
             display: grid;
@@ -578,7 +530,7 @@
             font-size: 0.7rem; font-weight: 600; margin-left: 8px; vertical-align: middle;
         }
         .rarity-common { background-color: #6c757d; color: white; }
-        .rarity-rare { background-color: #0d6efd; color: white; }
+        .rarity-rare { background-color: var(--rare); color: white; }
         .rarity-legendary { background-color: var(--legendary); color: #000; box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
 
         /* Caractéristiques */
@@ -635,12 +587,12 @@
     <!-- En-tête de conformité -->
     <div class="header-compliance">
         <div>
-            <h2 style="color: var(--correction); border: none; margin: 0;">RAPPORT DE VALIDATION V4</h2>
+            <h2 style="color: var(--correction); border: none; margin: 0;">RAPPORT DE SURVIE (SCÉNARIO #8)</h2>
             <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
-                Statut: <span class="censored">Validé</span><br>
+                Statut: <span class="censored">Vivant (Solitaire)</span><br>
             </p>
         </div>
-        <div class="stamp" style="color: var(--approved); border-color: var(--approved);">ACCEPTED</div>
+        <div class="stamp" style="color: var(--approved); border-color: var(--approved);">SURVIVED</div>
     </div>
 
     <header class="character-header">
@@ -754,43 +706,44 @@
 
         <section id="stats" class="tab-content">
             <div class="info-card">
-                <h2>Statistiques de base</h2>
+                <h2>Statistiques de base (Mise à jour Scénario #8)</h2>
                 <div class="stats-container">
                     <div class="stat-bar">
-                        <span class="stat-name">Force physique (Strenght)</span>
+                        <span class="stat-name">Force physique (Strength)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 60%"></div>
+                            <!-- 24 est très élevé, on dépasse la barre visuelle standard -->
+                            <div class="stat-fill over-limit" style="width: 100%"></div>
                         </div>
-                        <span class="stat-number">6</span>
+                        <span class="stat-number" style="color: #ff4081">24</span>
                     </div>
                     <div class="stat-bar">
                         <span class="stat-name">Agilité (Agility)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 70%"></div>
+                            <div class="stat-fill over-limit" style="width: 100%"></div>
                         </div>
-                        <span class="stat-number">7</span>
+                        <span class="stat-number" style="color: #ff4081">25</span>
                     </div>
                     <div class="stat-bar">
                         <span class="stat-name">Vitalité (Physique)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 50%"></div>
+                            <div class="stat-fill over-limit" style="width: 95%"></div>
                         </div>
-                        <span class="stat-number">5</span>
+                        <span class="stat-number" style="color: #ff4081">22</span>
                     </div>
                     <div class="stat-bar">
                         <span class="stat-name">Force magique (Magic Power)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 80%"></div>
+                            <div class="stat-fill" style="width: 40%"></div>
                         </div>
-                        <span class="stat-number">8</span>
+                        <span class="stat-number">12</span>
                     </div>
                 </div>
                 <div class="admin-note">
-                    Rééquilibrage imposé par le trait "Jack of All Trades". Profil orienté haute adaptabilité magique, constitution physique réduite.
+                    Croissance exponentielle détectée durant le Scénario #7. Investissement massif dans les stats physiques pour le "Grinding" de volume.
                 </div>
                 <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; align-items: center;">
                     <span style="color: var(--accent); font-weight: 500; margin-right: var(--spacing-sm);">Pièces:</span>
-                    <span style="font-weight: 600; font-size: 1.1rem;" class="censored">6100</span>
+                    <span style="font-weight: 600; font-size: 1.1rem;" class="censored">3,090 C</span>
                 </div>
             </div>
 
@@ -805,7 +758,8 @@
                         <span class="characteristic-name">Minimaliste <span class="rarity-tag rarity-common">Commun</span></span>
                         <p>Valorise l'essentiel et l'utile, éliminant le superflu tant dans son équipement que dans ses relations.</p>
                     </div>
-                    <!-- JACK OF ALL TRADES CORRIGÉ -->
+
+                    <!-- JACK OF ALL TRADES -->
                     <div class="characteristic-item" style="border: 1px solid var(--legendary);">
                         <span class="characteristic-name" style="color: var(--legendary);">
                             <span class="censored">Jack of All Trades</span>
@@ -817,9 +771,8 @@
                             <strong>CONTREPARTIE :</strong> Plafond de verre (Max rang 4-5). Tu es l'éternelle apprentie.
                         </div>
 
-                        <!-- LA NOUVELLE CLAUSE CACHÉE (Narrative) -->
                         <div class="system-note" style="margin-top: 8px; font-size: 0.8rem; color: #ffcc80; border-left-color: #ffcc80;">
-                            <span class="censored"><strong>[Analyse de Potentiel] :</strong> L'assimilation est rapide mais superficielle. Les compétences copiées ne peuvent atteindre la transcendance <em>tant qu'elles restent <span title="Protocole caché : La fusion de compétences saturées brise le plafond de verre." style="cursor: help; border-bottom: 1px dotted #ff5252;">fragmentées</span></em>.</span>
+                            <span class="censored"><strong>[Analyse de Potentiel] :</strong> L'assimilation est rapide mais superficielle. Les compétences copiées ne peuvent atteindre la transcendance <em>tant qu'elles restent <span title="Protocole caché : La fusion de compétences saturées brise le plafond de verre. (+1)" style="cursor: help; border-bottom: 1px dotted #ff5252;">fragmentées</span></em>.</span>
                         </div>
                     </div>
                 </div>
@@ -827,7 +780,7 @@
             <div class="info-card">
                 <h2>Constellation sponsor</h2>
                 <div class="constellation-info">
-                    <p class="placeholder-text censored">À déterminer</p>
+                    <p class="placeholder-text censored">À déterminer (Plusieurs regards intéressés)</p>
                 </div>
             </div>
             <div class="info-card">
@@ -874,9 +827,6 @@
                             <p class="skill-ability"><span class="censored">Changements de direction brutaux (conservation partielle de l'inertie, mais grosse contrainte articulaire).</span></p>
                             <p class="skill-ability"><span class="censored">Explosivité musculaire pure (synergie avec l'Agilité pour les démarrages).</span></p>
                             <p class="skill-ability"><span class="censored"><strong>Stabilité Active :</strong> Bonus important contre le renversement, mais nécessite d'adopter une posture d'ancrage spécifique (pas d'effet passif).</span></p>
-                        </div>
-                        <div class="approved-note">
-                            Corrigé : Retrait de la mention "3 foulées" et du virage à 90° sans perte de vitesse (physiquement impossible).
                         </div>
                     </div>
 
@@ -1014,12 +964,6 @@
                         <span class="equipment-name">Veste technique</span>
                         <p class="equipment-desc">Veste renforcée avec multiples poches cachées et fil rouge distinctif.</p>
                     </div>
-                    <span class="redacted-story">
-                    <div class="equipment-item">
-                        <span class="equipment-name">Gonfleur de ballon de rugby</span>
-                        <p class="equipment-desc">Un outil compact et robuste utilisé pour les ballons de rugby, transformé en arme improvisée pour des situations critiques.</p>
-                    </div>
-                    </span>
                     <div class="equipment-item">
                         <span class="equipment-name">Cordes et nœuds</span>
                         <p class="equipment-desc">Corde robuste et divers nœuds préparés pour sécuriser des charges, créer des pièges ou escalader des obstacles.</p>
@@ -1029,16 +973,8 @@
                         <p class="equipment-desc">Plans dessinés à la main des tunnels, conduites d'air et zones d'échos, créés pendant les explorations urbaines.</p>
                     </div>
                     <div class="equipment-item">
-                        <span class="equipment-name">Signalisation textile</span>
-                        <p class="equipment-desc">Petits morceaux de tissu utilisés pour marquer les zones dangereuses ou les chemins sécurisés.</p>
-                    </div>
-                    <div class="equipment-item">
                         <span class="equipment-name">Barre de métal</span>
                         <p class="equipment-desc">Une barre solide récupérée dans le chantier voisin au club de rugby. Utilisée comme arme improvisée ou outil pour forcer des portes et structures.</p>
-                    </div>
-                    <div class="equipment-item">
-                        <span class="equipment-name">Sac à dos</span>
-                        <p class="equipment-desc">Un sac à dos robuste avec plusieurs compartiments, utilisé pour transporter des fournitures essentielles, des outils et des provisions.</p>
                     </div>
                 </div>
             </div>
@@ -1048,40 +984,33 @@
             <div class="info-card story-card">
                 <h2>Histoire</h2>
                 <div class="story-content">
-                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte, elle a appris à lire les structures urbaines. <span class="redacted-story">Dès son plus jeune âge, elle passait ses weekends à explorer...</span> Bon, elle aimait juste se balader. Fille unique d'un père architecte et d'une mère ingénieure en sécurité, elle a grandi dans un environnement où l'observation méthodique et la planification étaient valorisées. Dès son plus jeune âge, elle passait ses weekends à explorer les recoins de Séoul avec son père, apprenant à lire les structures urbaines, à comprendre comment les bâtiments s'articulent, où se trouvent les passages oubliés.</p>
+                    <p>En marge. C'est ainsi que Seolha a toujours vécu. Fille unique d'un père architecte et d'une mère ingénieure en sécurité, elle a grandi dans un environnement où l'observation méthodique et la planification étaient valorisées. Dès son plus jeune âge, elle passait ses weekends à explorer les recoins de Séoul avec son père, apprenant à lire les structures urbaines, à comprendre comment les bâtiments s'articulent, où se trouvent les passages oubliés.</p>
 
-                    <p>À 17 ans, un accident l'a laissée avec une fracture. <span class="redacted-story">Son kiné lui a enseigné des techniques secrètes de gestion de la douleur...</span> <span class="story-correction">[Correction: Elle a juste fait sa rééducation normalement. Elle a toujours mal quand il pleut.]</span> La rééducation a été longue et douloureuse, mais cette expérience a transformé sa relation avec son corps. Pendant six mois intensifs, elle a appris à comprendre les signaux de son corps, à distinguer la douleur dangereuse de l'inconfort normal de l'effort.</p>
+                    <p>À 17 ans, un accident l'a laissée avec une fracture. La rééducation a été longue et douloureuse, mais cette expérience a transformé sa relation avec son corps. Pendant six mois intensifs, elle a appris à comprendre les signaux de son corps, à distinguer la douleur dangereuse de l'inconfort normal de l'effort.</p>
 
-                    <p>Elle s'est tournée vers le rugby à 18 ans. <span class="redacted-story">Elle a développé une capacité à lire le terrain digne d'un général d'armée...</span> Elle a surtout appris à courir vite et à encaisser des plaquages. Pendant cinq ans, elle a joué comme ailière dans une équipe universitaire de haut niveau, développant non seulement sa force et son endurance, mais aussi sa capacité à lire le terrain, à anticiper les mouvements, à exploiter les failles défensives. Le rugby lui a appris la valeur du positionnement stratégique, de l'adaptation rapide, et surtout, de la résilience face à l'adversité physique.</p>
+                    <p>Elle s'est tournée vers le rugby à 18 ans. Elle a surtout appris à courir vite et à encaisser des plaquages. Pendant cinq ans, elle a joué comme ailière dans une équipe universitaire de haut niveau, développant non seulement sa force et son endurance, mais aussi sa capacité à lire le terrain, à anticiper les mouvements, à exploiter les failles défensives.</p>
 
-                    <p>Études en cybersécurité. <span class="redacted-story">Elle a mémorisé des séquences complexes de codes grâce à sa Mémoire Renforcée...</span> Elle a beaucoup révisé. Parfois elle oublie ses mots de passe. Pendant quatre ans, elle s'est immergée dans le monde des systèmes d'information, développant une compréhension approfondie des réseaux, des protocoles de sécurité et des techniques d'intrusion. Son travail de fin d'études sur les vulnérabilités des systèmes de surveillance urbaine combinait ses deux passions : l'exploration urbaine et la sécurité informatique.</p>
+                    <p>Études en cybersécurité. Pendant quatre ans, elle s'est immergée dans le monde des systèmes d'information, développant une compréhension approfondie des réseaux, des protocoles de sécurité et des techniques d'intrusion.</p>
 
-                    <p>Expérience professionnelle : tests d'intrusion. <span class="redacted-story">Ce n'était pas de la simple furtivité mais un art...</span> <span class="story-correction">[Correction: Elle vérifiait si les portes étaient fermées. Elle n'est pas Sam Fisher.]</span> Pendant trois ans, elle a assisté des équipes simulant des effractions dans des bâtiments sécurisés, affinant ses compétences en déplacement tactique sous la supervision d'anciens agents de sécurité. Chaque mission était préparée méticuleusement, renforçant sa Cartographie mentale et sa capacité d'Adaptation aux scénarios.</p>
+                    <p>Expérience professionnelle : tests d'intrusion. Pendant trois ans, elle a assisté des équipes simulant des effractions dans des bâtiments sécurisés. Chaque mission était préparée méticuleusement, renforçant sa Cartographie mentale et sa capacité d'Adaptation aux scénarios.</p>
 
-                    <p><span class="redacted-story">Elle a appris à créer des barrières mentales (Firewall Mental)...</span> Elle est juste très calme (Sang-froid). C'est tout. Pas de super-pouvoir mental. Durant cette période, elle a également pratiqué diverses techniques de méditation et de compartimentage mental. Ces pratiques se sont révélées particulièrement utiles pour structurer sa pensée et gérer le stress, formant la base de son Firewall Mental.</p>
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
 
-                    <p>Volontariat médical. Elle sait faire des bandages. <span class="redacted-story">Elle a perfectionné sa Manipulation précise pour voler des objets...</span> <span class="story-correction">[Correction: ABSOLUMENT PAS. Elle sait juste recoudre une plaie sans trembler. Si elle essaie de voler un truc, elle se fait attraper.]</span> Cette expérience lui a également permis de développer ses compétences en premiers secours, devenant capable de traiter efficacement diverses blessures avec un équipement minimal.</p>
-
-                    <p><span class="redacted-story">Son intérêt pour les langues a formé son Sens linguistique...</span> <span class="story-correction">[Correction: Compétence refusée. Elle parle coréen et un anglais cassé. Elle devra apprendre les autres langues en RP en galérant.]</span> Pendant trois ans, elle a suivi des cours du soir en linguistique appliquée. Cette approche analytique lui a permis de déchiffrer plus facilement des systèmes de communication inconnus.</p>
-
-                    <p><span class="redacted-story">Elle découvrit son Apprentissage mimétique : elle pouvait reproduire les techniques des experts...</span> <span class="story-correction">[Correction: MDR NON. Le GM a dit "Tu veux juste mon suicide". Elle doit s'entraîner des heures pour apprendre un truc.]</span> À mesure que les scénarios se succédaient, elle remarquait qu'elle pouvait assimiler les bases de nouvelles compétences plus rapidement que ses collègues.</p>
-
-                    <!-- A partir de là ! -->
-
-                    <!-- Nouveau contenu ajouté -->
                     <h3>🎬 Scénario Principal #1 : La Sélection Naturelle</h3>
                     <p>Le ciel avait changé de couleur, et le monde connu s'était effondré en une phrase. Devant le club de rugby, l'air était saturé de poussière de chantier et de l'odeur métallique du sang.</p>
-                    <p><strong>[Scénario Principal #1 - Prouver sa valeur]</strong><br>
+
+                    <blockquote>
+                        <strong>[Scénario Principal #1 - Prouver sa valeur]</strong><br>
                         <strong>[Condition : Tuer un être vivant.]</strong><br>
-                        <strong>[Temps restant : 28 minutes]</strong></p>
+                        <strong>[Temps restant : 28 minutes]</strong>
+                    </blockquote>
+
                     <p>Seolha Yu n'a pas hurlé. Son trait <strong>« Méthodique »</strong> avait déjà pris le dessus sur la panique. Alors que les autres membres du club et les passants figeaient ou pleuraient, son regard s'est posé sur le sac d'équipement renversé. Sa main s'est refermée sur une pompe à ballon. Pas l'objet entier, mais l'embout. Une aiguille en acier, fine, destinée à gonfler, mais capable de percer.</p>
                     <p>Un homme, un ouvrier du chantier voisin, s'approchait d'elle, les yeux fous, une brique à la main. Il n'a pas eu le temps d'armer son bras. <em>Tchac.</em> L'aiguille a trouvé la jugulaire avec une précision chirurgicale, guidée par sa compétence <strong>[Bio-Mécanique Appliquée]</strong>.</p>
                     <p><strong>[Vous avez obtenu votre premier meurtre.]</strong></p>
                     <p>Le silence a duré une seconde, brisé par un cri : « Elle l'a tué ! C'est une meurtrière ! Si on la tue, ce n'est pas un crime, c'est la justice ! » La foule, cherchant désespérément une excuse morale pour survivre, s'est tournée vers elle. Ils étaient une cinquantaine.</p>
                     <p>Seolha a expiré lentement. En tant qu'ailière, elle avait passé sa vie à éviter les plaquages de colosses. Ces civils désordonnés ? Ils étaient lents. Pendant 30 minutes, ce fut un ballet sanglant. Grâce à <strong>[Appuis de Rugbyman Lv.3]</strong>, elle pivotait, esquivait et contre-attaquait. Chaque fois que quelqu'un entrait dans sa zone d'impact, il ne se relevait pas. Elle ne frappait pas fort, elle frappait juste. Onze corps gisaient autour d'elle lorsque le chronomètre a atteint zéro.</p>
-                    <p><strong>[Le Scénario Principal #1 est terminé.]</strong><br>
-                        <strong>[Survivants : 10/50]</strong></p>
-                    <p>Seolha essuya son visage. Elle était vivante.</p>
+
                     <blockquote>
                         <strong>[Bilan]</strong><br>
                         * Récompense de base : 300 Coins<br>
@@ -1094,6 +1023,7 @@
                     <p>L'extérieur était devenu un enfer. Seolha savait qu'elle devait descendre sous terre. Les métros étaient les artères de ce nouveau monde. Elle se dirigea vers la station <strong>Banyeo Agricultural Market</strong>. L'obscurité des tunnels était oppressante.</p>
                     <p>Soudain, une ombre a surgi d'un recoin de maintenance. Un survivant désespéré, armé d'un tuyau, hurlant de peur et de rage. Il était lent. Trop lent. Seolha n'a même pas ralenti. Elle a activé <strong>[Impact Cinétique]</strong>, utilisant l'élan de sa course pour propulser son épaule dans le thorax de l'agresseur. Le bruit des côtes brisées a résonné dans le tunnel. Elle l'a achevé froidement avant de récupérer son coin sécurisé.</p>
                     <p>Elle s'assit dans l'obscurité, ouvrant son interface. Il était temps d'investir. Elle ne pouvait pas compter uniquement sur sa technique.</p>
+
                     <blockquote>
                         <strong>[Investissement de Stats]</strong><br>
                         * Coût total : 900 Coins<br>
@@ -1103,14 +1033,15 @@
                     </blockquote>
                     <p>Une chaleur brûlante a envahi ses muscles. Ses fibres se densifiaient. Elle était plus rapide, plus forte. Prête pour la suite.</p>
 
-                    <!-- Ajout d'une autre section -->
                     <h3>🏰 Scénario Principal #3 : La Propriétaire</h3>
                     <p>La station était devenue une zone de guerre économique et physique.</p>
-                    <p><strong>[Scénario Principal #3 - Zone Verte]</strong><br>
-                        <strong>[Survivez aux monstres de minuit pendant 7 jours.]</strong></p>
+                    <blockquote>
+                        <strong>[Scénario Principal #3 - Zone Verte]</strong><br>
+                        <strong>[Survivez aux monstres de minuit pendant 7 jours.]</strong>
+                    </blockquote>
                     <p>Seolha n'a pas cherché à se cacher. Elle a cherché à <em>posséder</em>. Elle a repéré une Zone Verte de 3 places, idéalement située. La première nuit, elle a compté ses pièces une par une, calculant le ratio coût/bénéfice de ses stats. <em>300 pièces pour un niveau.</em> C'était cher, mais nécessaire.</p>
                     <p>Elle a établi sa loi :</p>
-                    <ul>
+                    <ul class="simple-list">
                         <li><strong>Le Loyer :</strong> L'accès à sa Zone Verte coûte 20 pièces par heure pendant les 8 heures critiques de la nuit.</li>
                         <li><strong>L'Expulsion :</strong> Pas de pièces ? Dehors. Les monstres s'occuperont de vous.</li>
                         <li><strong>La Tentative de Putsch :</strong> Quiconque essaie de prendre la zone par la force est exécuté immédiatement.</li>
@@ -1118,6 +1049,60 @@
                     <p>Les premiers jours furent brutaux. Quelques idiots ont tenté de la déloger. Ses stats améliorées (<strong>Force 9</strong>, <strong>Agilité 8</strong>) ont transformé ces tentatives en exécutions publiques. Mais Seolha n'était pas qu'un tyran, elle était <strong>[Méthodique]</strong>. Le jour, elle chassait. Elle revenait avec de la viande de monstre et des items. Elle offrait de la nourriture <em>gratuitement</em> à ceux qui payaient le loyer.</p>
                     <p>« Je vous protège la nuit, je vous nourris le jour. Tout ce que je demande, c'est votre loyauté et vos pièces. »</p>
                     <p>Son charisme froid et son efficacité ont attiré des alliés. Bientôt, elle contrôlait indirectement d'autres zones vertes via des lieutenants qu'elle avait "charmés" par sa compétence de leadership et sa puissance brute. Elle était devenue la reine de la station Banyeo.</p>
+
+                    <h3>🚩 Scénario Principal #4 : La Reine sans Couronne</h3>
+                    <p>L'atmosphère dans la station Banyeo avait changé. Ce n'était plus de la survie, c'était de la politique. Un mât avait émergé du sol au centre du quai.</p>
+                    <blockquote>
+                        <strong>[Scénario Principal #4 - La lutte pour le drapeau]</strong><br>
+                        <strong>[Cible à conquérir : Station Dongnae]</strong>
+                    </blockquote>
+                    <p>Seolha Yu a regardé le mât. Personne n'a osé contester sa légitimité. Elle a saisi le drapeau brun de sa station. <strong>[Vous êtes devenue la « Représentante » de la Station Banyeo.]</strong> Une aura dorée l'a entourée. C'était lourd. Le poids des vies de tous ceux qui la suivaient.</p>
+
+                    <h4>⚔️ La Percée (Jours 1 à 9)</h4>
+                    <p>La stratégie de Seolha était simple : <strong>Blitzkrieg</strong>. Elle n'a pas attendu que Dongnae s'organise. Elle a rassemblé ses "troupes" et a marché vers la station cible. La bataille pour le socle de Dongnae fut brutale. Le Représentant adverse était un homme massif, un tank qui bloquait l'accès au socle. Mais il ne connaissait pas le rugby. Il ne savait pas comment arrêter une ailière avec <strong>[Force 9]</strong> et <strong>[Agilité 8]</strong>.</p>
+                    <p>Seolha a activé <strong>[Appuis de Rugbyman]</strong>. Elle a feinté à gauche, brisant les chevilles mentales de deux gardes, puis a percuté le centre avec <strong>[Impact Cinétique]</strong>. Elle n'a pas cherché à tuer le tank, elle l'a <em>renversé</em>. Le choc a fait trembler le quai. Profitant de la brèche, elle a sprinté vers le socle ennemi et y a planté son drapeau.</p>
+                    <p><strong>[La Station Banyeo a occupé la Station Dongnae.]</strong></p>
+
+                    <h4>🧤 Le Vol (Jour 10 - Crépuscule)</h4>
+                    <p>Il restait quelques heures avant la fin du scénario. Seolha, épuisée par la bataille, s'était assoupie au pied du socle. Elle se réveilla en sursaut. Un silence de mort régnait. Ce n'était pas le bruit qui l'avait réveillée, mais l'absence de poids dans l'air. L'aura de Représentante... elle avait disparu.</p>
+                    <p>Elle tourna la tête vers le socle. Le drapeau n'était plus le sien. Un message système flottait devant ses yeux, cruel et froid.</p>
+                    <p><strong>[Le titre de « Représentant » a été transféré.]</strong><br><strong>[Nouveau Représentant de la Station Banyeo : ???]</strong></p>
+                    <p>Au loin, elle aperçut une silhouette qui s'éloignait avec <em>son</em> drapeau, entourée par un groupe bien plus organisé. Un groupe majeur qui passait par là pour "récolter" les drapeaux faciles. Elle avait réussi le scénario, mais elle avait perdu son trône. Cette trahison a marqué son esprit. Elle réalise que la force brute ne suffit pas face à la fourberie.</p>
+
+                    <h3>🏹 Scénario Principal #7 : La Chasse au Volume</h3>
+                    <p>La ville n'était plus une ville. C'était un abattoir à ciel ouvert. Des portails dimensionnels crachaient des créatures par centaines. Pour Seolha Yu, c'était une opportunité de marché.</p>
+                    <p>Elle a investi massivement ses économies pour briser le "Mur" des stats de niveau 10. Elle a organisé ses alliés en une phalange mobile : 3 Tanks pour bloquer, 5 DPS pour piquer, et elle en électron libre.</p>
+
+                    <h4>📈 Le Mur du Niveau 20 (Jour 4)</h4>
+                    <p>Le quatrième jour, les monstres de niveau 8 sont arrivés. La formation a commencé à craquer. Seolha a compris qu'elle ne pouvait plus juste "gérer". Elle a injecté la totalité de ses économies et gains récents dans le système.</p>
+                    <blockquote>
+                        <strong>[Investissement Massif]</strong><br>
+                        * Coût : 4100 Coins<br>
+                        * Force : 10 ➔ 21<br>
+                        * Agilité : 10 ➔ 20
+                    </blockquote>
+                    <p>Le changement fut violent. Un monstre de niveau 8 a bondi sur elle. Avant, elle aurait esquivé. Cette fois, elle a frappé. Avec une <strong>Force de 21</strong>, son poing a traversé le crâne de la créature. Elle n'était plus humaine.</p>
+                    <p>Le dernier jour, elle a dépensé ses derniers gains en plein combat pour monter son <strong>Physique à 20</strong>. Elle est devenue un char d'assaut, massacrant le volume restant jusqu'à la dernière seconde. Elle a fini le scénario riche, puissante, mais couverte de sang.</p>
+
+                    <h3>🩸 Scénario Principal #8 : Le Dilemme du Tramway</h3>
+                    <p>Le 12 Octobre. Il n'y a pas eu de matin. Le ciel de Séoul s'est simplement assombri, passant du gris des cendres au rouge du sang.</p>
+                    <blockquote>
+                        <strong>[Scénario Principal #8 - Le Sacrifice le Plus Fort]</strong><br>
+                        <strong>[Difficulté : S]</strong>
+                    </blockquote>
+                    <p>Seolha a lu les noms des 10 incarnations les plus fortes sur les écrans géants. Elle n'y était pas. Cela voulait dire qu'elle faisait partie de la "masse" sacrifiable pour l'autre condition.</p>
+                    <p><strong>[Vague 1 - Monstres de Grade 6]</strong></p>
+                    <p>C'était brutal. Les alliés que Seolha avait formés durant le Scénario 7... ils ont fondu comme neige au soleil. Face à des monstres de Grade 6, les boucliers se sont déchirés. « Seolha-ssi ! Aide-nous ! »</p>
+                    <p>Elle a voulu y aller. Ses stats (Force 24, Agilité 25) lui permettaient de tuer un Grade 8. Mais le Grade 6 était trop puissant et il y en avait des centaines. Son trait <strong>[Méthodique]</strong> a pris le contrôle. Elle a couru. Non pas vers les monstres, mais vers un immeuble de bureaux à moitié effondré. Elle s'est barricadée dans une salle des serveurs au 4ème étage.</p>
+                    <p><strong>[Vague 2 - Monstres de Grade 5]</strong></p>
+                    <p>Des créatures de Grade 5. Des cauchemars vivants. Depuis sa cachette, elle entendait les immeubles voisins s'effondrer. Elle a serré ses genoux contre sa poitrine, l'activation du <strong>[Firewall Mental Lv.5]</strong> lui permettant de ne pas sombrer dans la folie en écoutant l'agonie de la ville. Elle attendait que le compteur descende. C'était mathématique.</p>
+                    <p>Une heure plus tard, une sonnerie claire a retenti.</p>
+                    <blockquote>
+                        <strong>[La condition cachée a été remplie.]</strong><br>
+                        <strong>[Plus de 50% des incarnations du Dôme de Séoul sont décédées.]</strong><br>
+                        <strong>[Le Scénario Principal #8 est terminé.]</strong>
+                    </blockquote>
+                    <p>Seolha est sortie de sa cachette. Le silence était assourdissant. Il n'y avait plus de groupe. Elle était seule, entourée de 67 000 cadavres frais qui pavent les rues de Séoul. Elle avait survécu. Mais elle n'avait rien gagné, si ce n'est du temps.</p>
                 </div>
             </div>
         </section>
@@ -1125,14 +1110,15 @@
 
     <footer class="character-footer">
         <div class="scenario-info">
-            <span class="scenario-value">Dark Castle (Scénario #9)</span>
+            <span class="scenario-value">Dark Castle (Début Scénario #9)</span>
         </div>
         <div class="date-info">
-            <span class="date-label">Jour :</span>
-            <span class="date-value">25 (15 octobre)</span>
+            <span class="date-label">Date :</span>
+            <span class="date-value">12 Octobre (Post-Massacre)</span>
         </div>
     </footer>
 </div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
