@@ -357,3 +357,94 @@ Elle est désormais une puissance majeure du scénario. Ses statistiques physiqu
 *   Adaptation Anormale [Lv.3]
 
 ---
+
+Voici la suite sombre et brutale de ton aventure. Le Scénario 8 est souvent un point de bascule dans *ORV*, où l'espoir fait place au calcul pur.
+
+***
+
+## 🩸 Scénario Principal #8 : Le Dilemme du Tramway
+
+Le 12 Octobre. Il n'y a pas eu de matin. Le ciel de Séoul s'est simplement assombri, passant du gris des cendres au rouge du sang.
+
+**[Scénario Principal #8 - Le Sacrifice le Plus Fort]**
+**[Difficulté : S]**
+
+La lettre « S » flottait dans l'air comme une sentence de mort. Seolha savait ce que cela signifiait : ce n'était pas un test de compétence, c'était un test de cruauté.
+
+### 📢 La Voix dans le Chaos
+
+Alors que la panique s'emparait des rues, des écrans géants se sont allumés sur les façades des immeubles en ruine. Une figure est apparue. **Yoo-sun (Hongdae)**.
+Sa voix a résonné, amplifiée par le système, tentant de donner une direction, ou peut-être de manipuler la masse. Mais ses mots se sont vite perdus dans les hurlements.
+
+Car le système avait commencé son compte à rebours macabre, révélant les cibles potentielles pour l'option "Tuer le plus fort".
+
+> **[Classement de Puissance du Dôme de Séoul]**
+> *   10ème : La Renarde Sanguinaire, **Sagi-Aein**
+> *   9ème : Le Guerrier Flamboyant, **Lee Seo-jun**
+> *   8ème : La Braise Noire, **Nam Chiyong**
+> *   7ème : L'Analpha-Bête, **Megumi**
+> *   6ème : Le Bon Prêtre, **Ida Miyashiro**
+> *   5ème : La Mercenaire Borgne, **Lily**
+> *   4ème : Le Roi des Eikthyrs, **Myo Mun-Hee**
+
+Seolha a lu les noms. Elle n'y était pas. Soulagement ? Non. Cela voulait dire qu'elle faisait partie de la "masse" sacrifiable pour l'autre condition.
+
+### 🏚️ La Cachette et le Massacre
+
+**[Vague 1 - Monstres de Grade 6]**
+
+C'était brutal. Les alliés que Seolha avait formés, nourris et protégés durant le Scénario 7... ils ont fondu comme neige au soleil.
+Face à des monstres de Grade 6, les boucliers des "Tanks" se sont déchirés comme du papier. Les lances des DPS se sont brisées.
+
+« Seolha-ssi ! Aide-nous ! »
+
+Elle a voulu y aller. Ses stats (**Force 24**, **Agilité 25**) lui permettaient de tuer un Grade 8. Mais le Grade 6 était trop puissant et il y en avait des centaines. Si elle sortait, elle mourrait avec eux.
+Son trait **[Méthodique]** a pris le contrôle, étouffant son empathie. Elle a couru. Non pas vers les monstres, mais vers un immeuble de bureaux à moitié effondré.
+
+Elle s'est barricadée dans une salle des serveurs au 4ème étage. Elle s'est recroquevillée dans un espace minuscule, réduisant sa présence au néant. Dehors, les cris de ses compagnons se sont tus un à un.
+
+**[Survivants : 134 245 ➔ 90 000]**
+
+Quatre heures plus tard. Le silence. Puis, le sol a tremblé.
+
+**[Vague 2 - Monstres de Grade 5]**
+
+Des créatures de Grade 5. Des cauchemars vivants. Même avec ses stats surhumaines, Seolha savait qu'un affrontement direct serait du suicide sans un groupe d'élite.
+Depuis sa cachette, elle entendait les immeubles voisins s'effondrer. Elle entendait le bruit humide de la "sélection naturelle".
+
+Elle a serré ses genoux contre sa poitrine, l'activation du **[Firewall Mental Lv.5]** lui permettant de ne pas sombrer dans la folie en écoutant l'agonie de la ville. Elle ne priait pas pour qu'ils survivent. Elle attendait que le compteur descende.
+
+C'était mathématique.
+Pour que le scénario finisse, il fallait que la moitié meure.
+
+**[Survivants : 90 000 ➔ 67 000]**
+
+Une heure seulement après le début de la deuxième vague, une sonnerie claire, presque joyeuse, a retenti.
+
+**[La condition cachée a été remplie.]**
+**[Plus de 50% des incarnations du Dôme de Séoul sont décédées.]**
+**[Le Scénario Principal #8 est terminé.]**
+
+Les monstres se sont figés, puis ont commencé à se disperser ou à disparaître, rappelés par le Bureau.
+Seolha est sortie de sa cachette. Le silence était assourdissant. Il n'y avait plus de groupe. Plus de "Tanks", plus de "DPS". Elle était seule, entourée de 67 000 cadavres frais qui pavent les rues de Séoul.
+
+Elle avait survécu. Mais elle n'avait rien gagné, si ce n'est du temps.
+
+***
+
+## 📊 État du Personnage
+
+Seolha est physiquement intacte, mais sa base de pouvoir (son groupe) a été anéantie. Elle est de retour à la case départ : une solitaire puissante dans un monde vide.
+
+**[Informations]**
+*   **Nom :** Seolha Yu
+*   **État :** Survivante (Solitaire)
+*   **Pièces :** 3,090 C
+
+**[Statistiques - Inchangées]**
+*   **Physique :** 22
+*   **Force :** 24
+*   **Agilité :** 25
+*   **Puissance Magique :** 12
+
+---
