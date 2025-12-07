@@ -342,8 +342,13 @@
         }
 
         .stat-fill.over-limit {
-            background-color: #ff4081; /* Couleur pour stats surhumaines */
+            background-color: #ff4081; /* Couleur pour stats au delà de 10 */
             box-shadow: 0 0 8px rgba(255, 64, 129, 0.6);
+        }
+
+        .stat-fill.over-limit-2 {
+            background-color: #ff40f5; /* Couleur pour stats au delà de 10 */
+            box-shadow: 0 0 8px rgba(201, 64, 255, 0.6);
         }
 
         .stat-number {
@@ -706,40 +711,37 @@
 
         <section id="stats" class="tab-content">
             <div class="info-card">
-                <h2>Statistiques de base (Mise à jour Scénario #8)</h2>
+                <h2>Statistiques</h2>
                 <div class="stats-container">
                     <div class="stat-bar">
                         <span class="stat-name">Force physique (Strength)</span>
                         <div class="stat-value">
                             <!-- 24 est très élevé, on dépasse la barre visuelle standard -->
-                            <div class="stat-fill over-limit" style="width: 100%"></div>
+                            <div class="stat-fill over-limit-2" style="width: 4%"></div>
                         </div>
-                        <span class="stat-number" style="color: #ff4081">24</span>
+                        <span class="stat-number censored">24</span>
                     </div>
                     <div class="stat-bar">
                         <span class="stat-name">Agilité (Agility)</span>
                         <div class="stat-value">
-                            <div class="stat-fill over-limit" style="width: 100%"></div>
+                            <div class="stat-fill over-limit-2" style="width: 5%"></div>
                         </div>
-                        <span class="stat-number" style="color: #ff4081">25</span>
+                        <span class="stat-number censored">25</span>
                     </div>
                     <div class="stat-bar">
                         <span class="stat-name">Vitalité (Physique)</span>
                         <div class="stat-value">
-                            <div class="stat-fill over-limit" style="width: 95%"></div>
+                            <div class="stat-fill over-limit-2" style="width: 2%"></div>
                         </div>
-                        <span class="stat-number" style="color: #ff4081">22</span>
+                        <span class="stat-number censored">22</span>
                     </div>
                     <div class="stat-bar">
                         <span class="stat-name">Force magique (Magic Power)</span>
                         <div class="stat-value">
-                            <div class="stat-fill" style="width: 40%"></div>
+                            <div class="stat-fill over-limit" style="width: 2%"></div>
                         </div>
-                        <span class="stat-number">12</span>
+                        <span class="stat-number censored">12</span>
                     </div>
-                </div>
-                <div class="admin-note">
-                    Croissance exponentielle détectée durant le Scénario #7. Investissement massif dans les stats physiques pour le "Grinding" de volume.
                 </div>
                 <div style="margin-top: var(--spacing-md); display: flex; justify-content: flex-end; align-items: center;">
                     <span style="color: var(--accent); font-weight: 500; margin-right: var(--spacing-sm);">Pièces:</span>
